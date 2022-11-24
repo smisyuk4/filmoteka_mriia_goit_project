@@ -1,2 +1,21 @@
+@import './utils/vars';
 @import './common';
-@import './example';
+@import './utils/reset';
+@import './container';
+@import './table-list';
+@import './utils/visually-hidden';
+@import './utils/no-scroll';
+
+@import './components/header-main-pg';
+@import './components/header-library-pg';
+@import './components/main';
+@import './components/footer';
+
+@import './components/modal-film';
+@import './components/modal-team';
+@import './components/modal-user';
+
+
+
+
+

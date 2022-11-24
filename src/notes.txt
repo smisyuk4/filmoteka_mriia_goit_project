@@ -1,0 +1,28 @@
+presentation
+https://docs.google.com/presentation/d/1Ai1qy6C2nEi_3plftBFpASMwJdthJLJW/edit#slide=id.p6
+
+layout 
+https://www.figma.com/file/o3NSGIHs20mpQPXbrzeywk/Filmoteka-(Copy)?t=7YlVHpFELl0rRmH1-0
+
+tasks
+https://docs.google.com/spreadsheets/d/1Z26Jc5WlgcoD8r_Xci6R5vcCHtKFfESoJFhZQ2eh77E/edit#gid=0
+
+
+
+
+
+https://www.npmjs.com/package/axios
+npm install axios
+
+https://github.com/notiflix/Notiflix
+https://notiflix.github.io/notify
+npm i notiflix
+
+https://firebase.google.com/
+
+
+
+
+user modal
+https://www.youtube.com/watch?v=WF-7witQ6mc&t=31s
+

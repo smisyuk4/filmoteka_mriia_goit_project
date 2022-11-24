@@ -1,0 +1,9 @@
+.table-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $dst-between;
+}
+
+.table-item {
+    width: calc((100% - $dst-between * ($count-cards - 1)) / $count-cards);
+}
