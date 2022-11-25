@@ -130,16 +130,16 @@ body.no-scroll {
   }
 }
 
-#lang {
+.translate {
   display: none;
 }
 
-#lang:checked ~ .ua,
-#lang:not(:checked) ~ .eng {
+.translate:checked ~ .ua,
+.translate:not(:checked) ~ .eng {
   display: none;
 }
 
-label[for=lang] {
+.translate_label {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

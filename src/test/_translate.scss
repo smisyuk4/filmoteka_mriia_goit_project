@@ -1,0 +1,13 @@
+.translate {
+    display: none;
+}
+
+.translate:checked~.ua,
+.translate:not(:checked)~.eng {
+    display: none;
+}
+
+.translate_label {
+    user-select: none;
+    cursor: pointer;
+}
