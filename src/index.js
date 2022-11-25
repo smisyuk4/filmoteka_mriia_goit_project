@@ -1,5 +1,6 @@
 import { refs } from "./scripts/refs";
-import { Filmoteka } from './scripts/fetch-api'
+import { Filmoteka } from './scripts/fetch-api';
+import {setLagnuage, changeLagnuage } from "./test/changeLagnuage"
 
 import Notiflix from 'notiflix';
 
@@ -17,3 +18,13 @@ async function onClickSearchBtn(event) {
     const data = await filmoteka.fetchFilms()
     console.log(data)
 }
+
+
+// Функція зміни мови
+setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
+
+const translateCheckboxRef = document.querySelector(".translate");
+translateCheckboxRef.addEventListener('click', changeLagnuage);
+
+// console.log(translateCheckboxRef.value, translateCheckboxRef.checked);
+// console.log(JSON.parse(localStorage.getItem("Language")).lang);

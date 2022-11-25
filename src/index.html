@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-      content="We build new Mriia. Now best films for you." />
+    <meta
+      name="description"
+      content="We build new Mriia. Now best films for you."
+    />
     <title>Filmoteka_mriia</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
@@ -14,9 +16,20 @@
     <include src="./partials/main.html"></include>
     <include src="./partials/footer.html"></include>
     <h2>test</h2>
-    
+
     <include src="./partials/modal-team.html"></include>
     <include src="./partials/modal-film.html"></include>
     <include src="./partials/modal-user.html"></include>
+
+    <!-- чекбокс зміни мови -->
+    <div>
+      <input id="lang" type="checkbox" class="translate" value="eng" />
+      <label for="lang" class="eng" text="chengeLang"></label>
+      <label for="lang" class="ua" text="chengeLang"></label>
+    </div>
+    <!-- приклад верстки для зміни -->
+    <h1 text="hello"></h1>
+    <h2 text="buttonWatched"></h2>
+    <h3 text="buttonQueue"></h3>
   </body>
 </html>
