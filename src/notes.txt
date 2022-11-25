@@ -7,8 +7,14 @@ https://www.figma.com/file/o3NSGIHs20mpQPXbrzeywk/Filmoteka-(Copy)?t=7YlVHpFELl0
 tasks
 https://docs.google.com/spreadsheets/d/1Z26Jc5WlgcoD8r_Xci6R5vcCHtKFfESoJFhZQ2eh77E/edit#gid=0
 
+The Movie Database API
+https://www.themoviedb.org/
+API Key: 2e329d861e790504d655e6d7175d4c52
+Here's an example API request:
+https://api.themoviedb.org/3/movie/550?api_key=2e329d861e790504d655e6d7175d4c52
 
-
+lang codes
+https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 
 
 https://www.npmjs.com/package/axios
