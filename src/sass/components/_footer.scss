@@ -1,25 +1,38 @@
 .footer{
-    // TODO Проверить подключения шрифтов
-    font-family: 'Roboto';
-    font-size: 14px;
-    line-height: 16px;
+    font-weight: 400;
     display: flex;
     align-items: center;
     text-align: center;
     color: #545454;
-    background-color: #F7F7F7;
+    background-color: $thirdColor;
+    padding: 29px 0;
     
-    @media screen and (max-width: 320px) {
-        padding: 29px 0 30px 0;
+    @media screen and (max-width: 767px) {
+        max-height: 100px;
+        font-size: 14px;
+        line-height: 1.4;
     }
-    @media screen and (min-width: 320px) {
-        padding: 29px 0 30px 0;
-        // TODO сделать перенос текста
-    }
+
     @media screen and (min-width: 768px) {
-        padding: 30px 0;
+        font-size: 16px;
+        line-height: 1.2;
     }
-    @media screen and (min-width: 1280px) {
-        padding: 29px 0;
+}
+
+
+.rights-item{
+    @media screen and (max-width: 767px) {
+        display: block;
+        padding-top: 9px;
+    }
+}
+
+.students-link{
+    color: #545454;
+    text-decoration: underline; 
+
+    &:hover,
+    &:focus {
+        color: #FF6B08; 
     }
 }
