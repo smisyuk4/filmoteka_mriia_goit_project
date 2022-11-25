@@ -3,3 +3,10 @@
         color: $secondColor;
     }
 }
+
+.logo {
+    &-icon{
+        fill: transparent;
+        stroke: currentColor;
+    }
+}
