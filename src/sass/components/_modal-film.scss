@@ -1,0 +1,41 @@
+.modal-film {
+    &__container {
+        z-index: 10;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+    }
+
+    &__btn-close {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: 0 0;
+        transition: all .3s linear;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+
+    &__wrap {
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px 20px 40px;
+        display: flex;
+    }
+
+    &__label {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        display: flex;
+    }
+    
+}
