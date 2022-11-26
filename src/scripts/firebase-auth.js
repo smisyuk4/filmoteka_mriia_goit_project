@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, setDoc } from 'firebase/firestore/lite';
+import { getFirestore, doc, setDoc, getDocs, addDoc, collection } from 'firebase/firestore/lite';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, GithubAuthProvider } from "firebase/auth";
 import { MovieLibrary } from "./library-scripts";
 
@@ -37,5 +37,15 @@ onAuthStateChanged(auth, (user) => {
 	}
 	const libData = new MovieLibrary;
 	const db = getFirestore(app);
-	setDoc(doc(db, "watched", userData.uid), libData.watched);
+
+	setDoc(doc(db, "queue" + userData.uid, "list"), libData.watched)
+		.finally(() => {
+			getDocs(collection(db, "queue" + userData.uid))
+				.then(data => console.log(data.forEach((doc) => {
+					console.log(`${doc.id} => ${doc.data()}`);
+				})))
+				.catch(error => console.log(error));
+		});
+
+
 });
