@@ -38,10 +38,10 @@ export class MovieLibrary {
 			return;
 		}
 		filmoteka.fetchFilms({ option: `/movie/${id}` })
-			.then(({ backdrop_path, release_date, genres, popularity, title, vote_average }) => {
+			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				const genreNames = genres.map(el => el.name).join(", ")
-				this.watched[id] = { backdrop_path, year, genreNames, popularity, title, vote_average }
+				this.watched[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
 				Notify.success('Movie added to watched');
 			})
@@ -53,10 +53,10 @@ export class MovieLibrary {
 			return;
 		}
 		filmoteka.fetchFilms({ option: `/movie/${id}` })
-			.then(({ backdrop_path, release_date, genres, popularity, title, vote_average }) => {
+			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				const genreNames = genres.map(el => el.name).join(", ")
-				this.queue[id] = { backdrop_path, year, genreNames, popularity, title, vote_average }
+				this.queue[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
 				Notify.success('Movie added to queue');
 			})
