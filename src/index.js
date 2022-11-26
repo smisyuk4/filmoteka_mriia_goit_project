@@ -11,6 +11,6 @@ import Notiflix from 'notiflix';
 // console.log(refs.test)
 
 const filmoteka = new Filmoteka()
-const film = new MovieLibrary()
-film.addToWatched(550)
+
+
 // console.log(filmoteka.query)

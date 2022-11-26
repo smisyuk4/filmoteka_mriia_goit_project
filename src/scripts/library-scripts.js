@@ -1,6 +1,6 @@
 import { refs } from './refs'
 import { Filmoteka } from './fetch-api'
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const filmoteka = new Filmoteka()
 
@@ -20,53 +20,67 @@ export class MovieLibrary {
 		}
 	}
 	isWatched(id) {
-		if (Object.keys(this.watched).indexOf(id) >= 0) {
+		console.log(Object.keys(this.watched))
+		if (Object.keys(this.watched).indexOf(`${id}`) >= 0) {
+
 			return true;
 		}
 		return false;
 	}
 	isQueue(id) {
-		if (Object.keys(this.queue).indexOf(id) >= 0) {
+		if (Object.keys(this.queue).indexOf(`${id}`) >= 0) {
 			return true;
 		}
 		return false;
 	}
 	addToWatched(id) {
 		if (this.isWatched(id)) {
-
+			Notify.info('Movie already in watched');
 			return;
 		}
 		filmoteka.fetchFilms({ option: `/movie/${id}` })
 			.then(({ backdrop_path, release_date, genres, popularity, title, vote_average }) => {
-				console.log(backdrop_path, new Date(release_date).getFullYear(), genres.map(el => el.name).join(", "), popularity, title, vote_average);
+				const year = new Date(release_date).getFullYear()
+				const genreNames = genres.map(el => el.name).join(", ")
+				this.watched[id] = { backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
+				Notify.success('Movie added to watched');
 			})
-			.catch(error => console.log(error))
+			.catch(error => Notify.warning('Some went wrong when ading to watched. Please try again.'))
 	}
 	addToQueue(id) {
 		if (this.isQueue(id)) {
-
+			Notify.info('Movie already in queue');
 			return;
 		}
 		filmoteka.fetchFilms({ option: `/movie/${id}` })
 			.then(({ backdrop_path, release_date, genres, popularity, title, vote_average }) => {
-				console.log(backdrop_path, new Date(release_date).getFullYear(), genres.map(el => el.name).join(", "), popularity, title, vote_average);
+				const year = new Date(release_date).getFullYear()
+				const genreNames = genres.map(el => el.name).join(", ")
+				this.queue[id] = { backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
+				Notify.success('Movie added to queue');
 			})
-			.catch(error => console.log(error))
+			.catch(error => Notify.warning('Some went wrong when ading to queue. Please try again.'))
 	}
 
 	removeFromWatched(id) {
 		if (this.isWatched(id)) {
-			delete this.watched.id;
+			delete this.watched[id];
 			this.#updateStorage("Watched_List", this.watched);
+			Notify.success('Movie deleted from watched');
+			return
 		}
+		Notify.warning('Movie not found in watched');
 	}
 	removeFromQueue(id) {
 		if (this.isQueue(id)) {
-			delete this.queue.id;
+			delete this.queue[id];
 			this.#updateStorage("Queue_List", this.queue);
+			Notify.success('Movie deleted from queue');
+			return
 		}
+		Notify.warning('Movie not found in queue');
 	}
 
 	getWatched() {

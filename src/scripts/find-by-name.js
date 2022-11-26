@@ -4,7 +4,7 @@
 import { refs } from "/src/scripts/refs"
 import { Filmoteka } from "./fetch-api"
 
-// refs.searchForm.addEventListener('submit', onClickSearchBtn)
+refs.searchForm.addEventListener('submit', onClickSearchBtn)
 
 async function onClickSearchBtn(event) {
     event.preventDefault()
