@@ -44,7 +44,16 @@ export class MovieLibrary {
 			.catch(error => console.log(error))
 	}
 	addToQueue(id) {
-		this.#updateStorage("Queue_List", id);
+		if (this.isQueue(id)) {
+
+			return;
+		}
+		filmoteka.fetchFilms({ option: `/movie/${id}` })
+			.then(({ backdrop_path, release_date, genres, popularity, title, vote_average }) => {
+				console.log(backdrop_path, new Date(release_date).getFullYear(), genres.map(el => el.name).join(", "), popularity, title, vote_average);
+				this.#updateStorage("Queue_List", this.queue);
+			})
+			.catch(error => console.log(error))
 	}
 
 	removeFromWatched(id) {
@@ -56,7 +65,7 @@ export class MovieLibrary {
 	removeFromQueue(id) {
 		if (this.isQueue(id)) {
 			delete this.queue.id;
-			this.#updateStorage("Watched_List", this.queue);
+			this.#updateStorage("Queue_List", this.queue);
 		}
 	}
 
