@@ -5,6 +5,7 @@ import './scripts/find-by-name'
 import './scripts/find-by-id'
 import './scripts/find-trailer'
 import './scripts/pagination'
+import {hidenButton, upClick} from './scripts/scroll-up'
 
 import Notiflix from 'notiflix';
 
@@ -12,3 +13,8 @@ import Notiflix from 'notiflix';
 
 const filmoteka = new Filmoteka()
 // console.log(filmoteka.query)
+
+
+window.addEventListener('scroll', hidenButton);
+document.querySelector('.btn-up').addEventListener('click', upClick);
+
