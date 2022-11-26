@@ -1,5 +1,5 @@
 .header {
-    padding: 40px 0 44px 0;
+    padding: 40px 0 45px 0;
 
     background-repeat: no-repeat;
     background-position: center;
@@ -16,8 +16,6 @@
     }
 
     @media screen and (min-width: 768px) {
-    //     margin-top: 80px;
-
         background-image: url(/src/images/header-main/header-768.jpg);
 
         // retina screen
@@ -30,11 +28,6 @@
     }
 
     @media screen and (min-width: 1280px) {
-    //     max-width: 1600px;
-    //     padding-top: 200px;
-    //     padding-bottom: 200px;
-    //     height: 600px;
-
         background-image: url(/src/images/header-main/header-1280.jpg);
 
         // retina screen
@@ -51,21 +44,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 54px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 40px;
+    }
+    
+    @media screen and (min-width: 1280px) {}
 }
 
 .logo {
+    display: flex;
+    gap: 8px;
+    align-items: center;
     color: #fff;
-    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
 
     &-icon{
         fill: transparent;
         stroke: currentColor;
     }
 
-    // &-name {
-        // visually-hidden
-// <p class="logo-name ">Filmoteka</p>
-    // }
+    &-name {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: inline;
+        }
+    }
 }
 
 .nav-list {
@@ -76,11 +84,83 @@
 
 .nav-link {
     color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+
+    @media screen and (min-width: 768px) {
+        
+    }
+
+    @media screen and (min-width: 1280px) {
+        
+    }
+}
+
+.search-form {
+    margin: 0 auto;
+        
+    @media screen and (min-width: 768px) {
+        max-width: 336px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 394px;
+    }    
 }
 
 
-.search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.input-wrp {
+    position: relative;  
+}
+
+.search-form__input {
+    display: block;
+    padding-bottom: 4px;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 20px;
+    background-color: transparent;
+    outline: transparent;
+    border: none;
+    border-bottom: 0.5px solid #FFF;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    color: #fff;
+
+    &::placeholder {
+        color: inherit;
+    }
+}
+
+.search-form__error {
+    height: 32px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    color: #FF001B;
+
+    @media screen and (min-width: 768px) {
+        text-align: center;
+    }
+}
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-color: inherit;
+    border: none;
+    color: #fff;
+
+    cursor: pointer;
+
+    &__icon {
+        fill: currentColor;
+        width: 12px;
+        height: 12px;
+    }
 }
