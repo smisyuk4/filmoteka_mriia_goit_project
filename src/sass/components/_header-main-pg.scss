@@ -1,12 +1,86 @@
 .header {
-    p {
-        color: $secondColor;
+    padding: 40px 0 44px 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.56);
+    background-image:url(/src/images/header-main/header-320.jpg);        
+
+    // retina screen
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: url(/src/images/header-main/header-320@2x.jpg);
+        background-image: -webkit-image-set(url(/src/images/header-main/header-320@2x.webp) 2x);
+    }
+
+    @media screen and (min-width: 768px) {
+    //     margin-top: 80px;
+
+        background-image: url(/src/images/header-main/header-768.jpg);
+
+        // retina screen
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(/src/images/header-main/header-768@2x.jpg);
+            background-image: -webkit-image-set(url(/src/images/header-main/header-768@2x.webp) 2x);
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+    //     max-width: 1600px;
+    //     padding-top: 200px;
+    //     padding-bottom: 200px;
+    //     height: 600px;
+
+        background-image: url(/src/images/header-main/header-1280.jpg);
+
+        // retina screen
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(/src/images/header-main/header-1280@2x.jpg);
+            background-image: -webkit-image-set(url(/src/images/header-main/header-1280@2x.webp) 2x);
+        }
     }
 }
 
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .logo {
+    color: #fff;
+    text-transform: uppercase;
+
     &-icon{
         fill: transparent;
         stroke: currentColor;
     }
+
+    // &-name {
+        // visually-hidden
+// <p class="logo-name ">Filmoteka</p>
+    // }
+}
+
+.nav-list {
+    display: flex;
+    gap: 39px;
+    text-transform: uppercase;    
+}
+
+.nav-link {
+    color: #fff;
+}
+
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
