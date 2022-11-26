@@ -1,17 +1,18 @@
 import { refs } from "./scripts/refs";
 import { Filmoteka } from './scripts/fetch-api';
 import {setLagnuage, changeLagnuage } from "./scripts/changeLagnuage"
+import './scripts/get-tranding'
+import './scripts/find-by-name'
+import './scripts/find-by-id'
+import './scripts/find-trailer'
+import './scripts/pagination'
 
 import Notiflix from 'notiflix';
 
-console.log(refs.test)
+// console.log(refs.test)
 
 const filmoteka = new Filmoteka()
-console.log(filmoteka.query)
-
-
 refs.searchForm.addEventListener('submit', onClickSearchBtn)
-
 async function onClickSearchBtn(event) {
     event.preventDefault()
 
@@ -28,3 +29,4 @@ translateCheckboxRef.addEventListener('click', changeLagnuage);
 
 // console.log(translateCheckboxRef.value, translateCheckboxRef.checked);
 // console.log(JSON.parse(localStorage.getItem("Language")).lang);
+

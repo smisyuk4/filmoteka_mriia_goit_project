@@ -12,9 +12,42 @@ https://www.themoviedb.org/
 API Key: 2e329d861e790504d655e6d7175d4c52
 Here's an example API request:
 https://api.themoviedb.org/3/movie/550?api_key=2e329d861e790504d655e6d7175d4c52
+https://www.themoviedb.org/about/logos-attribution
 
 lang codes
 https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+
+image make links
+https://developers.themoviedb.org/3/configuration/get-api-configuration
+Чтобы создать URL-адрес изображения, вам понадобятся 3 элемента данных. base_url, sizeи file_path. _ Просто объедините их все, и у вас будет полный URL-адрес. Вот пример URL:
+
+https://image.tmdb.org/t/p/w500/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg
+Метод конфигурации также содержит список ключей изменений, которые могут быть полезны, если вы создаете приложение, которое использует данные из веб-канала изменений.
+https://api.themoviedb.org/3/configuration?api_key=2e329d861e790504d655e6d7175d4c52
+
+взять с объекта poster_path: "/kd6LgL3w1BLz9ksbdN52fsBJmaP.jpg" и добавить после https://image.tmdb.org/t/p/w500
+готвая ссылка для загрузки: https://image.tmdb.org/t/p/w500/kd6LgL3w1BLz9ksbdN52fsBJmaP.jpg
+
+lists
+https://developers.themoviedb.org/3/movies/get-movie-lists
+
+
+
+https://www.themoviedb.org/documentation/api/discover
+
+
+
+
+trailer
+Да, к сожалению, это единственный способ сделать это. Невозможно запросить информацию о видео откуда-либо, кроме метода /videos . Вам придется перебирать идентификаторы, чтобы получить информацию о видео. Имейте в виду, что вы можете использовать append_to_response:
+https://developers.themoviedb.org/3/movies/get-movie-videos
+https://api.themoviedb.org/3/movie/550?api_key=###&append_to_response=videos
+
+https://www.youtube.com/watch?v=vzTN0YnKmOs
+key: "0Mu74OixF8k",
+https://www.youtube.com/watch?v=0Mu74OixF8k
+
+
 
 
 https://www.npmjs.com/package/axios
