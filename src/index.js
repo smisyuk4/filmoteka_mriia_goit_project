@@ -1,13 +1,14 @@
 import { refs } from "./scripts/refs";
 import { Filmoteka } from './scripts/fetch-api';
-import {setLagnuage, changeLagnuage } from "./scripts/changeLagnuage"
+import { setLagnuage, changeLagnuage } from "./scripts/changeLagnuage"
 import './scripts/get-tranding'
 import './scripts/find-by-name'
 import './scripts/find-by-id'
 import './scripts/find-trailer'
 import './scripts/pagination'
+import './scripts/firebase-auth'
 import { MovieLibrary } from './scripts/library-scripts'
-import {hidenButton, upClick} from './scripts/scroll-up'
+import { hidenButton, upClick } from './scripts/scroll-up'
 import Notiflix from 'notiflix';
 
 // console.log(refs.test)
