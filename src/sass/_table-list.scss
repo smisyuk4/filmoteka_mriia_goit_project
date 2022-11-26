@@ -1,9 +1,28 @@
 .table-list {
     display: flex;
     flex-wrap: wrap;
-    gap: $dst-between;
 }
 
 .table-item {
-    width: calc((100% - $dst-between * ($count-cards - 1)) / $count-cards);
+    
+    @media screen and (max-width: 768px) {
+        max-width: 450px;
+        margin: 0 auto calc($dst-between / 2) auto;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin: calc($dst-between / 2);
+        flex-basis: calc(100% / 2 - $dst-between);
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin: calc($dst-between / 2);
+        flex-basis: calc(100% / 3 - $dst-between);
+    }
+}
+
+.table-item:last-child {
+    @media screen and (max-width: 768px) {
+        margin-bottom: 0;
+    }
 }
