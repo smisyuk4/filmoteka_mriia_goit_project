@@ -1,8 +1,9 @@
 import { Filmoteka } from './fetch-api'
+import { FireBaseData } from './firebase-auth'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const filmoteka = new Filmoteka()
-
+const FireBase = new FireBaseData
 export class MovieLibrary {
 	constructor() {
 		const watchedList = localStorage.getItem("Watched_List");
@@ -19,7 +20,6 @@ export class MovieLibrary {
 		}
 	}
 	isWatched(id) {
-		console.log(Object.keys(this.watched))
 		if (Object.keys(this.watched).indexOf(`${id}`) >= 0) {
 
 			return true;
@@ -45,7 +45,10 @@ export class MovieLibrary {
 				this.#updateStorage("Watched_List", this.watched);
 				Notify.success('Movie added to watched');
 			})
-			.catch(error => Notify.warning('Some went wrong when ading to watched. Please try again.'))
+			.catch(error => {
+				console.log(error);
+				Notify.warning('Some went wrong when ading to watched. Please try again.');
+			})
 	}
 	addToQueue(id) {
 		if (this.isQueue(id)) {
@@ -92,8 +95,10 @@ export class MovieLibrary {
 	#updateStorage(key, data) {
 		if (Object.keys(data).length > 0) {
 			localStorage.setItem(key, JSON.stringify(data));
+			FireBase.saveData(key, data);
 		} else {
 			localStorage.removeItem(key);
+			FireBase.saveData(key, {})
 		}
 	}
 }

@@ -30,10 +30,10 @@ async function onClickSearchBtn(event) {
 
 
 // Функція зміни мови
-setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
+// setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
 
-const translateCheckboxRef = document.querySelector(".translate");
-translateCheckboxRef.addEventListener('click', changeLagnuage);
+// const translateCheckboxRef = document.querySelector(".translate");
+// translateCheckboxRef.addEventListener('click', changeLagnuage);
 
 // console.log(translateCheckboxRef.value, translateCheckboxRef.checked);
 // console.log(JSON.parse(localStorage.getItem("Language")).lang);
