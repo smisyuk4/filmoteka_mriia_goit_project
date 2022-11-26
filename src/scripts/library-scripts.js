@@ -20,23 +20,44 @@ export class MovieLibrary {
 		}
 	}
 	isWatched(id) {
-		this.#updateStorage("Watched_List", id);
+		if (Object.keys(this.watched).indexOf(id) >= 0) {
+			return true;
+		}
+		return false;
 	}
 	isQueue(id) {
-		this.#updateStorage("Queue_List", id);
+		if (Object.keys(this.queue).indexOf(id) >= 0) {
+			return true;
+		}
+		return false;
 	}
 	addToWatched(id) {
-		this.#updateStorage("Watched_List", id);
+		if (this.isWatched(id)) {
+
+			return;
+		}
+		filmoteka.fetchFilms({ option: `/movie/${id}` })
+			.then(({ backdrop_path, release_date, genres, popularity, title, vote_average }) => {
+				console.log(backdrop_path, new Date(release_date).getFullYear(), genres.map(el => el.name).join(", "), popularity, title, vote_average);
+				this.#updateStorage("Watched_List", this.watched);
+			})
+			.catch(error => console.log(error))
 	}
 	addToQueue(id) {
 		this.#updateStorage("Queue_List", id);
 	}
 
 	removeFromWatched(id) {
-		this.#updateStorage("Watched_List", id);
+		if (this.isWatched(id)) {
+			delete this.watched.id;
+			this.#updateStorage("Watched_List", this.watched);
+		}
 	}
 	removeFromQueue(id) {
-		this.#updateStorage("Queue_List", id);
+		if (this.isQueue(id)) {
+			delete this.queue.id;
+			this.#updateStorage("Watched_List", this.queue);
+		}
 	}
 
 	getWatched() {
@@ -46,8 +67,8 @@ export class MovieLibrary {
 		return Object.values(this.queue);
 	}
 
-	#updateStorage(key, data = "") {
-		if (data) {
+	#updateStorage(key, data) {
+		if (Object.keys(data).length > 0) {
 			localStorage.setItem(key, JSON.stringify(data));
 		} else {
 			localStorage.removeItem(key);
