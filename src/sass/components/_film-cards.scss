@@ -1,0 +1,33 @@
+.film-card {
+    &__box-info {
+        font-weight: medium;
+        margin: 8px 0;
+
+        @media screen and (min-width:1280px) {
+            font-size: 12px;
+        }
+    }
+
+    &__title {
+        color: black;
+        text-transform: uppercase;
+        
+    }
+
+    &__text {
+        color: #FF6B08;
+    }
+
+    &__rating {
+        background-color: #FF6B08;
+        border-radius: 5px;
+        color: white;
+        font-size: 12px;
+        padding: 1px 8px;
+        margin-left: 8px;
+
+        @media screen and (min-width:1280px) {
+            padding: 3px 8px;
+        }
+    }
+}
