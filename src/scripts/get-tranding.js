@@ -4,7 +4,7 @@
 import { Filmoteka } from "./fetch-api"
 const OPTION_TRANDING = '/trending/movie/day'
 
-// getTranding()
+getTranding()
 async function getTranding() {
     const filmoteka = new Filmoteka()
     const valueObj = {
