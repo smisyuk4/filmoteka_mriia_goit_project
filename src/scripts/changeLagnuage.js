@@ -4,12 +4,14 @@ const translateCheckboxRef = document.querySelector(".translate");
 
 function setLagnuage() {
 
+  if (!localStorage.getItem("Language").length) {
+    localStorage.setItem("Language", JSON.stringify(eng));
+  }
+ 
   const language = localStorage.getItem("Language");
   const parseLanguage = JSON.parse(language);
 
-  document.querySelectorAll('[text]').forEach(el => {
-    el.innerHTML = parseLanguage[el.getAttribute('text')];
-  })
+  document.querySelectorAll('[data-text]').forEach(el => {el.innerHTML = parseLanguage[el.dataset.text];})
 };
 
 function changeLagnuage() {
@@ -22,7 +24,7 @@ function changeLagnuage() {
     localStorage.setItem("Language", JSON.stringify(eng));
   }
 
-  setLagnuage();
+ setLagnuage()
 };
 
 export { setLagnuage, changeLagnuage };

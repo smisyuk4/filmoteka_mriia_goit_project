@@ -1,6 +1,6 @@
 import { refs } from "./scripts/refs";
 import { Filmoteka } from './scripts/fetch-api';
-import {setLagnuage, changeLagnuage } from "./test/changeLagnuage"
+import {setLagnuage, changeLagnuage } from "./scripts/changeLagnuage"
 
 import Notiflix from 'notiflix';
 

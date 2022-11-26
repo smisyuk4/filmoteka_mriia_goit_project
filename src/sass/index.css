@@ -139,7 +139,7 @@ body.no-scroll {
   display: none;
 }
 
-.translate_label {
+.ua, .eng {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
