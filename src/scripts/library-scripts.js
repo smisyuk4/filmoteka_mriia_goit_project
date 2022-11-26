@@ -19,7 +19,12 @@ export class MovieLibrary {
 			this.queue = {};
 		}
 	}
-
+	isWatched(id) {
+		this.#updateStorage("Watched_List", id);
+	}
+	isQueue(id) {
+		this.#updateStorage("Queue_List", id);
+	}
 	addToWatched(id) {
 		this.#updateStorage("Watched_List", id);
 	}
@@ -34,10 +39,10 @@ export class MovieLibrary {
 		this.#updateStorage("Queue_List", id);
 	}
 
-	getWatched(id) {
+	getWatched() {
 		return Object.values(this.watched);
 	}
-	getQueue(id) {
+	getQueue() {
 		return Object.values(this.queue);
 	}
 
