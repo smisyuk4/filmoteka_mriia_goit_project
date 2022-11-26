@@ -45,19 +45,18 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 54px;
+    letter-spacing: 1.7;
 
     @media screen and (min-width: 768px) {
         margin-bottom: 40px;
     }
-    
-    @media screen and (min-width: 1280px) {}
 }
 
 .logo {
     display: flex;
     gap: 8px;
     align-items: center;
-    color: #fff;
+    color: $mainWfiteColor;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;
@@ -77,27 +76,65 @@
 }
 
 .nav-list {
+    position: relative;
     display: flex;
     gap: 39px;
     text-transform: uppercase;    
 }
 
 .nav-link {
-    color: #fff;
+    color: $mainWfiteColor;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
 
-    @media screen and (min-width: 768px) {
-        
-    }
-
-    @media screen and (min-width: 1280px) {
-        
+    &:hover {
+        color: $mainRedColor;
+        box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
     }
 }
 
+.nav-item--active::after {
+    display: block;
+    content: '';
+    height: 3px;
+    background-color: $mainRedColor;
+}
+
+.nav-item.nav-item--button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(30px);
+
+    @media screen and (min-width: 768px) {
+        position: relative;
+        transform: translateY(0);
+    }
+}
+
+.login-btn {
+    background-color: transparent;
+    border: none;
+
+    text-transform: uppercase;
+    color: $mainWfiteColor;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 1.7;
+    cursor: pointer;
+
+    &:hover {
+        color: $mainRedColor;       
+    }    
+
+
+    
+}
+
 .search-form {
+    position: relative;  
     margin: 0 auto;
         
     @media screen and (min-width: 768px) {
@@ -109,11 +146,6 @@
     }    
 }
 
-
-.input-wrp {
-    position: relative;  
-}
-
 .search-form__input {
     display: block;
     padding-bottom: 4px;
@@ -123,12 +155,12 @@
     background-color: transparent;
     outline: transparent;
     border: none;
-    border-bottom: 0.5px solid #FFF;
+    border-bottom: 0.5px solid $mainWfiteColor;
 
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
-    color: #fff;
+    color: $mainWfiteColor;
 
     &::placeholder {
         color: inherit;
@@ -140,7 +172,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
-    color: #FF001B;
+    color: $mainRedColor;
 
     @media screen and (min-width: 768px) {
         text-align: center;
@@ -151,12 +183,19 @@
     position: absolute;
     top: 0;
     right: 0;
+    padding-left: 15px;
 
     background-color: inherit;
     border: none;
-    color: #fff;
+    color: $mainWfiteColor;
 
     cursor: pointer;
+
+    &:hover{
+        color: $mainRedColor;        
+    }
+
+    
 
     &__icon {
         fill: currentColor;

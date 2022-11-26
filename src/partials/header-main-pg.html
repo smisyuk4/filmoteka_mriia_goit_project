@@ -9,27 +9,28 @@
             </a>    
 
             <ul class="nav-list">
-                <li class="nav-item">
-                <a class="nav-link" href="/src/index.html">home</a>
+                <li class="nav-item nav-item--active">
+                    <a class="nav-link" href="/src/index.html">home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/src/partials/library-pg.html">library</a>
+                    <a class="nav-link" href="/src/partials/library-pg.html">my library</a>
+                </li>
+                <li class="nav-item nav-item--button">
+                    <button class="login-btn">login</button>
                 </li>
             </ul>
         </nav>
 
         <form class="search-form">
-            <label class="input-wrp">                
-                    <input class="search-form__input" type="text" placeholder="movie search" />
-                    
-                    <button class="search-btn" type="submit">
-                        <svg class="search-btn__icon" width="32" height="32">
-                            <use href="/src/images/icons/icons.svg#icon-search"></use>
-                        </svg>
-                    </button>                   
+            <label>                
+                    <input class="search-form__input" type="text" placeholder="movie search" />                   
             </label>
 
-            
+            <button class="search-btn" type="submit">
+                <svg class="search-btn__icon" width="32" height="32">
+                    <use href="/src/images/icons/icons.svg#icon-search"></use>
+                </svg>
+            </button>            
         </form>
 
         <p class="search-form__error">
