@@ -10,13 +10,13 @@ export class MovieLibrary {
 		if (watchedList) {
 			this.watched = JSON.parse(watchedList);
 		} else {
-			this.watched = {};
+			this.watched = FireBase.readData(key);;
 		}
 		const queueList = localStorage.getItem("Queue_List");
 		if (queueList) {
 			this.queue = JSON.parse(queueList);
 		} else {
-			this.queue = {};
+			this.queue = FireBase.readData(key);;
 		}
 	}
 	isWatched(id) {
