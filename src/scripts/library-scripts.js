@@ -1,4 +1,3 @@
-import { refs } from './refs'
 import { Filmoteka } from './fetch-api'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
