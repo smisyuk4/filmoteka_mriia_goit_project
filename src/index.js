@@ -1,19 +1,14 @@
-import { refs } from "./scripts/refs";
+import { refs } from "./scripts/refs"
 import { Filmoteka } from './scripts/fetch-api'
+import './scripts/get-tranding'
+import './scripts/find-by-name'
+import './scripts/find-by-id'
+import './scripts/find-trailer'
+import './scripts/pagination'
 
 import Notiflix from 'notiflix';
 
-console.log(refs.test)
+// console.log(refs.test)
 
 const filmoteka = new Filmoteka()
-console.log(filmoteka.query)
-
-
-refs.searchForm.addEventListener('submit', onClickSearchBtn)
-
-async function onClickSearchBtn(event) {
-    event.preventDefault()
-
-    const data = await filmoteka.fetchFilms()
-    console.log(data)
-}
+// console.log(filmoteka.query)
