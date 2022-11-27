@@ -1,63 +1,49 @@
 <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="logo" href="/src/index.html">
-        <svg class="logo-icon" width="32" height="32">
-          <use href="/src/images/icons/icons.svg#icon-film"></use>
-        </svg>
-        <p class="logo-name">Filmoteka</p>
-      </a>
+    <div class="container">
+        <nav class="nav">
+        <a class="logo" href="/src/index.html">
+            <svg class="logo-icon" width="32" height="32">
+                <use href="/src/images/icons/icons.svg#icon-film"></use>
+            </svg>
+            <p class="logo-name">Filmoteka</p>
+        </a>
 
-      <ul class="nav-list">
-        <li class="nav-item nav-item--active">
-          <a class="nav-link" href="/src/index.html" data-text="homeLink"
-            >home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/src/partials/library-pg.html"
-            data-text="myLibraryLink"
-            >my library</a
-          >
-        </li>
-        <li class="nav-item nav-item--button">
-          <button class="login-btn" data-text="login">login</button>
-        </li>
-        <li class="nav-item nav-item--button">
-          <input id="lang" type="checkbox" class="translate" value="eng" />
-          <label
-            for="lang"
-            class="translate_label eng nav-link"
-            data-text="chengeLang"
-            >en</label
-          >
-          <label for="lang" class="ua nav-link" data-text="chengeLang"
-            >ua</label
-          >
-        </li>
-      </ul>
-    </nav>
+        <ul class="nav-list">
+            <li class="nav-item nav-item--active">
+                <a class="nav-link" href="/src/index.html" data-text="homeLink">home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/src/partials/library-pg.html" data-text="myLibraryLink">my library</a>
+            </li>
+            <li class="nav-item nav-item--button">
+                <button class="login-btn" data-text="login">login</button>
+            </li>
+            <li class="nav-item nav-item--checkbox">
+                <input id="lang" type="checkbox" class="translate" value="eng"/>
+                <label for="lang" class="translate-label eng nav-link" data-text="chengeLang">en</label>
+                <label for="lang" class="ua nav-link" data-text="chengeLang">ua</label>
+            </li>
+        </ul>
+        </nav>
 
-    <form class="search-form">
-      <label>
-        <input
-          class="search-form__input"
-          type="text"
-          placeholder="movie search"
-        />
-      </label>
+        <form class="search-form">
+            <label>
+                <input
+                class="search-form__input"
+                type="text"
+                placeholder="movie search"
+                />
+            </label>
 
-      <button class="search-btn" type="submit">
-        <svg class="search-btn__icon" width="32" height="32">
-          <use href="/src/images/icons/icons.svg#icon-search"></use>
-        </svg>
-      </button>
-    </form>
+            <button class="search-btn" type="submit">
+                <svg class="search-btn__icon" width="32" height="32">
+                <use href="/src/images/icons/icons.svg#icon-search"></use>
+                </svg>
+            </button>
+        </form>
 
-    <p class="search-form__error" data-text="searchForm">
-      Search result not successful. Enter the correct movie name and
-    </p>
-  </div>
+        <p class="search-form__error" data-text="searchForm">
+            Search result not successful. Enter the correct movie name and try again
+        </p>
+    </div>
 </header>

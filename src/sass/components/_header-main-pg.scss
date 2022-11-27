@@ -127,10 +127,19 @@
 
     &:hover {
         color: $mainRedColor;       
-    }    
+    }   
+}
 
+.nav-item.nav-item--checkbox {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-70px) translateY(30px);
 
-    
+    @media screen and (min-width: 768px) {
+        position: relative;
+        transform: translateY(0);
+    }
 }
 
 .search-form {
