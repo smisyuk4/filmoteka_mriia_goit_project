@@ -78,27 +78,27 @@ export async function openModal(idFilm) {
                 <div class="modal-film__info-block">
                     <ul class="modal-film__info descr-modal">
                         <li class="descr-modal__item">
-                            <h4 class="descr-modal__title">Vote / Votes</h4>
+                            <h4 class="descr-modal__title" data-text="Vote">Vote / Votes</h4>
                             <p class="descr-modal__text">
                                 ${vote_average}<span>/</span>${vote_count}
                             </p>
                         </li>
                         <li class="descr-modal__item">
-                            <h4 class="descr-modal__title">Popularity</h4>
+                            <h4 class="descr-modal__title" data-text="Popularity">Popularity</h4>
                             <p class="descr-modal__text">${popularity.toFixed(1)}</p>
                         </li>
                         <li class="descr-modal__item">
-                            <h4 class="descr-modal__title">Original Title</h4>
+                            <h4 class="descr-modal__title" data-text="Title">Original Title</h4>
                             <p class="descr-modal__text">${original_title}</p>
                         </li>
                         <li class="descr-modal__item">
-                            <h4 class="descr-modal__title">Genre</h4>
+                            <h4 class="descr-modal__title" data-text="Genre">Genre</h4>
                             <p class="descr-modal__text">${newGenreModal}</p>
                         </li>
                     </ul>
                 </div>
                 <div clas="modal-film__about-block">
-                    <h4 class="modal-film__about-title">About</h4>
+                    <h4 class="modal-film__about-title" data-text="About">About</h4>
                     <p class="modal-film__about-text">${modalAbout}</p>
                 </div>
             </div>
