@@ -3,13 +3,20 @@ import { ua, eng } from "./dictionary"
 const translateCheckboxRef = document.querySelector(".translate");
 
 function setLagnuage() {
-
-  if (!localStorage.getItem("Language").length) {
-    localStorage.setItem("Language", JSON.stringify(eng));
+  if (localStorage.getItem('siteOptions') === null) {
+    localStorage.setItem("siteOptions", "eng");
   }
  
-  const language = localStorage.getItem("Language");
-  const parseLanguage = JSON.parse(language);
+  const language = localStorage.getItem("siteOptions");
+
+  console.log(language);
+
+  if (language === "eng") {
+    parseLanguage = eng;
+  }
+  if (language === "ua") {
+    parseLanguage = ua;
+  }
 
   document.querySelectorAll('[data-text]').forEach(el => {el.innerHTML = parseLanguage[el.dataset.text];})
 };
@@ -18,10 +25,10 @@ function changeLagnuage() {
   
   if (translateCheckboxRef.checked) {
     translateCheckboxRef.value = "ua";
-    localStorage.setItem("Language", JSON.stringify(ua));
+    localStorage.setItem("siteOptions", "ua");
   } else {
     translateCheckboxRef.value = "eng";
-    localStorage.setItem("Language", JSON.stringify(eng));
+    localStorage.setItem("siteOptions", "eng");
   }
 
  setLagnuage()
