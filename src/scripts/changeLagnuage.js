@@ -12,6 +12,8 @@ function setLagnuage() {
 
   console.log(language);
 
+  let parseLanguage
+
   if (language === "eng") {
     parseLanguage = eng;
   }
