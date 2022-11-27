@@ -58,12 +58,13 @@ export class FireBaseData {
 		}
 	}
 	updateLocal() {
-		console.log("ddddd")
 		if (Object.keys(window.movieLibrary.watched).length == 0 && this.userData) {
 			getDocs(collection(this.db, "Watched_List" + this.userData.uid))
-				.then(data => data.forEach((doc) => {
-					window.movieLibrary.watched = doc.data();
-				}))
+				.then(data => {
+					data.forEach((doc) => {
+						window.movieLibrary.watched = doc.data();
+					})
+				})
 				.catch(error => {
 					console.log(error);
 				});
@@ -72,6 +73,7 @@ export class FireBaseData {
 			getDocs(collection(this.db, "Queue_List" + this.userData.uid))
 				.then(data => data.forEach((doc) => {
 					window.movieLibrary.queue = doc.data();
+					console.log(window.movieLibrary.queue[505].year)
 				}))
 				.catch(error => {
 					console.log(error);
