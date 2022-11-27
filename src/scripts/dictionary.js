@@ -8,7 +8,12 @@ const ua = {
   homeLink: "Головна",
   myLibraryLink: "Моя бібліотека",
   searchForm: "Результат пошуку невдалий. Введіть правильну назву фільму та",
-  login:"Вхід",
+  login: "Вхід",
+  about: "Про",
+  vote: "Голос / Голосів",
+  popularity: "Популярність",
+  title: "Оригінальна назва",
+  genre: "Жанр",
 };
 
 const eng = {
@@ -20,7 +25,12 @@ const eng = {
   homeLink: "HOME",
   myLibraryLink: "my library",
   searchForm: "Search result not successful. Enter the correct movie name and",
-  login:"Login",
+  login: "Login",
+  about: "About",
+  vote: "Vote / Votes",
+  popularity: "Popularity",
+  title: "Original Title",
+  genre: "Genre",
 };
 
 export { ua, eng };

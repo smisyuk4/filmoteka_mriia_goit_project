@@ -18,7 +18,8 @@ function setLagnuage() {
     parseLanguage = ua;
   }
 
-  document.querySelectorAll('[data-text]').forEach(el => {el.innerHTML = parseLanguage[el.dataset.text];})
+  document.querySelectorAll('[data-text]')
+    .forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
 };
 
 function changeLagnuage() {
