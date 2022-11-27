@@ -41,7 +41,10 @@ async function onClickSearchBtn(event) {
 
 // Функція зміни мови
 setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
-document.querySelector(".translate").addEventListener('click', changeLagnuage);
+document.querySelector(".translate").addEventListener('click', () => {
+    changeLagnuage();
+    window.movieLibrary.updateLang();
+});
 // console.log(translateCheckboxRef.value, translateCheckboxRef.checked);
 // console.log(JSON.parse(localStorage.getItem("Language")).lang);
 
