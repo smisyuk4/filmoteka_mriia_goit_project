@@ -22,9 +22,9 @@ export class FireBaseData {
 		this.userData = ""
 		onAuthStateChanged(this.auth, (user) => {
 			if (user) {
-				this.userData = user
-				this.updateLocal()
-				document.querySelector('.login-btn').textContent = this.userData.displayName
+				this.userData = user;
+				this.updateLocal();
+				document.querySelector('.login-btn').textContent = this.userData.displayName;
 			}
 		});
 	}
@@ -34,8 +34,9 @@ export class FireBaseData {
 				const credential = GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
 				this.userData = result.user;
-				document.querySelector('.login-btn').textContent = this.userData.displayName
-				window.movieLibrary.saveData()
+				this.updateLocal();
+				document.querySelector('.login-btn').textContent = this.userData.displayName;
+				window.movieLibrary.saveData();
 			}).catch((error) => {
 				const errorCode = error.code;
 			});
@@ -63,6 +64,7 @@ export class FireBaseData {
 				.then(data => {
 					data.forEach((doc) => {
 						window.movieLibrary.watched = doc.data();
+						window.movieLibrary.saveData()
 					})
 				})
 				.catch(error => {
@@ -73,12 +75,11 @@ export class FireBaseData {
 			getDocs(collection(this.db, "Queue_List" + this.userData.uid))
 				.then(data => data.forEach((doc) => {
 					window.movieLibrary.queue = doc.data();
-					console.log(window.movieLibrary.queue[505].year)
+					window.movieLibrary.saveData()
 				}))
 				.catch(error => {
 					console.log(error);
 				});
 		}
-		window.movieLibrary.saveData()
 	}
 }
