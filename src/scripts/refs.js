@@ -6,5 +6,5 @@ export const refs = {
     //form search
     searchForm: document.querySelector('.search-form'),
     searchInput: document.querySelector('.search-form__input'),
-    searchBtn: document.querySelector('.search-form__btn'),
+    searchBtn: document.querySelector('.search-btn'),
 }
