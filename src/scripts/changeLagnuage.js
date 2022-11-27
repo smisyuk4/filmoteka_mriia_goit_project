@@ -1,6 +1,7 @@
 import { ua, eng } from "./dictionary"
 
 const translateCheckboxRef = document.querySelector(".translate");
+console.log(translateCheckboxRef);
 
 function setLagnuage() {
   if (localStorage.getItem('siteOptions') === null) {
