@@ -8,11 +8,21 @@ import './scripts/find-trailer'
 import './scripts/pagination'
 import './scripts/firebase-auth'
 import { MovieLibrary } from './scripts/library-scripts'
+import { FireBaseData } from './scripts/firebase-auth'
 import { hidenButton, upClick } from './scripts/scroll-up'
 import Notiflix from 'notiflix';
 
 // console.log(refs.test)
-const filmoteka = new Filmoteka()
+window.filmoteka = new Filmoteka()
+window.fireBase = new FireBaseData
+window.movieLibrary = new MovieLibrary
+
+document.querySelector('.login-btn').addEventListener('click', e => {
+    window.fireBase.login();
+});
+document.querySelector('.film-card').addEventListener('click', e => {
+    window.movieLibrary.addToQueue(505)
+});
 
 // console.log(filmoteka.query)
 

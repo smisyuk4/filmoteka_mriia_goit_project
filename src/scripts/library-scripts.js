@@ -1,22 +1,18 @@
-import { Filmoteka } from './fetch-api'
-import { FireBaseData } from './firebase-auth'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const filmoteka = new Filmoteka()
-const FireBase = new FireBaseData
 export class MovieLibrary {
 	constructor() {
 		const watchedList = localStorage.getItem("Watched_List");
 		if (watchedList) {
 			this.watched = JSON.parse(watchedList);
 		} else {
-			this.watched = FireBase.readData(key);;
+			this.watched = {}
 		}
 		const queueList = localStorage.getItem("Queue_List");
 		if (queueList) {
 			this.queue = JSON.parse(queueList);
 		} else {
-			this.queue = FireBase.readData(key);;
+			this.queue = {}
 		}
 	}
 	isWatched(id) {
@@ -37,7 +33,7 @@ export class MovieLibrary {
 			Notify.info('Movie already in watched');
 			return;
 		}
-		filmoteka.fetchFilms({ option: `/movie/${id}` })
+		window.filmoteka.fetchFilms({ option: `/movie/${id}` })
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				const genreNames = genres.map(el => el.name).join(", ")
@@ -55,7 +51,7 @@ export class MovieLibrary {
 			Notify.info('Movie already in queue');
 			return;
 		}
-		filmoteka.fetchFilms({ option: `/movie/${id}` })
+		window.filmoteka.fetchFilms({ option: `/movie/${id}` })
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				const genreNames = genres.map(el => el.name).join(", ")
@@ -95,10 +91,18 @@ export class MovieLibrary {
 	#updateStorage(key, data) {
 		if (Object.keys(data).length > 0) {
 			localStorage.setItem(key, JSON.stringify(data));
-			FireBase.saveData(key, data);
+			window.fireBase.saveData(key, data);
 		} else {
 			localStorage.removeItem(key);
-			FireBase.saveData(key, {})
+			window.fireBase.saveData(key, {})
+		}
+	}
+	saveData() {
+		if (Object.keys(this.queue).length > 0) {
+			this.#updateStorage("Queue_List", this.queue);
+		}
+		if (Object.keys(this.watched).length > 0) {
+			this.#updateStorage("Watched_List", this.watched);
 		}
 	}
 }
