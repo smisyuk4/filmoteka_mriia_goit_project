@@ -10,7 +10,7 @@ import { Filmoteka } from "./fetch-api"
 
 // onClickToCard()
 
-async function onClickToCard(event) {
+export async function onClickToCard(event) {
     // event.preventDefault()
     const filmoteka = new Filmoteka()    
 
