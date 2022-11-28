@@ -1,5 +1,5 @@
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
-import defaultPicture from '/src/images/test-img-card.jpg';
+//import defaultPicture from '/src/images/test-img-card.jpg';
 
 export function createFilmCardMarkup(data) {
   //   const genreNames = genres.map(el => el.name).join(', ');
