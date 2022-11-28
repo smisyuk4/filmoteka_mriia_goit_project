@@ -1,18 +1,17 @@
-const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
-//import defaultPicture from '/src/images/test-img-card.jpg';
 import { getGenres } from '../get-generes';
 import { refs } from '../refs';
 
-export async function createFilmCardMarkup(data) {
-  const serImg =
+const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
+const DEFAULT_IMG =
     'https://i.postimg.cc/Y0NKgxRL/CDBD31-CB-2-C43-438-F-A140-5-CBA7-C480-AB3.jpg';
 
+export async function createFilmCardMarkup(data) {
   const genresArr = await getGenres();
 
   return data
     .map(
       ({
-        // id,
+        id,
         poster_path,
         release_date,
         genre_ids,
@@ -24,23 +23,25 @@ export async function createFilmCardMarkup(data) {
           .map(e => e.name)
           .join(', ');
 
+        let imgLink
+        if (!poster_path) {
+            imgLink = DEFAULT_IMG
+        } else {
+            imgLink = `${BASE_IMAGES_URL}${poster_path}`
+        } 
+
         const markup = `</li>
-        <li class="table-item film-card__item">
-          <img src="${
-            poster_path ? BASE_IMAGES_URL + poster_path : serImg
-          }" alt="${title}" loading="lazy" />
-          <div class="film-card__box-info">
-            <h3 class="film-card__title">${title}</h3>
-            <p class="film-card__text">
-              ${genresList} | ${release_date.slice(
-          0,
-          4
-        )}<span class="film-card__rating">${
-          Math.round(vote_average * 100) / 100
-        }</span>
-            </p>
-          </div>
-        </li> `;
+                          <li class="table-item film-card__item" data-id="${id}">
+                            <img src="${imgLink}" alt="${title}" loading="lazy" width="350"/>
+                            <div class="film-card__box-info">
+                              <h3 class="film-card__title">${title}</h3>
+                              <p class="film-card__text">
+                                ${genresList} | ${release_date.slice(0,4)}<span class="film-card__rating">${
+                            Math.round(vote_average * 100) / 100
+                          }</span>
+                              </p>
+                            </div>
+                          </li> `;
 
         refs.container.insertAdjacentHTML('afterbegin', markup);
       }

@@ -36,10 +36,10 @@ async function onClickToBtnTrailer(event) {
 
     try {
         const data = await filmoteka.fetchFilms(valueObj)
-        console.log(data)
-        console.log(data.results[15])
-        console.log(data.results[15].key)
-        console.log(linkYoutube)
+        // console.log(data)
+        // console.log(data.results[15])
+        // console.log(data.results[15].key)
+        // console.log(linkYoutube)
     } catch (error) {
         console.log(error)
     }

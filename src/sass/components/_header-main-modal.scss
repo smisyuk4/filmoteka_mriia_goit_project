@@ -1,23 +1,20 @@
 .modal-offer{
-    //цвет карточки сделать зеброй, стобы каждая лишка отличалась 
-    margin: 0 auto;
-    padding: 5px;    
-    border: 3px solid $mainRedColor;
-
-    @media screen and (min-width: 768px) {
-        max-width: 500px;
-    }
+    position: relative;   
+    margin: 0 auto;   
 }
 
 .input-offer {
     &__list {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
+        position: absolute;
+        top: -75;
+        left: 50%;
+        transform: translateX(-50%);    
+        background-color: rgb(85, 46, 46);
     }    
 
-    &__item {        
-        border: 3px solid $mainWhiteColor;
+    &__item {
+        padding: 5px;
+        border: 1px solid $mainWhiteColor;
     }
 
     &__link {
@@ -41,5 +38,14 @@
 
     & p:not(:last-child) {
         margin-bottom: 3px;
+    }
+
+    & .film-card__title{
+        color: $mainWhiteColor;
+    }
+
+    #release_date {
+        color: $mainBlackColor;
+        font-weight: 700;
     }
 }

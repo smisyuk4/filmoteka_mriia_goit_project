@@ -19,7 +19,7 @@ export class Filmoteka {
     } = valueObj;
 
     const url = `${BASE_URL}${option}?api_key=${API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}`;
-    console.log(url);
+    // console.log(url);
 
     return await axios.get(url).then(response => {
       return response.data;
