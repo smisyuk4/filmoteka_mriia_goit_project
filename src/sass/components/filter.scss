@@ -1,0 +1,31 @@
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @media screen and(min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.filters__item {
+    background-color:$filterColor;
+    color:$filterText;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.filters__list:not(:last-child) {
+    @media screen and(min-width: 768px) {
+        margin-right: 20px;
+    }
+}
+
+.filter__text {
+    margin-left: 10px;
+    font-size: 12px;
+    color: $mainWfiteColor;
+}

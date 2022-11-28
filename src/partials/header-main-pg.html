@@ -59,5 +59,31 @@
     <p class="search-form__error" data-text="searchForm">
       Search result not successful. Enter the correct movie name and
     </p>
+
+
+    <form class="container filter-container is-hidden" id="filter-form">
+      <ul class="filters">
+        <li class="filters__list">
+          <select class="js-filter-vote_average filters__item">
+            <option value="" selected>Rating</option>
+            <option value="10">10</option>
+            <option value="9">9+</option>
+            <option value="8">8+</option>
+            <option value="7">7+</option>
+            <option value="6">6+</option>
+            <option value="5">5+</option>
+            <option value="4">4+</option>
+            <option value="3">3+</option>
+            <option value="2">2+</option>
+            <option value="1">1+</option>
+          </select>
+        </li>
+        <li class="filters__list">
+          <select class="js-filter-years filters__item">
+            <option value="" selected>Date</option>
+          </select>
+        </li>
+      </ul>
+    </form>
   </div>
 </header>
