@@ -28,7 +28,7 @@ async function onClickSearchBtn(event) {
     // const results = data.results;
     console.log(data);
     // clearMurkup();
-    // appendFilmCardsMarkup(data.results);
+     appendFilmCardsMarkup(data.results);
     refs.searchForm.reset;
   } catch (error) {
     console.log(error);
