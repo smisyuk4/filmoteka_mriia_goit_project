@@ -3,8 +3,8 @@
 
 import { refs } from '/src/scripts/refs';
 import { Filmoteka } from './fetch-api';
-import createFilmCardMarkup from './markup/сrearte-markup-film';
-import clearMurkup from './markup/clear-murkup';
+import { createFilmCardMarkup } from './markup/сrearte-markup-film';
+import { clearMurkup } from './markup/clear-murkup';
 refs.searchForm.addEventListener('submit', onClickSearchBtn);
 
 async function onClickSearchBtn(event) {
