@@ -1,0 +1,45 @@
+.modal-offer{
+    //цвет карточки сделать зеброй, стобы каждая лишка отличалась 
+    margin: 0 auto;
+    padding: 5px;    
+    border: 3px solid $mainRedColor;
+
+    @media screen and (min-width: 768px) {
+        max-width: 500px;
+    }
+}
+
+.input-offer {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }    
+
+    &__item {        
+        border: 3px solid $mainWhiteColor;
+    }
+
+    &__link {
+        display: flex;
+        
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.14;
+        letter-spacing: 1.7;
+        color: $mainWhiteColor;
+
+        @media screen and (min-width: 768px) {
+            text-transform: uppercase;
+            font-size: 14px;
+        } 
+    }
+}
+
+.input-offer__desc {
+    padding: 5px;
+
+    & p:not(:last-child) {
+        margin-bottom: 3px;
+    }
+}

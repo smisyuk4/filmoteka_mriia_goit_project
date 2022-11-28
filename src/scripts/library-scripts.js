@@ -14,6 +14,12 @@ export class MovieLibrary {
 		} else {
 			this.queue = {}
 		}
+		this.param = {
+			option: "",
+			lang: '&language=en',
+			imageLang: '&include_image_language=en',
+			region: '&region=en-US'
+		}
 	}
 	isWatched(id) {
 		if (Object.keys(this.watched).indexOf(`${id}`) >= 0) {
@@ -28,36 +34,37 @@ export class MovieLibrary {
 		}
 		return false;
 	}
-	addToWatched(id) {
+	addToWatched(id, notify = true) {
 		if (this.isWatched(id)) {
 			Notify.info('Movie already in watched');
 			return;
 		}
-		window.filmoteka.fetchFilms({ option: `/movie/${id}` })
+		window.filmoteka.fetchFilms(this.param)
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				const genreNames = genres.map(el => el.name).join(", ")
 				this.watched[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
-				Notify.success('Movie added to watched');
+				if (notify) Notify.success('Movie added to watched');
 			})
 			.catch(error => {
 				console.log(error);
 				Notify.warning('Some went wrong when ading to watched. Please try again.');
 			})
 	}
-	addToQueue(id) {
+	addToQueue(id, notify = true) {
 		if (this.isQueue(id)) {
 			Notify.info('Movie already in queue');
 			return;
 		}
-		window.filmoteka.fetchFilms({ option: `/movie/${id}` })
+		this.param.option = `/movie/${id}`;
+		window.filmoteka.fetchFilms(this.param)
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				const genreNames = genres.map(el => el.name).join(", ")
 				this.queue[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
-				Notify.success('Movie added to queue');
+				if (notify) Notify.success('Movie added to queue');
 			})
 			.catch(error => Notify.warning('Some went wrong when ading to queue. Please try again.'))
 	}
@@ -99,10 +106,34 @@ export class MovieLibrary {
 	}
 	saveData() {
 		if (Object.keys(this.queue).length > 0) {
-			this.#updateStorage("Queue_List", this.queue);
+			localStorage.setItem("Queue_List", JSON.stringify(this.queue));
 		}
 		if (Object.keys(this.watched).length > 0) {
-			this.#updateStorage("Watched_List", this.watched);
+			localStorage.setItem("Watched_List", JSON.stringify(this.watched));
 		}
 	}
+	updateLang() {
+		if (localStorage.getItem("siteOptions") == "ua") {
+			this.param.lang = '&language=uk';
+			this.param.imageLang = '&include_image_language=uk';
+			this.param.region = '&region=uk-UA';
+		} else {
+			this.param.lang = '&language=en';
+			this.param.imageLang = '&include_image_language=en';
+			this.param.region = '&region=en-US';
+		}
+		this.#updateSaves()
+		if (window.fireBase.userData) {
+			document.querySelector('.login-btn').textContent = window.fireBase.userData.displayName;
+		}
+	}
+	#updateSaves() {
+		const watchedId = Object.keys(this.watched);
+		this.watched = {};
+		const queueId = Object.keys(this.queue);
+		this.queue = {};
+		watchedId.forEach(id => this.addToWatched(id, false));
+		queueId.forEach(id => this.addToQueue(id, false));
+	}
+	
 }

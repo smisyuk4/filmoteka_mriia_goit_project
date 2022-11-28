@@ -1,0 +1,85 @@
+.header-library {
+  padding: 40px 0 60px 0;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.56);
+  background-image: url(/src/images/header-library/header-library-1280.jpg);
+
+  // retina screen
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(/src/images/header-library/header-library-320@2x.jpg);
+    background-image: -webkit-image-set(
+      url(/src/images/header-library/header-library-320@2x.webp) 2x
+    );
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(/src/images/header-library/header-library-768.jpg);
+
+    // retina screen
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(/src/images/header-library/header-library-768@2x.jpg);
+      background-image: -webkit-image-set(
+        url(/src/images/header-library/header-library-768@2x.webp) 2x
+      );
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(/src/images/header-library/header-library-1280.jpg);
+
+    // retina screen
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(/src/images/header-library/header-library-1280@2x.jpg);
+      background-image: -webkit-image-set(
+        url(/src/images/header-library/header-library-1280@2x.webp) 2x
+      );
+    }
+  }
+}
+.header-page-library {
+  text-align: center;
+}
+.headerButtons {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.button-library {
+  width: 130px;
+  height: 44px;
+
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 150px;
+  }
+}
+.button-item-library:not(:last-child) {
+  margin-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 15px;
+  }
+}
