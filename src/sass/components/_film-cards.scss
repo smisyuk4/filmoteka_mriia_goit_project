@@ -6,7 +6,7 @@
         font-weight: medium;
         margin: 8px 0;
 
-        @media screen and (min-width:1280px) {
+        @media screen and (max-width:1280px) {
             font-size: 12px;
         }
     }
@@ -19,6 +19,7 @@
 
     &__text {
         color: #FF6B08;
+        line-height: 1.4;
     }
 
     &__rating {
