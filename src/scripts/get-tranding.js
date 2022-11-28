@@ -5,17 +5,14 @@ import { Filmoteka } from './fetch-api';
 import './pagination';
 import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
-import { refs } from './refs';
 
 let page = 1;
 
-// getTranding();
 getTranding().then(trandingToday => {
   console.log(trandingToday);
 
   clearMurkup();
-  const markup = createFilmCardMarkup(trandingToday.results);
-  refs.container.insertAdjacentHTML('afterbegin', markup);
+  createFilmCardMarkup(trandingToday.results);
 });
 
 async function getTranding() {
@@ -28,7 +25,6 @@ async function getTranding() {
 
   try {
     const trandingToday = await filmoteka.fetchFilms(valueObj);
-    // console.log(trandingToday);
     return trandingToday;
   } catch (error) {
     console.log(error);
