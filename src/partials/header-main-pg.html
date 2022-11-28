@@ -1,5 +1,6 @@
 <header class="header">
     <div class="container">
+        <!-- navigation -->
         <nav class="nav">
         <a class="logo" href="/src/index.html">
             <svg class="logo-icon" width="32" height="32">
@@ -26,6 +27,7 @@
         </ul>
         </nav>
 
+        <!-- search form -->
         <form class="search-form">
             <label>
                 <input
@@ -41,9 +43,54 @@
                 </svg>
             </button>
         </form>
-
         <p class="search-form__error" data-text="searchForm">
             Search result not successful. Enter the correct movie name and try again
         </p>
+
+        <!-- modal window for search offer -->
+        <!-- зробити щоб викатувалась з під хедеру на кількість пропозицій (1...3....10) -->
+        <div class="modal-offer">
+            <!-- <ul class="input-offer__list">
+                <li class="input-offer__item" data-id="991833">
+                    <a class="input-offer__link" href="#">
+                        <img class="input-offer__img" src="https://image.tmdb.org/t/p/w500/l3rIbP71sR7hKtz77E6x7mdz6vG.jpg" alt="" width="70">
+                        <div class="input-offer__desc">
+                            <p id="title">title:</p>
+                            <p id="original_title">original title:</p>
+                            <p id="genre">genre:</p>                                                    
+                            <p id="release_date">release date:</p>                            
+                            <p id="vote_average">vote average:</p>
+                        </div>
+                    </a>
+                </li>
+                
+                <li class="input-offer__item" data-id="991833">
+                    <a class="input-offer__link" href="#">
+                        <img class="input-offer__img" src="https://image.tmdb.org/t/p/w500/l3rIbP71sR7hKtz77E6x7mdz6vG.jpg" alt="" width="70">
+                        <div class="input-offer__desc">
+                            <p id="title">title:</p>
+                            <p id="original_title">original title:</p>
+                            <p id="genre">genre:</p>
+                            <p id="release_date">release date:</p>
+                            <p id="vote_average">vote average:</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="input-offer__item" data-id="991833">
+                    <a class="input-offer__link" href="#">
+                        <img class="input-offer__img" src="https://image.tmdb.org/t/p/w500/l3rIbP71sR7hKtz77E6x7mdz6vG.jpg" alt=""
+                            width="70">
+                        <div class="input-offer__desc">
+                            <p id="title">title:</p>
+                            <p id="original_title">original title:</p>
+                            <p id="genre">genre:</p>
+                            <p id="release_date">release date:</p>
+                            <p id="vote_average">vote average:</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
     </div>
 </header>
