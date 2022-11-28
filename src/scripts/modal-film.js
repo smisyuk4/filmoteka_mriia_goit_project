@@ -1,9 +1,24 @@
 import { Filmoteka } from "./fetch-api";
-import { MovieLibrary } from "./library-scripts";
+import './markup/create-markup-film';
 import { onClickToCard } from "./find-by-id";
+import { refs } from "./refs";
 import { icons } from "../images/icons/icons.svg";
 
 const movie = new Filmoteka();
+
+const modal = document.querySelector('.modal-film__card-overlay');
+
+refs.container.addEventListener('click', event => {
+    const filmClick = event.path[2];
+    if (!filmClick.classList.contains('film-card__item')) {
+        return;
+    }
+    modal.classList.remove('visually-hidden');
+    const idFilm = filmClick.dataset.id;
+    openModal(idFilm);
+});
+
+
 
 export async function openModal(idFilm) {
     const containerModal = document.querySelector('.modal-film__card-content');
@@ -11,8 +26,8 @@ export async function openModal(idFilm) {
 
     containerModal.innerHTML = await markupModalFilm(data);
 
-    const modalCloseBtn = document.querySelector('.modal-film__close');
-    const modal = document.querySelector('.modal-film__card-overlay');
+    const modalCloseBtn = document.querySelector('.modal-film__close-btn');
+    
 
     // Close modal by cross button
     modalCloseBtn.addEventListener('click', closeByCross);
@@ -67,8 +82,8 @@ export async function openModal(idFilm) {
             modalAbout = "Sorry, we don't have a description for this movie"
         }
         return `
-            <button type="button" class="modal-film__close" data-modal-close>
-                <svg width="12" height="12" class="modal-film__close-btn">
+            <button type="button" class="modal-film__close-btn" data-modal-close>
+                <svg width="12" height="12" class="modal-film__close-icon">
                     <use href="${closeIcon}"></use>
                 </svg>
             </button>
@@ -105,3 +120,4 @@ export async function openModal(idFilm) {
         `;
     }
 }
+
