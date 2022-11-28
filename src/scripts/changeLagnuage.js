@@ -10,7 +10,7 @@ function setLagnuage() {
  
   const language = localStorage.getItem("siteOptions");
 
-  console.log(language);
+  // console.log(language);
 
   let parseLanguage
 
