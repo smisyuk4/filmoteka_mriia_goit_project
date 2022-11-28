@@ -12,7 +12,6 @@ async function onClickSearchBtn(event) {
   const OPTION_SEARCH = '/search/movie';
   const filmoteka = new Filmoteka();
 
-  //get nameFilm from input
   const nameFilm = refs.searchInput.value;
   console.log(nameFilm);
 
@@ -28,8 +27,9 @@ async function onClickSearchBtn(event) {
     // const results = data.results;
     console.log(data);
     // clearMurkup();
-     appendFilmCardsMarkup(data.results);
-    refs.searchForm.reset;
+    appendFilmCardsMarkup(data.results);
+    refs.searchForm.reset();
+    refs.modalOffer.innerHTML = ''
   } catch (error) {
     console.log(error);
   }
