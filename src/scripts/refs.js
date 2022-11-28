@@ -7,5 +7,5 @@ export const refs = {
     searchForm: document.querySelector('.search-form'),
     searchInput: document.querySelector('.search-form__input'),
     searchBtn: document.querySelector('.search-btn'),
-    modalOffer: document.querySelector('.modal-offer'),
+    modalOffer: document.querySelector('.input-offer__list'),
 }
