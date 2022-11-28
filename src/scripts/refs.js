@@ -8,5 +8,5 @@ export const refs = {
   searchInput: document.querySelector('.search-form__input'),
   searchBtn: document.querySelector('.search-btn'),
   modalOffer: document.querySelector('.input-offer__list'),
-  container: document.querySelector('.table-list'),
+  container: document.querySelector('[data-film-table-list]'),
 };

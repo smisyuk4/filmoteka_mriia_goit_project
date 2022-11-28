@@ -1,4 +1,3 @@
-import { refs } from '../refs';
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
 import defaultPicture from '/src/images/test-img-card.jpg';
 
