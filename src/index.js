@@ -9,10 +9,11 @@ import './scripts/pagination';
 import './scripts/firebase-auth';
 import './scripts/input-offer';
 
+
 import { MovieLibrary } from './scripts/library-scripts';
 import { FireBaseData } from './scripts/firebase-auth';
 import { hidenButton, upClick } from './scripts/scroll-up';
-
+import {changeColor} from './scripts/color-select';
 import Notiflix from 'notiflix';
 
 window.filmoteka = new Filmoteka();
@@ -35,5 +36,9 @@ document.querySelector('.translate').addEventListener('click', () => {
   changeLagnuage();
   window.movieLibrary.updateLang();
 });
-// console.log(translateCheckboxRef.value, translateCheckboxRef.checked);
-// console.log(JSON.parse(localStorage.getItem("Language")).lang);
+
+// Функція зміни кольору
+const colorSelectorRef = document.querySelector(".color--input");
+// console.log(colorSelectorRef.value);
+colorSelectorRef.addEventListener('click', changeColor);
+

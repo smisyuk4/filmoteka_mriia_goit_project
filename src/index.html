@@ -40,6 +40,28 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
+    <!-- change  -->
+    <div class="color--select">
+      <input
+        type="checkbox"
+        id="darkmode-toggle"
+        class="color--input"
+        value="ligth"
+      />
+      <label for="darkmode-toggle" class="color--label">
+        <svg class="sun">
+          <use href="/src/images/icons/icons.svg#icon-sun"></use>
+        </svg>
+
+        <svg class="moon">
+          <use href="/src/images/icons/icons.svg#icon-moon"></use>
+        </svg>
+      </label>
+
+      <div class="background"></div>
+    </div>
+    <!-- change  -->
+
     <include src="./partials/header-main-pg.html"></include>
     <include src="./partials/main.html"></include>
     <include src="./partials/footer.html"></include>
