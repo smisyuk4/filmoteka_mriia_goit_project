@@ -3,7 +3,7 @@
 
 import { refs } from '/src/scripts/refs';
 import { Filmoteka } from './fetch-api';
-import { createFilmCardMarkup } from './markup/сrearte-markup-film';
+import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
 refs.searchForm.addEventListener('submit', onClickSearchBtn);
 
