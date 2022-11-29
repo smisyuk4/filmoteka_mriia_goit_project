@@ -28,6 +28,7 @@
 }
 
 .students-link{
+    cursor: pointer;
     color: #545454;
     text-decoration: underline; 
 
@@ -35,4 +36,8 @@
     &:focus {
         color: #FF6B08; 
     }
+}
+
+.icon-heart{
+    padding: 0 10px;
 }
