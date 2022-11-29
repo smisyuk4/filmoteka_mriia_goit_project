@@ -13,19 +13,6 @@
     }    
 
     &__item {
-        padding: 5px;
-        border: 1px solid $mainWhiteColor;
-
-        &__item.film-card__img{
-           height: auto;
-        }
-
-        &__item.film-card__box-img{
-           height: 100px;
-        }
-    }
-
-    &__link {
         display: flex;
         
         font-weight: 400;
@@ -38,6 +25,18 @@
             text-transform: uppercase;
             font-size: 14px;
         } 
+
+
+        padding: 5px;
+        border: 1px solid $mainWhiteColor;
+
+        &__item.film-card__img{
+           height: auto;
+        }
+
+        &__item.film-card__box-img{
+           height: 100px;
+        }
     }
 }
 
