@@ -5,48 +5,38 @@ import { refs } from '/src/scripts/refs';
 import { Filmoteka } from './fetch-api';
 import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
+
 refs.searchForm.addEventListener('submit', onClickSearchBtn);
 
 async function onClickSearchBtn(event) {
   event.preventDefault();
   const OPTION_SEARCH = '/search/movie';
   const filmoteka = new Filmoteka();
-
   const nameFilm = refs.searchInput.value;
   console.log(nameFilm);
 
   const valueObj = {
     option: OPTION_SEARCH,
-    nameFilm: `&query=${encodeURIComponent(nameFilm)}`,
+    nameFilm: `&query=${encodeURIComponent(nameFilm.trim())}`,
   };
 
-  //--------------------------
-  if (!nameFilm.trim()) {
-    refs.masseges.style.color = '#ff001b';
-    refs.masseges.textContent = 'Please, type something.';
-
+  if (nameFilm === '') {
+    // refs.massages.textContent = 'Please, type something.';
+    refs.massages.classList.remove('hidden')
     setClearTextContentTimer();
     return;
   }
 
-  //------------------------
-
   try {
     const data = await filmoteka.fetchFilms(valueObj);
-    // const data = await filmoteka.fetchFilms({ option: /movie/`${id}` });
-    //------------------------
 
-    if (!data.results.length) {
-      clearMurkup();
-      refs.masseges.style.color = '#ff001b';
-      refs.masseges.textContent =
-        'Sorry, there are no films matching your search query. Please, try again.';
+    if (data.results.length === 0) {      
+      refs.massages.classList.remove('hidden')      
       setClearTextContentTimer();
       refs.searchForm.reset();
       return;
     }
-    //---------------------
-    // const results = data.results;
+
     console.log(data);
     clearMurkup();
     createFilmCardMarkup(data.results);
@@ -57,17 +47,8 @@ async function onClickSearchBtn(event) {
   }
 }
 
-// function appendFilmCardsMarkup(results) {
-//   return refs.container.insertAdjacentHTML(
-//     'beforeend',
-//     createFilmCardMarkup(results)
-//   );
-// }
-
-//===============================
-
 function setClearTextContentTimer() {
   setTimeout(() => {
-    refs.masseges.textContent = '';
-  }, 3000);
+    refs.massages.classList.add('hidden')
+  }, 2000);
 }

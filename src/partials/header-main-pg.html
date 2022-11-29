@@ -64,25 +64,26 @@
 
     <!-- search form -->
     <form class="search-form">
-      <label>
-        <input
-          class="search-form__input"
-          type="text"
-          placeholder="movie search"
-        />
-      </label>
+        <label>
+            <input
+            class="search-form__input"
+            type="text"
+            placeholder="movie search"
+            />
+        </label>
 
-      <button class="search-btn" type="submit">
-        <svg class="search-btn__icon" width="32" height="32">
-          <use href="/src/images/icons/icons.svg#icon-search"></use>
-        </svg>
-      </button>
+        <button class="search-btn" type="submit">
+            <svg class="search-btn__icon" width="32" height="32">
+            <use href="/src/images/icons/icons.svg#icon-search"></use>
+            </svg>
+        </button>
+
+        <p class="search-form__error hidden" data-text="searchForm">Sorry, there are no films matching your search query. Please, try again.</p>
     </form>
-    <p class="search-form__error" data-text="searchForm">
-      Search result not successful. Enter the correct movie name and try again
-    </p>
+
 
     <!-- filters for content -->
+    <!-- class="visually-hidden" -->
     <form class="is-hidden" id="filter-form">
       <ul class="filters">
         <li class="filters__list">
@@ -108,73 +109,9 @@
 
     <!-- modal window for search offer -->
     <div class="modal-offer">
-      <ul class="input-offer__list"></ul>
-
-      <button class="search-btn" type="submit">
-        <svg class="search-btn__icon" width="32" height="32">
-          <use href="/src/images/icons/icons.svg#icon-search"></use>
-        </svg>
-      </button>
-    </form>
-    <!-- <p class="search-form__error" data-text="searchForm">
-          Search result not successful. Enter the correct movie name and try again
-    </p> -->
-    <p class="search-form__error"></p>
-    <!-- filters for content -->
-    <form class="is-hidden" id="filter-form">
-      <ul class="filters">
-        <li class="filters__list">
-          <select class="js-filter-vote-average filters__item">
-            <option value="" selected>Rating</option>
-            <option value="10">10</option>
-            <option value="9">9+</option>
-            <option value="8">8+</option>
-            <option value="7">7+</option>
-            <option value="6">6+</option>
-            <option value="5">5+</option>
-            <option value="4">4+</option>
-            <option value="3">3+</option>
-            <option value="2">2+</option>
-            <option value="1">1+</option>
-          </select>
-        </li>
-        <li class="filters__list">
-          <select class="js-filter-years filters__item">
-            <option value="" selected>Date</option>
-          </select>
-        </li>
-      </ul>
-    </form>
-        <!-- filters for content -->
-        <form class=" is-hidden" id="filter-form">
-            <ul  class="filters">
-                <li class="filters__list">
-                    <select id="rating-filter" class="filters__item">
-                        <option value="" selected>Rating</option>
-                        <option value="10">10</option>
-                        <option value="9">9+</option>
-                        <option value="8">8+</option>
-                        <option value="7">7+</option>
-                        <option value="6">6+</option>
-                        <option value="5">5+</option>
-                        <option value="4">4+</option>
-                        <option value="3">3+</option>
-                        <option value="2">2+</option>
-                        <option value="1">1+</option>
-                    </select>
-                </li>
-                <li class="filters__list">
-                    <select id="date-filter"  class="filters__item">
-                    </select>
-                </li>
-            </ul>
-        </form>
-        
-        <!-- modal window for search offer -->
-        <div class="modal-offer">
-            <ul class="input-offer__list">
-            </ul>
-        </div>
+        <ul class="input-offer__list">
+        </ul>
+    </div>
     </div>
   </div>
 </header>

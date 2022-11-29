@@ -8,9 +8,11 @@ export const refs = {
   searchInput: document.querySelector('.search-form__input'),
   searchBtn: document.querySelector('.search-btn'),
   modalOffer: document.querySelector('.input-offer__list'),
+  massages: document.querySelector('.search-form__error'),
+  
+
   container: document.querySelector('[data-film-table-list]'),
 
-  masseges: document.querySelector('.search-form__error'),
   //color switcher
   colorSelector: document.querySelector('.color--input'),
 };
