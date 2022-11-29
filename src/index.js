@@ -52,7 +52,10 @@ initTrending();
 
 function initFilterHendler() {
   let rating = document.querySelector('#rating-filter');
-  rating.addEventListener('change', window.filterHendler.ratingFilterOnChenge)
+  rating.addEventListener('change', window.filterHendler.ratingFilterOnChenge);
+  
+  let date = document.querySelector('#date-filter');
+  date.addEventListener('change', window.filterHendler.dataFilterOnChange);
 }
 initFilterHendler();
 

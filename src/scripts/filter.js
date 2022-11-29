@@ -1,15 +1,29 @@
 import { clearMurkup } from "./markup/clear-murkup";
 import { createFilmCardMarkup } from "./markup/create-markup-film";
 
-export default class FilterHendler{
+
+export default class FilterHendler {
+    constructor() {
+        let startYear = 1907;
+        let endYear = new Date().getFullYear();
+        const yearsList = () => {
+            let str = `<option value="" selected>Years</option>`;
+            for (let i = endYear; i >= startYear; i -= 1) {
+                str += `<option value="${i}">${i}</option>`;
+            }
+            return str;
+        };
+        const date = document.querySelector('#date-filter');
+        date.innerHTML = yearsList();
+    }
+
     ratingFilterOnChenge(e) {
         const ratingFilter = e.target.value;
 
         if (ratingFilter === undefined) {
             
             window.filmoteka.filterByRating = ratingFilter;
-        } else {
-            
+        } else { 
         window.filmoteka.filterByRating = +ratingFilter;
         }
 
@@ -22,4 +36,23 @@ export default class FilterHendler{
             createFilmCardMarkup(result.results);
         });
     }
+
+    dataFilterOnChange(e) {
+        const dateFilter = e.target.value;
+
+        if (dateFilter=== undefined) {
+            window.filmoteka = dateFilter;
+        } else {
+            window.filmoteka.dataFilter = dateFilter;
+        }
+    
+      filmoteka.fetchFilms({
+            region: '',
+            page:1,
+            option: '/discover/movie'
+        }).then(result => {
+            clearMurkup();
+            createFilmCardMarkup(result.results);
+        });
+    };
 }
