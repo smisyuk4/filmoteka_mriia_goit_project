@@ -8,6 +8,7 @@ import './scripts/find-trailer';
 import './scripts/pagination';
 import './scripts/firebase-auth';
 import './scripts/input-offer';
+import './scripts/modal-film';
 
 
 import { MovieLibrary } from './scripts/library-scripts';

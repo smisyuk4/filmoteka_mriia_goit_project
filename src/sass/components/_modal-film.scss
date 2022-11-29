@@ -1,41 +1,106 @@
-.modal-film {
-    &__container {
-        z-index: 10;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        position: absolute;
+.modal-film__card-overlay {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(100, 100, 100, 0.5);
+    transition: all 0.5s ease-in-out;
+    z-index: 100;
+}
+
+.modal-film__card-content {
+    display: flex;
+    width: 280px;
+    min-height: 700px;
+    padding: 48px 20px 40px 20px;
+    position: absolute;
+    background-color: $mainWhiteColor;
+    top: 0;
+    left: 0;
+    transform: translate(-150%);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.2s ease 0.2s;
+
+    @media screen and(min-width: 768px) and (max-width: 1279px) {
+        width: 704px;
+        min-height: 450px;
+        padding: 40px 72px 40px 36px;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
-    &__btn-close {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        background: 0 0;
-        transition: all .3s linear;
-        position: absolute;
-        top: 8px;
-        right: 8px;
+    @media screen and(min-width: 1280px) {
+        width: 806px;
+        min-height: 550px;
+        padding: 40px 12px 40px 12px;
     }
+}
 
-    &__wrap {
-        width: 100%;
-        background-color: #fff;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 50px 20px 40px;
-        display: flex;
-    }
+.modal-film__close-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    background: inherit;
+    border: none;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
 
-    &__label {
-        width: 100%;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-bottom: 20px;
-        display: flex;
-    }
+.modal-film__close-icon {
+    width: 16px;
+    height: 16px;
+    transition: all 0.2s ease-in-out;
     
+    &:hover,
+    &:active {
+        transform: scale(1.5);
+        color: $mainRedColor;
+    }
+}
+
+.modal-film__poster {
+    width: 240px;
+    height: 357px;
+    margin-bottom: 20px;
+
+    @media screen and(min-width: 768px) and (max-width: 1279px) {
+        width: 264px;
+        height: 374px;
+    }
+
+    @media screen and(min-width: 1280px) {
+        width: 375px;
+        height: 478px;
+    }
+}
+
+.modal-film__title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: $mainBlackColor;
+    text-transform: uppercase;
+
+    margin-bottom: 20px ;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 30px;
+        line-height: 35px;
+    }
+}
+
+.modal-film__info-block {
+    margin-bottom: 20px;
 }
