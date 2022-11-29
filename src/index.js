@@ -43,10 +43,7 @@ document.querySelector('.translate').addEventListener('click', () => {
 });
 
 // Функція зміни кольору
-// const colorSelectorRef = document.querySelector(".color--input");
-// console.log(colorSelectorRef.value);
 initialTheme('light-color');
-// window.addEventListener("load",() => { initialTheme('light-color') });
 refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object
 initTrending();
