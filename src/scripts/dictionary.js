@@ -1,5 +1,5 @@
 const ua = {
-  chengeLang: "ua",
+  chengeLang: "en",
   lang: "ua-UA",
   loadFirst: true,
   hello: 'Привіт',
@@ -17,7 +17,7 @@ const ua = {
 };
 
 const eng = {
-  chengeLang: "en",
+  chengeLang: "ua",
   lang: "en-EN",
   hello: 'Hello',
   buttonWatched: 'Watched',
