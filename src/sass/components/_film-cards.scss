@@ -1,6 +1,28 @@
 .film-card {
     list-style: none;
-    margin: 20px 0;
+    margin: 20px auto;
+
+    &__box-img {
+        height: 398px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (min-width:768px) {
+            height: 455px;
+        }
+
+        @media screen and (min-width:1280px) {
+            height: 574px;
+        }
+    }
+
+    &__img {
+        min-width: 100%;
+        min-height: 100%;
+        flex-shrink: 0;
+    }
 
     &__box-info {
         font-weight: medium;
@@ -9,12 +31,14 @@
         @media screen and (max-width:1280px) {
             font-size: 12px;
         }
+        @media screen and (min-width:1280px) {
+            margin: 12px 0;
+        }
     }
 
     &__title {
         color: black;
         text-transform: uppercase;
-        
     }
 
     &__text {

@@ -7,16 +7,18 @@ import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
 
 let page = 1;
+export function initTrending() {
 
 getTranding().then(trandingToday => {
-  console.log(trandingToday);
+ console.log(trandingToday);
 
-  clearMurkup();
-  createFilmCardMarkup(trandingToday.results);
+ clearMurkup();
+ createFilmCardMarkup(trandingToday.results);
 });
+}
 
 async function getTranding() {
-  const filmoteka = new Filmoteka();
+  const filmoteka = window.filmoteka;
   const OPTION_TRANDING = '/trending/movie/day';
   const valueObj = {
     option: OPTION_TRANDING,
