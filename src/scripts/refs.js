@@ -10,6 +10,7 @@ export const refs = {
   modalOffer: document.querySelector('.input-offer__list'),
   container: document.querySelector('[data-film-table-list]'),
 
+  masseges: document.querySelector('.search-form__error'),
   //color switcher
-  colorSelector: document.querySelector(".color--input"),
+  colorSelector: document.querySelector('.color--input'),
 };
