@@ -7,7 +7,6 @@ const DEFAULT_IMG =
 
 export async function createFilmCardMarkup(data) {
   const genresArr = await getGenres();
-
   return data
     .map(
       ({
