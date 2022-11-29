@@ -20,26 +20,54 @@ async function onClickSearchBtn(event) {
     nameFilm: `&query=${encodeURIComponent(nameFilm)}`,
   };
 
+  //--------------------------
+  if (!nameFilm.trim()) {
+    refs.masseges.style.color = '#ff001b';
+    refs.masseges.textContent = 'Please, type something.';
+
+    setClearTextContentTimer();
+    return;
+  }
+
+  //------------------------
+
   try {
     const data = await filmoteka.fetchFilms(valueObj);
     // const data = await filmoteka.fetchFilms({ option: /movie/`${id}` });
+    //------------------------
 
+    if (!data.results.length) {
+      clearMurkup();
+      refs.masseges.style.color = '#ff001b';
+      refs.masseges.textContent =
+        'Sorry, there are no films matching your search query. Please, try again.';
+      setClearTextContentTimer();
+      refs.searchForm.reset();
+      return;
+    }
+    //---------------------
     // const results = data.results;
     console.log(data);
-    // clearMurkup();
-    appendFilmCardsMarkup(data.results);
+    clearMurkup();
+    createFilmCardMarkup(data.results);
     refs.searchForm.reset();
-    refs.modalOffer.innerHTML = ''
+    refs.modalOffer.innerHTML = '';
   } catch (error) {
     console.log(error);
   }
 }
 
-function appendFilmCardsMarkup(results) {
-  return refs.container.insertAdjacentHTML(
-    'beforeend',
-    createFilmCardMarkup(results)
-  );
-}
+// function appendFilmCardsMarkup(results) {
+//   return refs.container.insertAdjacentHTML(
+//     'beforeend',
+//     createFilmCardMarkup(results)
+//   );
+// }
 
 //===============================
+
+function setClearTextContentTimer() {
+  setTimeout(() => {
+    refs.masseges.textContent = '';
+  }, 3000);
+}
