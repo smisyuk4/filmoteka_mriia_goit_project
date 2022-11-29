@@ -38,7 +38,7 @@ document.querySelector('.translate').addEventListener('click', () => {
 });
 
 // Функція зміни кольору
-const colorSelectorRef = document.querySelector(".color--input");
+// const colorSelectorRef = document.querySelector(".color--input");
 // console.log(colorSelectorRef.value);
-colorSelectorRef.addEventListener('click', changeColor);
+refs.colorSelector.addEventListener('click', changeColor);
 

@@ -9,4 +9,7 @@ export const refs = {
   searchBtn: document.querySelector('.search-btn'),
   modalOffer: document.querySelector('.input-offer__list'),
   container: document.querySelector('[data-film-table-list]'),
+
+  //color switcher
+  colorSelector: document.querySelector(".color-input"),
 };

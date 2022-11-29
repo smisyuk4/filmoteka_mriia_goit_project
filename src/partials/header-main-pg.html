@@ -27,6 +27,22 @@
         </ul>
         </nav>
 
+        <!-- theme switch color  -->
+        <div class="color--select">
+            <input type="checkbox" id="darkmode-toggle" class="color-input" value="ligth" />
+            <label for="darkmode-toggle" class="color--label">
+                <svg class="sun">
+                    <use href="/src/images/icons/icons.svg#icon-sun"></use>
+                </svg>
+        
+                <svg class="moon">
+                    <use href="/src/images/icons/icons.svg#icon-moon"></use>
+                </svg>
+            </label>
+        
+            <div class="background"></div>
+        </div>
+
         <!-- search form -->
         <form class="search-form">
             <label>
@@ -47,38 +63,37 @@
         <p class="search-form__error" data-text="searchForm">
             Search result not successful. Enter the correct movie name and try again
         </p>
-    </div>
 
-    <!-- filters for content -->
-    <form class=" is-hidden" id="filter-form">
-        <ul class="filters">
-        <li class="filters__list">
-            <select class="js-filter-vote_average filters__item">
-            <option value="" selected>Rating</option>
-            <option value="10">10</option>
-            <option value="9">9+</option>
-            <option value="8">8+</option>
-            <option value="7">7+</option>
-            <option value="6">6+</option>
-            <option value="5">5+</option>
-            <option value="4">4+</option>
-            <option value="3">3+</option>
-            <option value="2">2+</option>
-            <option value="1">1+</option>
-            </select>
-        </li>
-        <li class="filters__list">
-            <select class="js-filter-years filters__item">
-            <option value="" selected>Date</option>
-            </select>
-        </li>
-        </ul>
-    </form>
-    
-    <!-- modal window for search offer -->    
-    <div class="modal-offer">
-        <ul class="input-offer__list">               
-        </ul> 
-    </div>
+        <!-- filters for content -->
+        <form class=" is-hidden" id="filter-form">
+            <ul class="filters">
+                <li class="filters__list">
+                    <select class="js-filter-vote-average filters__item">
+                        <option value="" selected>Rating</option>
+                        <option value="10">10</option>
+                        <option value="9">9+</option>
+                        <option value="8">8+</option>
+                        <option value="7">7+</option>
+                        <option value="6">6+</option>
+                        <option value="5">5+</option>
+                        <option value="4">4+</option>
+                        <option value="3">3+</option>
+                        <option value="2">2+</option>
+                        <option value="1">1+</option>
+                    </select>
+                </li>
+                <li class="filters__list">
+                    <select class="js-filter-years filters__item">
+                        <option value="" selected>Date</option>
+                    </select>
+                </li>
+            </ul>
+        </form>
+        
+        <!-- modal window for search offer -->
+        <div class="modal-offer">
+            <ul class="input-offer__list">
+            </ul>
+        </div>
     </div>
 </header>
