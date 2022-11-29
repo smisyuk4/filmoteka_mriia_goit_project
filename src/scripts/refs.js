@@ -11,5 +11,5 @@ export const refs = {
   container: document.querySelector('[data-film-table-list]'),
 
   //color switcher
-  colorSelector: document.querySelector(".color-input"),
+  colorSelector: document.querySelector(".color--input"),
 };
