@@ -27,6 +27,16 @@ export class Filmoteka {
     });
   }
 
+  async fetchMovieGenres() {
+    const BASE_URL = 'https://api.themoviedb.org/3';
+    const API_KEY = '2e329d861e790504d655e6d7175d4c52';
+
+    const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
+    return await axios.get(url).then(response => {
+      return response.data;
+    });
+  }
+
   get query() {
     return this.searchQuery;
   }

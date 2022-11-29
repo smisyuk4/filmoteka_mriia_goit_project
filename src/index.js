@@ -1,6 +1,7 @@
 import { refs } from './scripts/refs';
 import { Filmoteka } from './scripts/fetch-api';
 import { setLagnuage, changeLagnuage } from './scripts/changeLagnuage';
+
 import './scripts/get-tranding';
 import './scripts/find-by-name';
 import './scripts/find-by-id';
@@ -56,3 +57,5 @@ function initFilterHendler() {
 }
 initFilterHendler();
 
+
+sliderInit();
