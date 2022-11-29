@@ -10,7 +10,7 @@ function setLagnuage() {
  
   const language = localStorage.getItem("siteOptions");
 
-  // console.log(language);
+  // console.log(translateCheckboxRef.checked);
 
   let parseLanguage
 
@@ -18,6 +18,7 @@ function setLagnuage() {
     parseLanguage = eng;
   }
   if (language === "ua") {
+    translateCheckboxRef.checked = true;
     parseLanguage = ua;
   }
 
