@@ -1,6 +1,7 @@
 import { refs } from './scripts/refs';
 import { Filmoteka } from './scripts/fetch-api';
 import { setLagnuage, changeLagnuage } from './scripts/changeLagnuage';
+
 import './scripts/get-tranding';
 import './scripts/find-by-name';
 import './scripts/find-by-id';
@@ -16,6 +17,7 @@ import { FireBaseData } from './scripts/firebase-auth';
 import { hidenButton, upClick } from './scripts/scroll-up';
 import { changeColor, initialTheme } from './scripts/color-select';
 import Notiflix from 'notiflix';
+import { sliderInit } from './scripts/slider';
 
 window.filmoteka = new Filmoteka();
 window.fireBase = new FireBaseData();
@@ -45,3 +47,5 @@ initialTheme('light-color');
 // window.addEventListener("load",() => { initialTheme('light-color') });
 refs.colorSelector.addEventListener('click', changeColor);
 
+
+sliderInit();
