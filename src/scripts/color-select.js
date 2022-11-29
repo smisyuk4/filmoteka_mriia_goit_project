@@ -3,22 +3,33 @@ import {refs} from './refs'
 // console.log(colorSelectorRef);
 
 function changeColor() {
+
+    const color = localStorage.getItem('theme');
+
+//   console.log(color);
+
+  if (color === "dark") {
+      initialTheme("dark-color");
+      refs.colorSelector.value = "dark";
+  }
+  if (color === "light") {
+      initialTheme("light-color");
+      refs.colorSelector.value = "light";
+  }
   
   if (refs.colorSelector.checked) {
-      refs.colorSelector.value = "dark";
-      document.body.style.background = "grey";
-    //   initialTheme(".dark-color");
+    //   document.body.style.background = "grey";
+      initialTheme("dark-color");
   } else {
-      refs.colorSelector.value = "light";
-      document.body.style.background = "white";
-    //   initialTheme(".light-color");
+    //   document.body.style.background = "white";
+      initialTheme("light-color");
   }
 
 };
 
 function initialTheme(themeName) {
-    // localStorage.setItem('theme', themeName)
+    localStorage.setItem('theme', themeName)
     document.documentElement.classList = themeName
 }
 
-export { changeColor };
+export { changeColor, initialTheme };
