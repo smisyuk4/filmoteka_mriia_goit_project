@@ -16,7 +16,11 @@
         padding: 5px;
         border: 1px solid $mainWhiteColor;
 
-        &__item .film-card__img{
+        &__item.film-card__img{
+           height: auto;
+        }
+
+        &__item.film-card__box-img{
            height: auto;
         }
     }
