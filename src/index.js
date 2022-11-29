@@ -1,6 +1,15 @@
 import { refs } from './scripts/refs';
 import { Filmoteka } from './scripts/fetch-api';
 import { setLagnuage, changeLagnuage } from './scripts/changeLagnuage';
+import { MovieLibrary } from './scripts/library-scripts';
+import { FireBaseData } from './scripts/firebase-auth';
+import { hidenButton, upClick } from './scripts/scroll-up';
+import { changeColor, initialTheme } from './scripts/color-select';
+import FilterHendler from './scripts/filter';
+import { initTrending } from './scripts/get-tranding';
+import { sliderInit } from './scripts/slider'
+
+import Notiflix from 'notiflix';
 
 import './scripts/get-tranding';
 import './scripts/find-by-name';
@@ -11,14 +20,6 @@ import './scripts/firebase-auth';
 import './scripts/input-offer';
 import './scripts/modal-film';
 import './scripts/modal-team';
-
-import { MovieLibrary } from './scripts/library-scripts';
-import { FireBaseData } from './scripts/firebase-auth';
-import { hidenButton, upClick } from './scripts/scroll-up';
-import { changeColor, initialTheme } from './scripts/color-select';
-import Notiflix from 'notiflix';
-import FilterHendler from './scripts/filter';
-import { initTrending } from './scripts/get-tranding';
 
 window.filmoteka = new Filmoteka();
 window.fireBase = new FireBaseData();

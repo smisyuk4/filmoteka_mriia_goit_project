@@ -8,7 +8,7 @@ const TIME_DELAY = 500
 refs.searchInput.addEventListener('input', throttle(onChangeInput, TIME_DELAY))
 
 async function onChangeInput(event) {    
-    const inputValue = event.target.value
+    const inputValue = event.target.value.trim()
 
     if (inputValue.length < 3) {
         refs.searchInput.classList.add('not-valid')
