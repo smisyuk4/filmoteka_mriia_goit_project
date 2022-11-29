@@ -1,13 +1,19 @@
 .table-list {
     display: flex;
     flex-wrap: wrap;
+    
+    @media screen and (max-width: 767px) {
+        max-width: 320px;
+    }
+    
 }
 
 .table-item {
     
-    @media screen and (max-width: 768px) {
-        max-width: 450px;
+    @media screen and (max-width: 767px) {
+        max-width: 280px;
         margin: 0 auto calc($dst-between / 2) auto;
+        // flex-basis: calc(100% / 1 - $dst-between);
     }
 
     @media screen and (min-width: 768px) {
