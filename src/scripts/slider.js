@@ -91,7 +91,6 @@ const track = document.querySelector('.slider__track');
 const btnPrev = document.querySelector('.btn-prev');
 const btnNext = document.querySelector('.btn-next');
 const itemsHtml = await initItem();
-debugger;
 const jsSliderContainer = document.querySelector('.js-slider-container');
 jsSliderContainer.innerHTML = itemsHtml;
 const items = document.querySelectorAll('.slider__item');
