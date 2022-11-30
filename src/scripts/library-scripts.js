@@ -39,10 +39,11 @@ export class MovieLibrary {
 			Notify.info('Movie already in watched');
 			return;
 		}
+		this.param.option = `/movie/${id}`;
 		window.filmoteka.fetchFilms(this.param)
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
-				const genreNames = genres.map(el => el.name).join(", ")
+				let genreNames = genres.map(el => el.name).join(", ")
 				this.watched[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
 				if (notify) Notify.success('Movie added to watched');
@@ -61,7 +62,7 @@ export class MovieLibrary {
 		window.filmoteka.fetchFilms(this.param)
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
-				const genreNames = genres.map(el => el.name).join(", ")
+				let genreNames = genres.map(el => el.name).join(", ")
 				this.queue[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
 				if (notify) Notify.success('Movie added to queue');

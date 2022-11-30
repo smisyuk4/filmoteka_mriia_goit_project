@@ -7,22 +7,19 @@
     transition: all 0.5s ease-in-out;
     z-index: 100;
 }
-
-.modal-film__card-content {
-    display: flex;
+.modal-film__card{
     width: 280px;
     min-height: 700px;
-    padding: 48px 20px 40px 20px;
+    max-height: 80vh;
     position: absolute;
-    background-color: $mainWhiteColor;
-    top: 0;
-    left: 0;
-    transform: translate(-150%);
-
+    top: 50%;
+    left: 50%;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 48px 20px 40px 20px;
+    background-color: $mainWhiteColor;
+    transform: translate(-50%, -50%);
     transition: all 0.2s ease 0.2s;
-
     @media screen and(min-width: 768px) and (max-width: 1279px) {
         width: 704px;
         min-height: 450px;
@@ -39,6 +36,9 @@
         padding: 40px 12px 40px 12px;
     }
 }
+.modal-film__card-content {
+    display: flex;
+}
 
 .modal-film__close-btn {
     position: absolute;
@@ -54,6 +54,7 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    z-index: 112;
 }
 
 .modal-film__close-icon {
