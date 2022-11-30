@@ -1,44 +1,4 @@
-// import Glide from '@glidejs/glide';
-// import filmsCardSliderTpl from '../templates/films-slider.hbs';
-// import trailer from './trailers.js';
-// const sliderContainer = document.querySelector('.js-slider-container');
-// renderTrendy();
 
-// import { async } from "@firebase/util";
-// import { assign } from "lodash";
-
-// const glide = new Glide('.glide', {
-//   type: 'slider',
-//   startAt: 0,
-//   perView: 8,
-//   autoplay: 2000,
-//   hoverpause: true,
-//   bound: true,
-// });
-
-// glide.mount();
-
-// function renderTrendy() {
-//   const url = `https://api.themoviedb.org/32e329d861e790504d655e6d7175d4c52`;
-//   return fetch(url)
-//     .then(response => response.json())
-//     .then(({ results }) => {
-//       return results;
-//     })
-//     .then(renderSliderFilms)
-//     .catch(err => {
-//       sliderContainer.innerHTML = `<img class="catch-error-pagination" src="${errorUrl}" />`;
-//     });
-// }
-
-// function renderSliderFilms(articles) {
-//   sliderContainer.innerHTML = filmsCardSliderTpl(articles);
-//   trailer.createTrailerLink(document.querySelectorAll('.btn-youtube-slider'));
-// }
-
-
-// =============
-// ===============
  async function initItem () {
     const filmoteka = window.filmoteka;    
 
@@ -50,7 +10,7 @@
     }
 
         let moviesResult = await filmoteka.fetchFilms(valueObj);
-        let genresResult = await filmoteka.fetchMovieGenres();
+        // let genresResult = await filmoteka.fetchMovieGenres();
     
                 let ietmsHtml = '';
 
@@ -61,10 +21,9 @@
                     }
         
                    ietmsHtml += `<li class="slider__item">
-                   <img src="${trendingPoster}" alt="poster" >
-                   <div class="film-card__box-info">
-                     <h3 class="film-card__title">${movie.original_title}</h3>
-                     <p class="film-card__text">${mapGenresI(movie, genresResult.genres)} | ${movie.release_date}<span class="film-card__rating">${movie.vote_average.toFixed(1)}</span></p>
+                   <img class="slider-film__img" src="${trendingPoster}" alt="poster" loading="lazy"; >
+                   <div class="film-card__box-info slider-film__title">
+                     <h3 class="film-card__title ">${movie.original_title}</h3>
                    </div>
                          </li>`;
         
@@ -83,15 +42,14 @@ function mapGenresI(movie, genresList) {
 export async function sliderInit () {
 
     let position = 0;
-const slidesToShow = 6;
-const slidesToScroll = 3;
+const slidesToShow = 7;
+const slidesToScroll = 1;
 const container = document.querySelector('.slider-container');
 const track = document.querySelector('.slider__track');
 // const item = document.querySelector('.slider-item');
 const btnPrev = document.querySelector('.btn-prev');
 const btnNext = document.querySelector('.btn-next');
 const itemsHtml = await initItem();
-debugger;
 const jsSliderContainer = document.querySelector('.js-slider-container');
 jsSliderContainer.innerHTML = itemsHtml;
 const items = document.querySelectorAll('.slider__item');
