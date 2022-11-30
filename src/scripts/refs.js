@@ -12,7 +12,11 @@ export const refs = {
   
 
   container: document.querySelector('[data-film-table-list]'),
-
+  modalOverlay: document.querySelector('.modal-film__card-overlay'),
+  containerModal: document.querySelector('[data-modal-content]'),
   //color switcher
   colorSelector: document.querySelector('.color--input'),
+  //login
+  login: document.querySelector('.login-btn'),
+  //сонтейнер карток з фільмами
 };

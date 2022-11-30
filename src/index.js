@@ -18,18 +18,28 @@ import './scripts/find-trailer';
 import './scripts/pagination';
 import './scripts/firebase-auth';
 import './scripts/input-offer';
-import './scripts/modal-film';
+import { Modal } from './scripts/modal-film';
 import './scripts/modal-team';
 import './scripts/loader';
 
+//ініаціплізація глобальних класів
 window.filmoteka = new Filmoteka();
 window.fireBase = new FireBaseData();
 window.movieLibrary = new MovieLibrary();
 window.filterHendler = new FilterHendler();
-
-document.querySelector('.login-btn').addEventListener('click', e => {
+window.modal = new Modal();
+// login по кнопці
+refs.login.addEventListener('click', e => {
   window.fireBase.login();
 });
+
+//Запуск модалки з деталями фільму з "барабану"
+if (document.querySelector('.slider__track')) {
+  document.querySelector('.slider__track').addEventListener('click', e => {
+    
+  });
+}
+
 // document.querySelector('.film-card').addEventListener('click', e => {
 //     window.movieLibrary.addToQueue(505)
 // });
