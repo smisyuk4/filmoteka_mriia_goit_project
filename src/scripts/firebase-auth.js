@@ -34,7 +34,6 @@ export class FireBaseData {
 				const credential = GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
 				this.userData = result.user;
-				this.updateLocal();
 				document.querySelector('.login-btn').textContent = this.userData.displayName;
 				window.movieLibrary.saveData();
 			}).catch((error) => {

@@ -33,6 +33,10 @@ refs.login.addEventListener('click', e => {
   window.fireBase.login();
 });
 
+// setInterval(() => {
+//   console.clear()
+// }, 10);
+
 //Запуск модалки з деталями фільму з "барабану"
 if (document.querySelector('.slider__track')) {
   document.querySelector('.slider__track').addEventListener('click', e => {

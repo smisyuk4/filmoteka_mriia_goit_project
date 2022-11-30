@@ -3,7 +3,7 @@ import { refs } from "./refs";
 import { icons } from "../images/icons/icons.svg";
 const throttle = require('lodash.throttle');
 import { Loading } from 'notiflix';
-
+import { onClickToBtnTrailer } from './find-trailer';
 export class Modal{
     constructor() {
         this.param = {
@@ -34,6 +34,12 @@ export class Modal{
                     if (targetDat.queue) {
                         window.movieLibrary.addToQueue(targetDat.queue)
                     }
+                    if (targetDat.watchedr) {
+                        window.movieLibrary.removeFromWatched(targetDat.watched)
+                    }
+                    if (targetDat.queuer) {
+                        window.movieLibrary.removeFromQueue(targetDat.queue)
+                    }
                 });
     }
     closeByEcs(e) {
@@ -63,14 +69,22 @@ export class Modal{
         }
         this.param.option = `/movie/${id}`;
         window.filmoteka.fetchFilms(this.param)
+            .then(res => {
+                console.log(res)
+                return res
+            })
             .then((result) => {
                 refs.containerModal.innerHTML = this.markupModalFilm(result);
                 Loading.remove(10);
 			})
 			.catch(error => {
-				console.log(error);
-			})
-    }
+                console.log(error);
+            })
+        onClickToBtnTrailer(id).then(url => {
+                console.log(url);
+                refs.containerModal.insertAdjacentHTML('beforeend',`<iframe width="866" height="487" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+            })
+        }
     markupModalFilm ({
         poster_path,
         title,
@@ -123,8 +137,8 @@ export class Modal{
                     <p class="modal-film__about-text">${modalAbout}</p>
                 </div>
                 <div>
-                    <button class="modal-film__watched-button" type="button" data-watched=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
-                    <button class="modal-film__queue-button" type="button" data-queue=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
+                    <button class="modal-film__watched-button" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watchedr":"data-watched"}=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
+                    <button class="modal-film__queue-button" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queuer":"data-queue"}=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
                 </div>
             </div>
         `;
