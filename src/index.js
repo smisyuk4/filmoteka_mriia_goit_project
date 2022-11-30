@@ -7,7 +7,7 @@ import { hidenButton, upClick } from './scripts/scroll-up';
 import { changeColor, initialTheme } from './scripts/color-select';
 import FilterHendler from './scripts/filter';
 import { initTrending } from './scripts/get-tranding';
-import { sliderInit } from './scripts/slider'
+import { sliderInit } from './scripts/slider';
 
 import Notiflix from 'notiflix';
 
@@ -20,6 +20,7 @@ import './scripts/firebase-auth';
 import './scripts/input-offer';
 import './scripts/modal-film';
 import './scripts/modal-team';
+import './scripts/loader';
 
 window.filmoteka = new Filmoteka();
 window.fireBase = new FireBaseData();
@@ -52,11 +53,10 @@ initTrending();
 function initFilterHendler() {
   let rating = document.querySelector('#rating-filter');
   rating.addEventListener('change', window.filterHendler.ratingFilterOnChenge);
-  
+
   let date = document.querySelector('#date-filter');
   date.addEventListener('change', window.filterHendler.dataFilterOnChange);
 }
 initFilterHendler();
-
 
 sliderInit();
