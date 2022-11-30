@@ -75,18 +75,21 @@ export class MovieLibrary {
 			delete this.watched[id];
 			this.#updateStorage("Watched_List", this.watched);
 			Notify.success('Movie deleted from watched');
-			return
+			
+			return;
+		} else {
+			Notify.warning('Movie not found in watched');
 		}
-		Notify.warning('Movie not found in watched');
 	}
 	removeFromQueue(id) {
 		if (this.isQueue(id)) {
 			delete this.queue[id];
 			this.#updateStorage("Queue_List", this.queue);
 			Notify.success('Movie deleted from queue');
-			return
+			return;
+		} else {
+			Notify.warning('Movie not found in queue');
 		}
-		Notify.warning('Movie not found in queue');
 	}
 
 	getWatched() {

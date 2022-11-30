@@ -27,18 +27,26 @@ export class Modal{
                         refs.modalOverlay.classList.add('visually-hidden');
                         document.body.classList.remove('no-scroll')
                         refs.modalOverlay.dataset.modal = 0;
+            }
+                    if (targetDat.watched=='add') {
+                        window.movieLibrary.addToWatched(targetDat.fid)
+                        refs.containerModal.querySelector('.modal-film__watched-button').dataset.watched='remove'
+                        refs.containerModal.querySelector('.modal-film__watched-button').innerHTML = "remove from watched"
                     }
-                    if (targetDat.watched) {
-                        window.movieLibrary.addToWatched(targetDat.watched)
+                    if (targetDat.queue=="add") {
+                        window.movieLibrary.addToQueue(targetDat.fid)
+                        refs.containerModal.querySelector('.modal-film__queue-button').dataset.queue='remove'
+                        refs.containerModal.querySelector('.modal-film__queue-button').innerHTML = "remove from queue"
                     }
-                    if (targetDat.queue) {
-                        window.movieLibrary.addToQueue(targetDat.queue)
+                    if (targetDat.watched=='remove') {
+                        window.movieLibrary.removeFromWatched(targetDat.fid)
+                        refs.containerModal.querySelector('.modal-film__watched-button').dataset.watched='add'
+                        refs.containerModal.querySelector('.modal-film__watched-button').innerHTML = "add to watched"
                     }
-                    if (targetDat.watchedr) {
-                        window.movieLibrary.removeFromWatched(targetDat.watched)
-                    }
-                    if (targetDat.queuer) {
-                        window.movieLibrary.removeFromQueue(targetDat.queue)
+                    if (targetDat.queue=='remove') {
+                        window.movieLibrary.removeFromQueue(targetDat.fid)
+                        refs.containerModal.querySelector('.modal-film__queue-button').dataset.queue='add'
+                        refs.containerModal.querySelector('.modal-film__queue-button').innerHTML = "add to queue"
                     }
                 });
     }
@@ -80,10 +88,10 @@ export class Modal{
 			.catch(error => {
                 console.log(error);
             })
-        onClickToBtnTrailer(id).then(url => {
-                console.log(url);
-                refs.containerModal.insertAdjacentHTML('beforeend',`<iframe width="866" height="487" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
-            })
+        // onClickToBtnTrailer(id).then(url => {
+        //         console.log(url);
+        //         refs.containerModal.insertAdjacentHTML('beforeend',`<iframe width="866" height="487" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
+        //     })
         }
     markupModalFilm ({
         poster_path,
@@ -137,8 +145,8 @@ export class Modal{
                     <p class="modal-film__about-text">${modalAbout}</p>
                 </div>
                 <div>
-                    <button class="modal-film__watched-button" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watchedr":"data-watched"}=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
-                    <button class="modal-film__queue-button" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queuer":"data-queue"}=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
+                    <button class="modal-film__watched-button" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watched='remove'":"data-watched='add'"} data-fid=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
+                    <button class="modal-film__queue-button" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queue='remove'":"data-queue='add'"} data-fid=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
                 </div>
             </div>
         `;
