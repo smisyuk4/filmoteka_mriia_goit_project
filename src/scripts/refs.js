@@ -9,9 +9,9 @@ export const refs = {
   searchBtn: document.querySelector('.search-btn'),
   modalOffer: document.querySelector('.input-offer__list'),
   massages: document.querySelector('.search-form__error'),
-  
 
   container: document.querySelector('[data-film-table-list]'),
+  boxNumbersPage: document.querySelector('.container__numbers-page'),
 
   //color switcher
   colorSelector: document.querySelector('.color--input'),
