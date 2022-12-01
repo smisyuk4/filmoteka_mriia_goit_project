@@ -1,7 +1,7 @@
 
 .btn-up {
     position: fixed;
-    background-color: #FF6B08;
+    background-color: var(--cardText);
     right: 20px;
     bottom: 10px;
     border-radius: 50%;
@@ -29,7 +29,7 @@
 
 @media (hover: hover) and (pointer: fine) {
     .btn-up:hover {
-        background-color: #ff6b08a2;
+        background-color: var(--cardTextOpac);
     }
 }
 

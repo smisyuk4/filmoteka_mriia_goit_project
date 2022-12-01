@@ -19,15 +19,15 @@
     }
     
     &__numbers-item.is-active-page {
-        background-color: #FF6B08;
-        color: white;
+        background-color: var(--cardText);
+        color: var(--mainWhiteColor);
     }
 
     &__numbers-item:hover {
-        background-color: #F7F7F7;
+        background-color: var(--thirdColor);
     }
     &__numbers-item.is-active-page:hover {
-        background-color: #FF6B08;
+        background-color: var(--cardText);
     }
     
     &__numbers-span {
@@ -39,14 +39,14 @@
         height: 40px;
         position: relative;
         border-radius: 5px;
-        background-color: #F7F7F7;
+        background-color: var(--thirdColor);
         font-size: 0;
         transition: background-color 250ms linear;
         cursor: pointer;
     }
 
     &__numbers-arrow-box:hover {
-        background-color: #FF6B08;
+        background-color: var(--cardText);
     }
 
     &__numbers-arrow-box:hover &__numbers-arrow-left, 
@@ -55,7 +55,7 @@
     &__numbers-arrow-box:hover &__numbers-arrow-right::after,  
     &__numbers-arrow-box:hover &__numbers-arrow-left::before, 
     &__numbers-arrow-box:hover &__numbers-arrow-right::before{
-        background-color: white;
+        background-color: var(--mainWhiteColor);
     }
     
     &__numbers-arrow-left, 
@@ -69,7 +69,8 @@
         width: 10px;
         height: 2px;
         border-radius: 1px;
-        background-color: black;
+        background-color: var(--mainBlackColor);
+        fill: var(--mainWhiteColor);
     }
     &__numbers-arrow-left {
         top: 50%;
