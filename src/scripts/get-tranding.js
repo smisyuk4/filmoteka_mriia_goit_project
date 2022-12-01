@@ -1,23 +1,28 @@
-// description: https://developers.themoviedb.org/3/trending/get-trending
-// example: https://api.themoviedb.org/3/trending/movie/day?api_key=2e329d861e790504d655e6d7175d4c52
-
-import { Filmoteka } from './fetch-api';
+// import { Filmoteka } from './fetch-api';
 import './pagination';
 import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
+import { markupNumberPages } from './pagination';
+import { doActiveNumberPage } from './pagination';
+// import { doArrowPages } from './pagination';
+import { refs } from './refs';
 
-let page = 1;
-export function initTrending() {
-
-getTranding().then(trandingToday => {
- console.log(trandingToday);
-
- clearMurkup();
- createFilmCardMarkup(trandingToday.results);
-});
+export function initTrending(page) {
+  getTranding(page)
+    .then(trandingToday => {
+      clearMurkup();
+      createFilmCardMarkup(trandingToday.results);
+      return trandingToday;
+    })
+    .then(trandingToday => {
+      console.log(trandingToday);
+      markupNumberPages(trandingToday);
+      doActiveNumberPage(trandingToday);
+      doArrowPages(trandingToday);
+    });
 }
 
-async function getTranding() {
+async function getTranding(page = 1) {
   const filmoteka = window.filmoteka;
   const OPTION_TRANDING = '/trending/movie/day';
   const valueObj = {
@@ -31,4 +36,28 @@ async function getTranding() {
   } catch (error) {
     console.log(error);
   }
+}
+
+refs.boxNumbersPage.addEventListener('click', selectPage);
+
+function selectPage(event) {
+  if (event.target.nodeName === 'LI') {
+    initTrending(event.target.textContent);
+  }
+}
+
+function doArrowPages({ page, total_pages }) {
+  refs.boxNumbersPage.firstElementChild.addEventListener('click', () => {
+    let numPage = page;
+    if (numPage > 1) {
+      initTrending(numPage - 1);
+    }
+  });
+  refs.boxNumbersPage.lastElementChild.addEventListener('click', () => {
+    let numPage = page;
+    let allPages = total_pages;
+    if (numPage < allPages) {
+      initTrending(numPage + 1);
+    }
+  });
 }
