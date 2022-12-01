@@ -1,0 +1,21 @@
+.marquee-wrapper {
+    display: flex;
+    padding-top: 15px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee-wrapper:after {
+    position: absolute;
+    content: ' ';
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent,);
+  }
+  
+  .marquee {
+        white-space: nowrap;
+  }

@@ -11,6 +11,7 @@ import './scripts/firebase-auth';
 import './scripts/input-offer';
 import './scripts/modal-film';
 import './scripts/modal-team';
+import './scripts/marquee';
 
 import { MovieLibrary } from './scripts/library-scripts';
 import { FireBaseData } from './scripts/firebase-auth';
