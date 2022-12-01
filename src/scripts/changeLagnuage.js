@@ -14,15 +14,17 @@ function setLagnuage() {
   // console.log(translateCheckboxRef.checked);
 
   let parseLanguage
-
-  if (language === "eng") {
-    parseLanguage = eng;
-    translateCheckboxRef.value = "eng";
-  }
-  if (language === "ua") {
-    translateCheckboxRef.checked = true;
-    translateCheckboxRef.value = "ua";
-    parseLanguage = ua;
+  if (searchFormInputRef !== null) {
+    if (language === "eng") {
+      parseLanguage = eng;
+      translateCheckboxRef.value = "eng";
+    }
+    if (language === "ua") {
+    
+      translateCheckboxRef.checked = true;
+      translateCheckboxRef.value = "ua";
+      parseLanguage = ua;
+    }
   }
 
   document.querySelectorAll('[data-text]')
@@ -30,7 +32,8 @@ function setLagnuage() {
 
   
   // console.log(searchFormInputRef.placeholder);
-  // searchFormInputRef.placeholder = parseLanguage["searchInput"];
+  if (searchFormInputRef !==null){
+   searchFormInputRef.placeholder = parseLanguage["searchInput"];}
 };
 
 function changeLagnuage() {
