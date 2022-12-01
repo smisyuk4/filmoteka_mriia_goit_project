@@ -40,4 +40,22 @@
 
 .icon-heart{
     padding: 0 10px;
+    fill: rgba(255, 107, 8, 1);
+    animation-name: changeColor;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
 }
+
+@keyframes changeColor {
+    0% {
+        fill: rgba(255, 107, 8, 0.5);
+    }
+  
+    50% {
+        fill: rgba(255, 107, 8, 1);
+    }
+  
+    100% {
+        fill: rgba(255, 107, 8, 0.5);
+    }
+  }
