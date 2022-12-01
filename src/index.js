@@ -4,7 +4,7 @@ import { setLagnuage, changeLagnuage } from './scripts/changeLagnuage';
 import { MovieLibrary } from './scripts/library-scripts';
 import { FireBaseData } from './scripts/firebase-auth';
 import { hidenButton, upClick } from './scripts/scroll-up';
-import { changeColor, initialTheme } from './scripts/color-select';
+import { changeColor, setColor } from './scripts/color-select';
 import FilterHendler from './scripts/filter';
 import { initTrending } from './scripts/get-tranding';
 import { sliderInit } from './scripts/slider';
@@ -59,7 +59,7 @@ document.querySelector('.translate').addEventListener('click', () => {
 });
 
 // Функція зміни кольору
-initialTheme('light-color');
+setColor();
 refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object
 initTrending();

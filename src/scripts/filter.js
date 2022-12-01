@@ -7,7 +7,7 @@ export default class FilterHendler {
         let startYear = 1900;
         let endYear = new Date().getFullYear();
         const yearsList = () => {
-            let str = `<option value="" selected>Years</option>`;
+            let str = `<option value="" selected data-text="yearsFilter">Years</option>`;
             for (let i = endYear; i >= startYear; i -= 1) {
                 str += `<option value="${i}">${i}</option>`;
             }
