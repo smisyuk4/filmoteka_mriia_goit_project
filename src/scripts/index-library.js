@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import { setLagnuage, changeLagnuage } from './changeLagnuage';
 import { hidenButton, upClick } from './scroll-up';
-import { changeColor, initialTheme } from './color-select';
+import { changeColor, setColor } from './color-select';
 
 window.addEventListener('scroll', hidenButton);
 document.querySelector('.btn-up').addEventListener('click', upClick);
@@ -11,7 +11,7 @@ setLagnuage(); //для першого відображення тексту, п
 document.querySelector('.translate').addEventListener('click', changeLagnuage);
 
 // Функція зміни кольору
-initialTheme('light-color');
+setColor();
 refs.colorSelector.addEventListener('click', changeColor);
-// call on init to share window.filmoteka object
+// call on init to share window.filmoteka object setLagnuageLibrary
 
