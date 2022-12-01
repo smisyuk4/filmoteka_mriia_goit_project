@@ -14,6 +14,12 @@ const ua = {
   popularity: "Популярність",
   title: "Оригінальна назва",
   genre: "Жанр",
+  searchInput: "пошук фільму",
+  ratingFilter: "Рейтинг",
+  yearsFilter: "Рік",
+  nextCat: "Наст",
+  prevCat: "Попр",
+  
 };
 
 const eng = {
@@ -31,6 +37,11 @@ const eng = {
   popularity: "Popularity",
   title: "Original Title",
   genre: "Genre",
+  searchInput: "movie search",
+  ratingFilter: "Rating",
+  yearsFilter: "Years",
+  nextCat: "next",
+  prevCat: "prev",
 };
 
 export { ua, eng };

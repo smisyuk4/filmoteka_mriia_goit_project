@@ -65,7 +65,7 @@ export class Filmoteka {
   };
 
   set dataFilter(date) {
-    if (date >= 1907) {
+    if (date >= 1900) {
       this._dateFilter = date;
     }
     if (date === undefined) {

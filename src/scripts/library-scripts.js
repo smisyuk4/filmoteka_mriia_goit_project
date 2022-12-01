@@ -39,10 +39,11 @@ export class MovieLibrary {
 			Notify.info('Movie already in watched');
 			return;
 		}
+		this.param.option = `/movie/${id}`;
 		window.filmoteka.fetchFilms(this.param)
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
-				const genreNames = genres.map(el => el.name).join(", ")
+				let genreNames = genres.map(el => el.name).join(", ")
 				this.watched[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
 				if (notify) Notify.success('Movie added to watched');
@@ -61,7 +62,7 @@ export class MovieLibrary {
 		window.filmoteka.fetchFilms(this.param)
 			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
-				const genreNames = genres.map(el => el.name).join(", ")
+				let genreNames = genres.map(el => el.name).join(", ")
 				this.queue[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
 				if (notify) Notify.success('Movie added to queue');
@@ -74,18 +75,21 @@ export class MovieLibrary {
 			delete this.watched[id];
 			this.#updateStorage("Watched_List", this.watched);
 			Notify.success('Movie deleted from watched');
-			return
+			
+			return;
+		} else {
+			Notify.warning('Movie not found in watched');
 		}
-		Notify.warning('Movie not found in watched');
 	}
 	removeFromQueue(id) {
 		if (this.isQueue(id)) {
 			delete this.queue[id];
 			this.#updateStorage("Queue_List", this.queue);
 			Notify.success('Movie deleted from queue');
-			return
+			return;
+		} else {
+			Notify.warning('Movie not found in queue');
 		}
-		Notify.warning('Movie not found in queue');
 	}
 
 	getWatched() {

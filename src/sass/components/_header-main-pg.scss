@@ -60,10 +60,12 @@
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;
+    overflow: hidden;
 
-    &-icon{
+    &-icon{            
         fill: transparent;
         stroke: currentColor;
+        animation: moveCinema 1.5s infinite;
     }
 
     &-name {
@@ -73,6 +75,27 @@
             display: inline;
         }
     }
+}
+
+.cinema {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes moveCinema {
+    from {
+        transform: translateY(-40);        
+    }
+
+    to {
+        transform: translateY(40);       
+    }
+}
+
+.logo:hover,
+.logo:focus{
+    color: $mainRedColor;
+    box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
 }
 
 .nav-list {
@@ -88,7 +111,8 @@
     font-size: 12px;
     line-height: 1.17;
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: $mainRedColor;
         box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
     }
@@ -105,7 +129,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translateY(30px);
+    transform: translateY(23px);
 
     @media screen and (min-width: 768px) {
         position: relative;
@@ -125,16 +149,18 @@
     letter-spacing: 1.7;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: $mainRedColor;       
     }   
 }
 
+// switcher lang
 .nav-item.nav-item--checkbox {
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translateX(-70px) translateY(30px);
+    transform: translateX(-60px) translateY(23px);
 
     @media screen and (min-width: 768px) {
         position: relative;
@@ -142,17 +168,27 @@
     }
 }
 
+// switcher color theme
+.nav-item.color--switcher{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-20px) translateY(52px);
+}
+
 .search-form {
     position: relative;  
     margin: 0 auto;
         
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 336px) {
         max-width: 336px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 394px) {
         max-width: 394px;
     }    
+
+    
 }
 
 .search-form__input {
@@ -175,9 +211,15 @@
         color: inherit;
     }
 
-        &.not-valid{
-            color: $mainRedColor;
-        }
+    &.not-valid{
+        color: $mainRedColor;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: rgba(255, 0, 0, 0.1);
+        box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
+    }
 }
 
 .search-form__error {
@@ -201,10 +243,10 @@
     background-color: inherit;
     border: none;
     color: $mainWhiteColor;
-
     cursor: pointer;
 
-    &:hover{
+    &:hover,
+    &:focus{
         color: $mainRedColor;        
     }   
 

@@ -1,35 +1,33 @@
 import {refs} from './refs'
-// const colorSelectorRef = document.querySelector(".color--input");
-// console.log(colorSelectorRef);
+const colorSelectorRef = document.querySelector(".color--input");
 
 function changeColor() {
 
-    const color = localStorage.getItem('theme');
-
-//   console.log(color);
-
-  if (color === "dark") {
-      initialTheme("dark-color");
-      refs.colorSelector.value = "dark";
-  }
-  if (color === "light") {
-      initialTheme("light-color");
-      refs.colorSelector.value = "light";
-  }
-  
   if (refs.colorSelector.checked) {
-    //   document.body.style.background = "grey";
-      initialTheme("dark-color");
+    colorSelectorRef.value = "dark";
+    localStorage.setItem("theme", "dark-color");
   } else {
-    //   document.body.style.background = "white";
-      initialTheme("light-color");
+    colorSelectorRef.value = "light";
+    localStorage.setItem("theme", "light-color");
   }
 
+    setColor()
+  
 };
 
-function initialTheme(themeName) {
-    localStorage.setItem('theme', themeName)
-    document.documentElement.classList = themeName
+function setColor() {
+
+  const color = localStorage.getItem('theme');
+  console.log(colorSelectorRef);
+  if (color === "dark-color") {
+    colorSelectorRef.checked = true;
+    colorSelectorRef.value = "dark";
+    document.documentElement.classList ="dark-color";
+    return
+  }
+  document.documentElement.classList = "light-color";
+  colorSelectorRef.value = "light";
 }
 
-export { changeColor, initialTheme };
+export { changeColor, setColor };
+

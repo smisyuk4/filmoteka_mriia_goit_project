@@ -5,8 +5,8 @@
             <nav class="nav">
             <a class="logo" href="/src/index.html">
                 <svg class="logo-icon" width="32" height="32">
-                <use href="/src/images/icons/icons.svg#icon-film"></use>
-                </svg>
+                    <use href="/src/images/icons/icons.svg#icon-film"></use>
+                </svg>             
                 <p class="logo-name">Filmoteka</p>
             </a>
 
@@ -27,6 +27,7 @@
                 <li class="nav-item nav-item--button">
                 <button class="login-btn" data-text="login">login</button>
                 </li>
+                <!-- switcher lang -->
                 <li class="nav-item nav-item--checkbox">
                 <input id="lang" type="checkbox" class="translate" value="eng" />
                 <label
@@ -39,29 +40,25 @@
                     >ua</label
                 >
                 </li>
-            </ul>
-            </nav>
-
-            <!-- theme switch color  -->
-            <div class="color--select">
-            <input
-                type="checkbox"
-                id="darkmode-toggle"
-                class="color--input"
-                value="ligth"
-            />
-            <label for="darkmode-toggle" class="color--label">
-                <svg class="sun">
-                <use href="/src/images/icons/icons.svg#icon-sun"></use>
-                </svg>
-
-                <svg class="moon">
-                <use href="/src/images/icons/icons.svg#icon-moon"></use>
-                </svg>
-            </label>
-
-            <div class="background"></div>
-            </div>
+                <!-- switcher color theme -->
+                <li class="nav-item color--switcher">
+                    <div class="color--select">
+                        <input type="checkbox" id="darkmode-toggle" class="color--input" value="ligth" />
+                        <label for="darkmode-toggle" class="color--label">
+                            <svg class="sun">
+                                <use href="/src/images/icons/icons.svg#icon-sun"></use>
+                            </svg>
+                    
+                            <svg class="moon">
+                                <use href="/src/images/icons/icons.svg#icon-moon"></use>
+                            </svg>
+                        </label>
+                    
+                        <div class="background"></div>
+                    </div>
+                </li>
+            </ul>               
+            </nav>           
 
             <!-- search form -->
             <form class="search-form">
@@ -84,11 +81,11 @@
 
 
             <!-- filters for content -->
-            <form class="is-hidden" id="filter-form">
+            <form id="filter-form">
             <ul class="filters">
                 <li class="filters__list">
                 <select id="rating-filter" class="filters__item">
-                    <option value="" selected>Rating</option>
+                    <option value="" selected data-text="ratingFilter">Rating</option>
                     <option value="10">10</option>
                     <option value="9">9+</option>
                     <option value="8">8+</option>

@@ -11,8 +11,15 @@ export const refs = {
   massages: document.querySelector('.search-form__error'),
 
   container: document.querySelector('[data-film-table-list]'),
+
   boxNumbersPage: document.querySelector('.container__numbers-page'),
+
+  modalOverlay: document.querySelector('.modal-film__card-overlay'),
+  containerModal: document.querySelector('[data-modal-content]'),
 
   //color switcher
   colorSelector: document.querySelector('.color--input'),
+  //login
+  login: document.querySelector('.login-btn'),
+  //сонтейнер карток з фільмами
 };
