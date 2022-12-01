@@ -17,13 +17,19 @@ export async function markupOffer(film) {
 
   try {
     const genresArr = await getGenres();
-    genresList = genresArr
-      .filter(film => genre_ids.includes(film.id))
-      .map(film => film.name)
-      .join(', ');
+      genresList = genresArr
+        .filter(film => genre_ids.includes(film.id))
+        .map(film => film.name)
+        .join(', ');
+
+    if (genresList === '') {
+      //додати умову перевірки мови
+      genresList = 'Need watch'
+      // genresList = 'Потрібно подивитись'
+    }    
   } catch (error) {
     console.log(error);
-  }
+  }  
 
   let imgLink;
   if (!poster_path) {
@@ -32,19 +38,17 @@ export async function markupOffer(film) {
     imgLink = `https://image.tmdb.org/t/p/w500${poster_path}`;
   }
 
-  return `<li class="input-offer__item" data-id="${id}">
-                <div class="film-card__box-img">
-                    <img class="film-card__img" src="${imgLink}" alt="${title}"
-                    loading="lazy" width="70">
-                </div>
-                    <div class="film-card__box-info">                        
-                        <h3 class="film-card__title">${original_title}</h3>
-                        <p class="film-card__text">${genresList}</p>
-                        <p id="release_date">
-                        ${release_date}<span class="film-card__rating">${vote_average}</span>
-                        </p>                      
-                    </div>              
-            </li>`;
+  return `<li class="input-offer__item" data-id="${id}">              
+              <img class="input-offer__img" src="${imgLink}" alt="${title}"
+              loading="lazy" width="70">              
+              <div class="input-offer__desc">                        
+                  <h3 class="input-offer__title">${original_title}</h3>
+                  <p class="input-offer__genres">${genresList}</p>
+                  <p id="release_date">
+                  ${release_date}<span class="film-card__rating input-offer__rating">${vote_average}</span>
+                  </p>                      
+              </div>              
+          </li>`;
 }
 
 // make link img https://image.tmdb.org/t/p/w500
