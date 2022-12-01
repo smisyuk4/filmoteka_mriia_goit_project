@@ -8,22 +8,22 @@
 @import './utils/no-scroll';
 
 @import './components/header-main-pg';
+@import './components/marquee.scss';
+@import './components/filter';
+@import './components/slider';
 @import './components/header-library-pg';
 @import './components/main';
 @import './components/film-cards';
-@import './components/filter';
 @import './components/footer';
-@import './components/slider';
 @import './components/pagination-nav';
 
 @import './components/modal-film';
 @import './components/modal-team';
-@import './components/modal-user';
 @import './components/header-main-modal';
 
 @import './utils/color-select';
 @import './utils/scroll-up';
 // translate
 @import './utils/translate.scss';
-@import './utils/marquee.scss';
+
 

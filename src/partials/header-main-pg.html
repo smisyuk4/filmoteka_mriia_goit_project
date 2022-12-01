@@ -1,87 +1,66 @@
 <header class="header">
-
+    <!-- news row -->
     <div class="marquee-wrapper">
-            <p class="marquee"> бегущая строка при помощи Javascript </p>
-          </div>
-    <div class="container">
-        <!-- navigation -->
-         
-        <nav class="nav">
-        <a class="logo" href="/src/index.html">
-            <svg class="logo-icon" width="32" height="32">
-                <use href="/src/images/icons/icons.svg#icon-film"></use>
-            </svg>
-            <p class="logo-name">Filmoteka</p>
-        </a>
-        <ul class="nav-list">
-            <li class="nav-item nav-item--active">
-                <a class="nav-link" href="/src/index.html" data-text="homeLink">home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/src/partials/library-pg.html" data-text="myLibraryLink">my library</a>
-            </li>
-            <li class="nav-item nav-item--button">
+        <p class="marquee"> бегущая строка при помощи Javascript </p>
+    </div>
 
+    <!-- container w/image -->
     <div class="header-bg">
         <div class="container">
             <!-- navigation -->
             <nav class="nav">
-            <a class="logo" href="/src/index.html">
-                <svg class="logo-icon" width="32" height="32">
-                    <use href="/src/images/icons/icons.svg#icon-film"></use>
-                </svg>             
-                <p class="logo-name">Filmoteka</p>
-            </a>
+                <a class="logo" href="/src/index.html">
+                    <svg class="logo-icon" width="32" height="32">
+                        <use href="/src/images/icons/icons.svg#icon-film"></use>
+                    </svg>             
+                    <p class="logo-name">Filmoteka</p>
+                </a>
 
-            <ul class="nav-list">
-                <li class="nav-item nav-item--active">
-                <a class="nav-link" href="/src/index.html" data-text="homeLink"
-                    >home</a
-                >
-                </li>
-                <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/src/partials/library-pg.html"
-                    data-text="myLibraryLink"
-                    >my library</a
-                >
-                </li>
-                <li class="nav-item nav-item--button">
+                <ul class="nav-list">
+                    <li class="nav-item nav-item--active">
+                        <a class="nav-link" href="/src/index.html" data-text="homeLink">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="/src/partials/library-pg.html"
+                            data-text="myLibraryLink">my library</a>
+                    </li>
 
-                <button class="login-btn" data-text="login">login</button>
-                </li>
-                <!-- switcher lang -->
-                <li class="nav-item nav-item--checkbox">
-                <input id="lang" type="checkbox" class="translate" value="eng" />
-                <label
-                    for="lang"
-                    class="translate-label eng nav-link"
-                    data-text="chengeLang"
-                    >en</label
-                >
-                <label for="lang" class="ua nav-link" data-text="chengeLang"
-                    >ua</label
-                >
-                </li>
-                <!-- switcher color theme -->
-                <li class="nav-item color--switcher">
-                    <div class="color--select">
-                        <input type="checkbox" id="darkmode-toggle" class="color--input" value="ligth" />
-                        <label for="darkmode-toggle" class="color--label">
-                            <svg class="sun">
-                                <use href="/src/images/icons/icons.svg#icon-sun"></use>
-                            </svg>
-                    
-                            <svg class="moon">
-                                <use href="/src/images/icons/icons.svg#icon-moon"></use>
-                            </svg>
-                        </label>
-                    
-                        <div class="background"></div>
-                    </div>
-                </li>
-            </ul>               
+                    <!-- authorization -->
+                    <li class="nav-item nav-item--button">
+                        <button class="login-btn" data-text="login">login</button>
+                    </li>
+
+                    <!-- switcher lang -->
+                    <li class="nav-item nav-item--checkbox">
+                        <input id="lang" type="checkbox" class="translate" value="eng" />
+                        <label
+                            for="lang"
+                            class="translate-label eng nav-link"
+                            data-text="chengeLang"
+                            >en</label>
+                        <label for="lang" class="ua nav-link" data-text="chengeLang"
+                            >ua</label>
+                    </li>
+
+                    <!-- switcher color theme -->
+                    <li class="nav-item color--switcher">
+                        <div class="color--select">
+                            <input type="checkbox" id="darkmode-toggle" class="color--input" value="ligth" />
+                            <label for="darkmode-toggle" class="color--label">
+                                <svg class="sun">
+                                    <use href="/src/images/icons/icons.svg#icon-sun"></use>
+                                </svg>
+                        
+                                <svg class="moon">
+                                    <use href="/src/images/icons/icons.svg#icon-moon"></use>
+                                </svg>
+                            </label>
+                        
+                            <div class="background"></div>
+                        </div>
+                    </li>
+                </ul>               
             </nav>           
 
             <!-- search form -->
@@ -96,7 +75,7 @@
 
                 <button class="search-btn" type="submit">
                     <svg class="search-btn__icon" width="32" height="32">
-                    <use href="/src/images/icons/icons.svg#icon-search"></use>
+                        <use href="/src/images/icons/icons.svg#icon-search"></use>
                     </svg>
                 </button>
 
