@@ -2,10 +2,12 @@ import { refs } from "/src/scripts/refs"
 import { Filmoteka } from "./fetch-api"
 import { markupOffer } from "./markup/markup-offer"
 
+
 const throttle = require('lodash.throttle');
 const TIME_DELAY = 500
 
 refs.searchInput.addEventListener('input', throttle(onChangeInput, TIME_DELAY))
+refs.modalOffer.addEventListener('click', onClickCardOffer)
 
 async function onChangeInput(event) {    
     const inputValue = event.target.value.trim()
@@ -47,5 +49,21 @@ async function onChangeInput(event) {
         refs.modalOffer.insertAdjacentHTML('beforeend', markup)
     } catch (error) {
         console.log(error)
+    }
+}
+
+function onClickCardOffer(e) {
+    console.log(e.target.nodeName)
+    console.log(e.currentTarget.nodeName)
+    if (e.target.nodeName === "IMG" || e.target.nodeName === "LI") {
+        refs.modalOffer.innerHTML = ''
+        refs.searchForm.reset();
+            console.log(e.target.dataset.id)
+        refs.modalOverlay.classList.remove('visually-hidden');
+        const filmId=e.target.dataset.id
+
+
+        window.modal.openModal(filmId);
+        refs.modalOverlay.dataset.modal = filmId;
     }
 }

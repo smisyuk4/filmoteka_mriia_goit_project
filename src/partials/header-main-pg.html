@@ -27,6 +27,7 @@
                 <li class="nav-item nav-item--button">
                 <button class="login-btn" data-text="login">login</button>
                 </li>
+                <!-- switcher lang -->
                 <li class="nav-item nav-item--checkbox">
                 <input id="lang" type="checkbox" class="translate" value="eng" />
                 <label
@@ -39,29 +40,25 @@
                     >ua</label
                 >
                 </li>
-            </ul>
-            </nav>
-
-            <!-- theme switch color  -->
-            <div class="color--select">
-            <input
-                type="checkbox"
-                id="darkmode-toggle"
-                class="color--input"
-                value="ligth"
-            />
-            <label for="darkmode-toggle" class="color--label">
-                <svg class="sun">
-                <use href="/src/images/icons/icons.svg#icon-sun"></use>
-                </svg>
-
-                <svg class="moon">
-                <use href="/src/images/icons/icons.svg#icon-moon"></use>
-                </svg>
-            </label>
-
-            <div class="background"></div>
-            </div>
+                <!-- switcher color theme -->
+                <li class="nav-item color--switcher">
+                    <div class="color--select">
+                        <input type="checkbox" id="darkmode-toggle" class="color--input" value="ligth" />
+                        <label for="darkmode-toggle" class="color--label">
+                            <svg class="sun">
+                                <use href="/src/images/icons/icons.svg#icon-sun"></use>
+                            </svg>
+                    
+                            <svg class="moon">
+                                <use href="/src/images/icons/icons.svg#icon-moon"></use>
+                            </svg>
+                        </label>
+                    
+                        <div class="background"></div>
+                    </div>
+                </li>
+            </ul>               
+            </nav>           
 
             <!-- search form -->
             <form class="search-form">
@@ -84,7 +81,7 @@
 
 
             <!-- filters for content -->
-            <form class="is-hidden" id="filter-form">
+            <form id="filter-form">
             <ul class="filters">
                 <li class="filters__list">
                 <select id="rating-filter" class="filters__item">
@@ -117,5 +114,5 @@
     </div>
 
     <!-- slider -->
-    <include src="./partials/slider.html"></include>
+    <!-- <include src="./partials/slider.html"></include> -->
 </header>
