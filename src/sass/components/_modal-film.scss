@@ -1,43 +1,66 @@
-.modal-film__card-overlay {
+.backdrop {
     position: fixed;
+    z-index: 101;
     top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(100, 100, 100, 0.5);
-    transition: all 0.5s ease-in-out;
-    z-index: 100;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: auto;
 }
-.modal-film__card{
-    width: 280px;
-    min-height: 700px;
-    max-height: 80vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 48px 20px 40px 20px;
-    background-color: $mainWhiteColor;
-    transform: translate(-50%, -50%);
-    transition: all 0.2s ease 0.2s;
-    @media screen and(min-width: 768px) and (max-width: 1279px) {
-        width: 704px;
-        min-height: 450px;
-        padding: 40px 72px 40px 36px;
 
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+.modal-film__card-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    @include mobile-only {
+        padding: 20px 20px;
     }
 
-    @media screen and(min-width: 1280px) {
+    @include tablet {
+        align-items: center;
+
+        @include mobile-only {
+            align-items: start;
+        }
+    }
+}
+
+.modal-film__card-overlay::before {
+    position: fixed;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    
+    @include mobile-only {
+        margin-top: 20px;
+    }
+}
+
+.modal-film__card {
+    position: relative;
+    padding: 48px 20px 40px 20px;
+    width: 100%;
+    background-color: $mainWhiteColor;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+
+    @include mobile {
+        width: 280px;
+    }
+
+    @include tablet {
+        width: 704px;
+        padding: 40px 72px 40px 36px;
+    }
+
+    @include desktop {
         width: 806px;
-        min-height: 550px;
         padding: 40px 12px 40px 12px;
     }
-}
-.modal-film__card-content {
-    display: flex;
 }
 
 .modal-film__close-btn {
@@ -56,7 +79,7 @@
     transition: all 0.2s ease-in-out;
     z-index: 112;
 }
-
+    
 .modal-film__close-icon {
     width: 16px;
     height: 16px;
@@ -69,39 +92,222 @@
     }
 }
 
+.modal-film__card-content {
+    @include tablet {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
+
 .modal-film__poster {
     width: 240px;
-    height: 357px;
-    margin-bottom: 20px;
+    height: auto;
+    flex-shrink: 0;
+    
+    @include mobile-only {
+        margin-bottom: 20px;
+    }
 
-    @media screen and(min-width: 768px) and (max-width: 1279px) {
+    @include tablet {
         width: 264px;
         height: 374px;
     }
 
-    @media screen and(min-width: 1280px) {
+    @include desktop {
         width: 375px;
         height: 478px;
     }
 }
 
+.modal-film__label {
+    @include tablet {
+        width: 264px;
+    }
+
+    @include desktop {
+        width: 391px;
+    }
+}
+
 .modal-film__title {
+    margin-bottom: 20px;
+
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    line-height: 23px;
-    color: $mainBlackColor;
+    line-height: 1.15;
     text-transform: uppercase;
+    color: $mainBlackColor;
 
-    margin-bottom: 20px ;
-
-    @media screen and (min-width: 1280px) {
+    @include desktop {
         font-size: 30px;
-        line-height: 35px;
     }
 }
 
-.modal-film__info-block {
+.modal-film__info {
     margin-bottom: 20px;
 }
+
+.modal-film__item {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.modal-film__item-title {
+    width: 110px;
+    margin-right: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: $secTextColor;
+    flex-shrink: 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include desktop {
+        min-width: 152px;
+    }
+}
+
+.modal-film__item-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+.vote {
+    width: 36px;
+    height: 16px;
+    margin-right: 2px;
+    text-align: center;
+
+    background-color: $filterText;
+    color: $mainWhiteColor;
+    border-radius: 5px;
+   
+}
+
+.votes {
+    width: 36px;
+    height: 16px;
+    margin-left: 2px;
+    text-align: center;
+
+    background-color: $thirdColor;
+    color: $mainBlackColor;
+    border-radius: 5px;
+}
+
+.modal-film__about-title {
+    margin-bottom: 8px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    color: $mainBlackColor;
+}
+
+.modal-film__about-text {
+    margin-bottom: 20px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: $mainBlackColor;
+}
+
+.modal-film__btn-box {
+    display: flex;
+    justify-content: center;
+
+    @media screen and(max-width: 320px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @include tablet {
+        justify-content: space-between;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+    }
+}
+
+.modal-film__btn-item {
+    &:last-child {
+        @media screen and(max-width: 320px) {
+            margin-top: 10px;
+        }
+        
+        @media screen and(min-width: 321px) {
+            margin-left: 20px;
+        }
+
+        @include tablet {
+            margin-left: 0;
+        }
+
+        @include desktop {
+            margin-left: 15px;
+        }
+    }
+}
+
+.modal-film__btn {
+    width: 110px;
+    min-height: 44px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: $mainBlackColor;
+    background-color: $mainWhiteColor;
+    cursor: pointer;
+    border: 1px solid $mainBlackColor;
+
+    &:active,
+    &:focus,
+    &:hover {
+        border-color: $filterText;
+        background-color: $filterText;
+        color: $mainWhiteColor;
+    }
+
+    @media screen and(max-width:320px) {
+        width: 160px;
+    }
+
+    @include tablet {
+        width: 125px;
+    }
+
+    @include desktop {
+        width: 136px;
+    }
+}
+
+
