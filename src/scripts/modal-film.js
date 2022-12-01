@@ -121,37 +121,38 @@ export class Modal{
             <img src=${modalPoster} alt="${title}" class="modal-film__poster" />
             <div class="modal-film__label">
                 <h2 class="modal-film__title">${title}</h2>
-                <div class="modal-film__info-block">
-                    <ul class="modal-film__info descr-modal">
-                        <li class="descr-modal__item">
-                            <h4 class="descr-modal__title" data-text="Vote">Vote / Votes</h4>
-                            <p class="descr-modal__text">
-                                ${vote_average}<span>/</span>${vote_count}
-                            </p>
-                        </li>
-                        <li class="descr-modal__item">
-                            <h4 class="descr-modal__title" data-text="Popularity">Popularity</h4>
-                            <p class="descr-modal__text">${popularity.toFixed(1)}</p>
-                        </li>
-                        <li class="descr-modal__item">
-                            <h4 class="descr-modal__title" data-text="Title">Original Title</h4>
-                            <p class="descr-modal__text">${title}</p>
-                        </li>
-                        <li class="descr-modal__item">
-                            <h4 class="descr-modal__title" data-text="Genre">Genre</h4>
-                            <p class="descr-modal__text">${allGenres}</p>
-                        </li>
-                    </ul>
-                </div>
-                <div clas="modal-film__about-block">
-                    <h4 class="modal-film__about-title" data-text="About">About</h4>
-                    <p class="modal-film__about-text">${modalAbout}</p>
-                </div>
-                <div>
-                    <button class="modal-film__watched-button" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watched='remove'":"data-watched='add'"} data-fid=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
-                    <button class="modal-film__queue-button" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queue='remove'":"data-queue='add'"} data-fid=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
-                </div>
+                <ul class="modal-film__info">
+                    <li class="modal-film__item">
+                        <p class="modal-film__item-title" data-text="Vote">Vote / Votes</p>
+                        <p class="modal-film__item-text">
+                            <span class="vote">${vote_average}</span> / <span class="votes">${vote_count}</span>
+                        </p>
+                    </li>
+                    <li class="modal-film__item">
+                        <p class="modal-film__item-title" data-text="Popularity">Popularity</p>
+                        <p class="modal-film__item-text">${popularity.toFixed(1)}</p>
+                    </li>
+                    <li class="modal-film__item">
+                        <p class="modal-film__item-title" data-text="Title">Original Title</p>
+                        <p class="modal-film__item-text">${title}</p>
+                    </li>
+                    <li class="modal-film__item">
+                        <p class="modal-film__item-title" data-text="Genre">Genre</p>
+                        <p class="modal-film__item-text">${allGenres}</p>
+                    </li>
+                </ul>
+                <p class="modal-film__about-title" data-text="About">About</p>
+                <p class="modal-film__about-text">${modalAbout}</p>
+                <ul class="modal-film__btn-box">
+                    <li class="modal-film__btn-item">
+                        <button class="modal-film__watched-button modal-film__btn" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watched='remove'":"data-watched='add'"} data-fid=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
+                    </li>
+                    <li class="modal-film__btn-item">
+                    <button class="modal-film__queue-button modal-film__btn" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queue='remove'":"data-queue='add'"} data-fid=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
+                    </li>
+                </ul>
             </div>
+            
         `;
     }
 }
