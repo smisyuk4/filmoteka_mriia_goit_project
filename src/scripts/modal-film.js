@@ -4,6 +4,8 @@ import { icons } from "../images/icons/icons.svg";
 const throttle = require('lodash.throttle');
 import { Loading } from 'notiflix';
 import { onClickToBtnTrailer } from './find-trailer';
+import { DEFAULT_IMG } from './markup/create-markup-film'
+
 export class Modal{
     constructor() {
         this.param = {
@@ -102,13 +104,14 @@ export class Modal{
         vote_average,
         vote_count,
     }) {
-        const allGenres = genres.map(el => el.name).join(", ");
+        let allGenres = genres.map(el => el.name).join(", ");
         if (allGenres.length === 0) {
             allGenres = "no genres"
         }
         let modalPoster = `https://image.tmdb.org/t/p/w500${poster_path}`
         if (poster_path === null) {
-            modalPoster = `https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg`
+            // modalPoster = `https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg`
+            modalPoster = DEFAULT_IMG
         }
         let modalAbout = `${overview}`
         if (modalAbout.length === 0) {

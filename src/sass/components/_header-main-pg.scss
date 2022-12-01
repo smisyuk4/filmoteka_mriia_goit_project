@@ -105,7 +105,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translateY(30px);
+    transform: translateY(23px);
 
     @media screen and (min-width: 768px) {
         position: relative;
@@ -130,11 +130,12 @@
     }   
 }
 
+// switcher lang
 .nav-item.nav-item--checkbox {
     position: absolute;
     bottom: 0;
     right: 0;
-    transform: translateX(-70px) translateY(30px);
+    transform: translateX(-60px) translateY(23px);
 
     @media screen and (min-width: 768px) {
         position: relative;
@@ -142,15 +143,23 @@
     }
 }
 
+// switcher color theme
+.nav-item.color--switcher{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-20px) translateY(52px);
+}
+
 .search-form {
     position: relative;  
     margin: 0 auto;
         
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 336px) {
         max-width: 336px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 394px) {
         max-width: 394px;
     }    
 }
@@ -175,9 +184,9 @@
         color: inherit;
     }
 
-        &.not-valid{
-            color: $mainRedColor;
-        }
+    &.not-valid{
+        color: $mainRedColor;
+    }
 }
 
 .search-form__error {
@@ -201,7 +210,6 @@
     background-color: inherit;
     border: none;
     color: $mainWhiteColor;
-
     cursor: pointer;
 
     &:hover{
