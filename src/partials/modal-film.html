@@ -1,3 +1,19 @@
-<div class="modal-film__card-overlay visually-hidden" data-modal>
+<div
+  class="modal-film__card-overlay backdrop visually-hidden"
+  data-modal
+  data-close="close"
+>
+  <div class="modal-film__card">
+    <button type="button" class="modal-film__close-btn" data-close="close">
+      <svg
+        width="12"
+        height="12"
+        class="modal-film__close-icon"
+        data-close="close"
+      >
+        <use href="/src/images/icons/icons.svg#icon-close"></use>
+      </svg>
+    </button>
     <div class="modal-film__card-content" data-modal-content></div>
   </div>
+</div>

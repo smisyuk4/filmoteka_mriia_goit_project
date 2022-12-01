@@ -1,8 +1,8 @@
 // Получить модальное окно
-const modal = document.getElementById("modal-teem");
+const modal = document.getElementById("modal-team");
 
 // Получить кнопку, которая открывает модальное окно
-const btn = document.getElementById("modal-teem-Btn");
+const btn = document.getElementById("modal-team-Btn");
 
 // Получить элемент <span>, который закрывает модальное окно
 const span = document.getElementsByClassName("close")[0];

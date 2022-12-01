@@ -2,7 +2,7 @@ import { getGenres } from '../get-generes';
 import { refs } from '../refs';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
-const DEFAULT_IMG =
+export const DEFAULT_IMG =
   'https://i.postimg.cc/Y0NKgxRL/CDBD31-CB-2-C43-438-F-A140-5-CBA7-C480-AB3.jpg';
 
 export async function createFilmCardMarkup(data) {

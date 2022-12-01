@@ -1,5 +1,5 @@
 const ua = {
-  chengeLang: "ua",
+  chengeLang: "en",
   lang: "ua-UA",
   loadFirst: true,
   hello: 'Привіт',
@@ -14,10 +14,16 @@ const ua = {
   popularity: "Популярність",
   title: "Оригінальна назва",
   genre: "Жанр",
+  searchInput: "пошук фільму",
+  ratingFilter: "Рейтинг",
+  yearsFilter: "Рік",
+  nextCat: "Наст",
+  prevCat: "Попр",
+  
 };
 
 const eng = {
-  chengeLang: "en",
+  chengeLang: "ua",
   lang: "en-EN",
   hello: 'Hello',
   buttonWatched: 'Watched',
@@ -31,6 +37,11 @@ const eng = {
   popularity: "Popularity",
   title: "Original Title",
   genre: "Genre",
+  searchInput: "movie search",
+  ratingFilter: "Rating",
+  yearsFilter: "Years",
+  nextCat: "next",
+  prevCat: "prev",
 };
 
 export { ua, eng };

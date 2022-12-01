@@ -1,58 +1,81 @@
 .modal-offer{
     position: relative;   
     margin: 0 auto;   
+    z-index: 5000;
+
+    @media screen and (min-width: 400px) {
+        max-width: 350px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 400px;
+    }
 }
 
 .input-offer {
     &__list {
         position: absolute;
-        top: -75;
-        left: 50%;
-        transform: translateX(-50%);    
-        background-color: rgb(85, 46, 46);
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: -70;        
+        background-color: $filterColor;
     }    
 
     &__item {
         display: flex;
-        
+        padding: 5px;
+
         font-weight: 400;
         font-size: 12px;
         line-height: 1.14;
         letter-spacing: 1.7;
         color: $mainWhiteColor;
+        border: 1px solid $mainWhiteColor;
 
         @media screen and (min-width: 768px) {
             text-transform: uppercase;
             font-size: 14px;
-        } 
+        }       
+    }
 
-
-        padding: 5px;
-        border: 1px solid $mainWhiteColor;
-
-        &__item.film-card__img{
-           height: auto;
-        }
-
-        //&__item.film-card__box-img{
-           height: 150px;
-       // }
+    &__img {
+        margin-right: 5px;
     }
 }
 
-.input-offer__desc {
-    padding: 5px;
+.input-offer{
+    &__desc {
+        padding: 5px;
+        text-align: left;
+        margin: auto 0;
 
-    & p:not(:last-child) {
-        margin-bottom: 3px;
+        & p:not(:last-child) {
+            margin-bottom: 3px;
+        }
+
+        & .film-card__title{
+            color: $mainWhiteColor;
+        }
+
+        #release_date {
+            color: $mainBlackColor;
+            font-weight: 700;            
+        }        
     }
 
-    & .film-card__title{
-        color: $mainWhiteColor;
+    &__genres{
+        color: $filterText;
     }
 
-    #release_date {
-        color: $mainBlackColor;
-        font-weight: 700;
+    &__rating {
+        animation: shake 2s linear alternate infinite;
+    }
+
+    @keyframes shake {
+        to {
+            transform: translateX(30px);
+        }
     }
 }

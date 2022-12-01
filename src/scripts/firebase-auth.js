@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc, getDocs, addDoc, collection } from 'firebase/firestore/lite';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, GithubAuthProvider } from "firebase/auth";
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // const providerGit = new GithubAuthProvider();
 // const providerGoogle = new GoogleAuthProvider();
 
@@ -34,7 +34,6 @@ export class FireBaseData {
 				const credential = GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
 				this.userData = result.user;
-				this.updateLocal();
 				document.querySelector('.login-btn').textContent = this.userData.displayName;
 				window.movieLibrary.saveData();
 			}).catch((error) => {
@@ -65,6 +64,7 @@ export class FireBaseData {
 					data.forEach((doc) => {
 						window.movieLibrary.watched = doc.data();
 						window.movieLibrary.saveData()
+						Notify.info('Watched list updated');
 					})
 				})
 				.catch(error => {
@@ -76,6 +76,7 @@ export class FireBaseData {
 				.then(data => data.forEach((doc) => {
 					window.movieLibrary.queue = doc.data();
 					window.movieLibrary.saveData()
+					Notify.info('Queue list updated');
 				}))
 				.catch(error => {
 					console.log(error);
