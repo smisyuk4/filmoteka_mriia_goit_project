@@ -10,8 +10,8 @@
 }
 
 .filters__item {
-    background-color:$filterColor;
-    color:$mainWhiteColor;
+    background-color: var(--filterColor);
+    color: var(--mainWhiteColorFooter);
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;

@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: #545454;
-    background-color: $thirdColor;
+    color: var(--footerTextColor);
+    background-color: var(--thirdColor);
     padding: 29px 0;
     
     @media screen and (max-width: 767px) {
@@ -29,15 +29,34 @@
 
 .students-link{
     cursor: pointer;
-    color: #545454;
+    color: var(--footerTextColor);
     text-decoration: underline; 
 
     &:hover,
     &:focus {
-        color: #FF6B08; 
+        color: var(--cardText); 
     }
 }
 
 .icon-heart{
     padding: 0 10px;
+    fill: var(--cardText);
+    animation-name: changeColor;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
 }
+
+@keyframes changeColor {
+    0% {
+        fill: var(--cardTextOpac);
+    }
+  
+    50% {
+        fill: var(--cardText);
+    }
+  
+    100% {
+        fill: var(--cardTextOpac);
+    }
+}
+  

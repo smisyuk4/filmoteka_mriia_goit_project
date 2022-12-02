@@ -1,5 +1,5 @@
 /* Модальный (фон) */
-.modal-teem{
+.modal-team{
   display: none; /* Скрыто по умолчанию */
   position: fixed; /* Оставаться на месте */
   z-index: 1; /* Сидеть на вершине */
@@ -13,24 +13,64 @@
 
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--thirdColor);
   margin: 15% auto; /* 15% сверху и по центру */
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 5px;
   width: 80%; /* Может быть больше или меньше, в зависимости от размера экрана */
 }
 
 /* Close Btn */
 .close {
-  color: #aaa;
+  color: var(--footerTextColor);
   float: right;
-  font-size: 28px;
+  font-size: 45px;
+  font-style:inherit;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--cardText);
   text-decoration: none;
   cursor: pointer;
 }
+// ======================================================================================
+.team-table-list{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.team-table-item {
+  color: var(--footerTextColor);
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  // *******************
+  padding: 20px;
+  
+    @media screen and (max-width: 767px) {
+      width: calc((100% - 5px * (2 - 1)) / 2);
+    }
+
+    @media screen and (min-width: 768px) {
+      width: calc((100% - 30px * (3 - 1)) / 3);
+    }
+    @media screen and (min-width: 1280px) {
+      width: calc((100% - 30px * (4 - 1)) / 4);
+    }
+}
+// ======================================================================================
+
+.team-title{
+  color: var(--footerTextColor);
+  font-size: 24px;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+

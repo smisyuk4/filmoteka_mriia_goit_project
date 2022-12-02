@@ -9,11 +9,14 @@ export const refs = {
   searchBtn: document.querySelector('.search-btn'),
   modalOffer: document.querySelector('.input-offer__list'),
   massages: document.querySelector('.search-form__error'),
-  
 
   container: document.querySelector('[data-film-table-list]'),
+  headerButtons:document.querySelector('.headerButtons'),
+  boxNumbersPage: document.querySelector('.container__numbers-page'),
+
   modalOverlay: document.querySelector('.modal-film__card-overlay'),
   containerModal: document.querySelector('[data-modal-content]'),
+
   //color switcher
   colorSelector: document.querySelector('.color--input'),
   //login

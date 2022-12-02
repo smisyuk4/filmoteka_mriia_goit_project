@@ -16,13 +16,44 @@ $dst-between: 32px;
 $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .dark-color{
-    --brand-color: grey;
+    --body-color: #9fa19f;
+    --mainRedColor: #1d7702;
+    --mainBlackColor: #aaa9a9;
+    --mainWhiteColor: #363636;
+    --secTextColor: #646464;
+    --footerTextColor: #171717;
+    --mainWhiteColorFooter: rgb(194, 194, 194);
+    
+    
+    --filterColor: #701720;
+    --filterText: #0c800e;
+    --cardText: rgb(39, 119, 24);
+    
+    --thirdColor: #444444;
+
+    --cardTextOpac: rgba(26, 174, 0, 0.5);
+    --bgColorHeader: rgba(0, 0, 0, 0.936);
 }
 
 .light-color {
-    --brand-color: white;
+    --body-color: #ffffff;
+    --mainRedColor: #ff0019;
+    --mainBlackColor: #000;
+    --mainWhiteColor: #fff;
+    --secTextColor: #8C8C8C;
+    --footerTextColor: #545454;
+    --mainWhiteColorFooter: #fff;
+    
+    
+    --filterColor: #b32331;
+    --filterText: #ff6b01;
+    --cardText:#FF6B08;
+    
+    --thirdColor: #F7F7F7;
+
+
+    --cardTextOpac: rgba(255, 107, 8, 0.5);
+    --bgColorHeader: rgba(0, 0, 0, 0.56);
 }
 
-body{
-    background-color: var(--brand-color);
-}
+

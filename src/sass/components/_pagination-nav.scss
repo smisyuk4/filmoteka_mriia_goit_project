@@ -1,0 +1,110 @@
+.container {
+    
+    &__numbers-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+    
+    
+    &__numbers-item {
+        padding: 13px;
+        font-size: 12;
+        font-weight: medium;
+        margin: 0 3px;
+        border-radius: 5px;
+        transition: background-color 250ms linear;
+        cursor: pointer;
+    }
+    
+    &__numbers-item.is-active-page {
+        background-color: var(--cardText);
+        color: var(--mainWhiteColor);
+    }
+
+    &__numbers-item:hover {
+        background-color: var(--thirdColor);
+    }
+    &__numbers-item.is-active-page:hover {
+        background-color: var(--cardText);
+    }
+    
+    &__numbers-span {
+        height: 3px;
+    }
+
+    &__numbers-arrow-box {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        border-radius: 5px;
+        background-color: var(--thirdColor);
+        font-size: 0;
+        transition: background-color 250ms linear;
+        cursor: pointer;
+    }
+
+    &__numbers-arrow-box:hover {
+        background-color: var(--cardText);
+    }
+
+    &__numbers-arrow-box:hover &__numbers-arrow-left, 
+    &__numbers-arrow-box:hover &__numbers-arrow-right, 
+    &__numbers-arrow-box:hover &__numbers-arrow-left::after, 
+    &__numbers-arrow-box:hover &__numbers-arrow-right::after,  
+    &__numbers-arrow-box:hover &__numbers-arrow-left::before, 
+    &__numbers-arrow-box:hover &__numbers-arrow-right::before{
+        background-color: var(--mainWhiteColor);
+    }
+    
+    &__numbers-arrow-left, 
+    &__numbers-arrow-right, 
+    &__numbers-arrow-left::after, 
+    &__numbers-arrow-right::after,  
+    &__numbers-arrow-left::before, 
+    &__numbers-arrow-right::before  {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        border-radius: 1px;
+        background-color: var(--mainBlackColor);
+        fill: var(--mainWhiteColor);
+    }
+    &__numbers-arrow-left {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+    }
+    &__numbers-arrow-left::after {
+        top: 3px;
+        left: -1px;
+        transform: rotate(45deg);
+    }
+    &__numbers-arrow-left::before {
+        bottom: 3px;
+        left: -1px;
+        transform: rotate(-45deg);
+    }
+
+    &__numbers-arrow-right {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+    }
+    &__numbers-arrow-right::after {
+        top: 3px;
+        right: -1px;
+        transform: rotate(-45deg);
+    }
+    &__numbers-arrow-right::before {
+        bottom: 3px;
+        right: -1px;
+        transform: rotate(45deg);
+    }
+    
+    
+}

@@ -66,6 +66,12 @@
         }
     }
     
+
+    border-radius: 5px;
+    width: 180px;
+    height: 240px;
+    cursor: pointer;
+
 }
 
 // .slider__buttons {
@@ -92,11 +98,11 @@
 }
 
 
-
 .btn-next {
     align-items: center;
     border-radius: 50 50 50 50;
 }
+
 
 .button-prev {
     position: absolute;
@@ -120,6 +126,19 @@
                 border: solid $mainRedColor;
                 transition: background-color 500ms, outline-color 250ms;
             }
+
+    @media screen and (min-width: 768px) {
+        &{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 40px;
+            height: 80px;
+            background-color: rgb(41, 36, 36);
+            color: var(--filterColor);
+            
+        }
+    }
 }
 
 .button-next {

@@ -1,6 +1,5 @@
 
- async function initItem () {
-    const filmoteka = window.filmoteka;    
+ async function initItem () {   
 
     //get idFilm from content
     const OPTION_FIND = `/trending/movie/week`
@@ -9,7 +8,7 @@
         option: OPTION_FIND,  
     }
 
-        let moviesResult = await filmoteka.fetchFilms(valueObj);
+        let moviesResult = await window.filmoteka.fetchFilms(valueObj);
         // let genresResult = await filmoteka.fetchMovieGenres();
     
                 let itemsHtml = '';
@@ -20,8 +19,9 @@
                         modalPoster = `https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg`
                     }
         
-                   itemsHtml += `<li class="slider__item">
-                   <img class="slider-film__img" src="${trendingPoster}" alt="poster" loading="lazy"; >
+
+                   ietmsHtml += `<li class="slider__item">
+                   <img class="slider-film__img" src="${trendingPoster}" alt="poster" loading="lazy" data-id=${movie.id}>
                    <div class="film-card__box-info slider-film__title">
                    </div>
                          </li>`;
