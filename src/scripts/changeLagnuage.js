@@ -20,9 +20,11 @@ function setLagnuage() {
       if (searchFormInputRef !== null) { translateCheckboxRef.value = "eng"; }
     }
     if (language == "ua") {
-    
-      translateCheckboxRef.checked = true;
-      translateCheckboxRef.value = "ua";
+      if (searchFormInputRef !== null) {
+        translateCheckboxRef.checked = true;
+        translateCheckboxRef.value = "ua";
+      }
+      
       parseLanguage = ua;
     }
 

@@ -2,6 +2,7 @@ import './markup/create-markup-film';
 import { refs } from './refs';
 import { Loading } from 'notiflix';
 import { DEFAULT_IMG } from './markup/create-markup-film';
+import { eng, ua} from "./dictionary"
 
 export class Modal {
   constructor() {
@@ -10,6 +11,7 @@ export class Modal {
       lang: '&language=en',
       imageLang: '&include_image_language=en',
       region: '&region=en-US',
+      langText: eng,
     };
     this.filmId = 0;
     refs.container.addEventListener('click', e => {
@@ -76,10 +78,12 @@ export class Modal {
       this.param.lang = '&language=uk';
       this.param.imageLang = '&include_image_language=uk';
       this.param.region = '&region=uk-UA';
+      this.param.langText = ua;
     } else {
       this.param.lang = '&language=en';
       this.param.imageLang = '&include_image_language=en';
       this.param.region = '&region=en-US';
+      this.param.langText = eng;
     }
     this.param.option = `/movie/${id}`;
     window.filmoteka
@@ -116,7 +120,7 @@ export class Modal {
     }
     let modalAbout = `${overview}`;
     if (modalAbout.length === 0) {
-      modalAbout = "Sorry, we don't have a description for this movie";
+      modalAbout = `${ this.param.langText.modalAboutNoTranslate }`;
     }
     return `<img src=${modalPoster} alt="${title}" class="modal-film__poster" />
             <div class="modal-film__label">
@@ -129,7 +133,7 @@ export class Modal {
                         </p>
                     </li>
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Popularity">Popularity</p>
+                        <p class="modal-film__item-title">${this.param.langText.popularity}</p>
                         <p class="modal-film__item-text">${popularity.toFixed(
                           1
                         )}</p>
@@ -151,20 +155,20 @@ export class Modal {
                     }">
                         <button class="modal-film__watched-button modal-film__btn" type="button" data-watched="${
                           this.filmId
-                        }">add to watched</button>
+                        }">${this.param.langText.modalWatchedAdd}</button>
                         <button class="modal-film__watched-buttonr modal-film__btn" type="button" data-watchedr="${
                           this.filmId
-                        }">remove from watched</button>
+                        }">${this.param.langText.modalWatchedRemove}</button>
                     </li>
                     <li class="modal-film__btn-item ${
                       window.movieLibrary.isQueue(this.filmId) ? 'remove' : ''
                     }">
                         <button class="modal-film__queue-button modal-film__btn" type="button" data-queue="${
                           this.filmId
-                        }">add to queue</button>
+                        }">${this.param.langText.modalQueueAdd}</button>
                         <button class="modal-film__queue-buttonr modal-film__btn" type="button" data-queuer="${
                           this.filmId
-                        }">remove from queue</button>
+                        }">${this.param.langText.modalQueueRemove}</button>
                     </li>
                 </ul>
             </div>

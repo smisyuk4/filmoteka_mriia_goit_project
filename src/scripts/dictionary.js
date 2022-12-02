@@ -23,7 +23,12 @@ const ua = {
   modalWatchedRemove: "Видалити з перегляду",
   modalQueueAdd: "Додати до черги",
   modalQueueRemove: "Видалити з черги",
-  
+  modalAboutNoTranslate: "На жаль у нас немає опису для цього фільму",
+  notifySuccessWatched: "Фільм додано до перегляду",
+  notifySuccessQueue: "Фільм додано до черги",
+  notifyFailureWatched: "Помилка під час додавання до перегляду. Будь ласка, спробуйте ще раз.",
+  notifyFailureQueue: "Помилка під час додавання до черги. Будь ласка, спробуйте ще раз.",
+  notifyInfo: "Фільм уже в черзі",
 };
 
 const eng = {
@@ -50,6 +55,12 @@ const eng = {
   modalWatchedRemove: "remove from watched",
   modalQueueAdd: "add to queue",
   modalQueueRemove: "remove from queue",
+  modalAboutNoTranslate: "Sorry, we don't have a description for this movie",
+  notifySuccessWatched: "Movie added to watched",
+  notifySuccessQueue: "Movie added in queue",
+  notifyFailureWatched: "Some went wrong when ading to watched. Please try again.",
+  notifyFailureQueue: "Some went wrong when ading to queue. Please try again.",
+  notifyInfo: "Movie already in queue",
 };
 
 export { ua, eng };
