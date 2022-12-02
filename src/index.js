@@ -64,12 +64,29 @@ refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object
 initTrending();
 
+//Функції зміни жанру, року або рейтингу
 function initFilterHendler() {
+  //рейтинг
   let rating = document.querySelector('#rating-filter');
-  rating.addEventListener('change', window.filterHendler.ratingFilterOnChenge);
-
+  rating.addEventListener('change', window.filterHendler.ratingFilterOnChange);
+   if (localStorage.getItem('filterByRating')) {
+    window.filmoteka.filterByRating = localStorage.getItem('filterByRating');
+    rating.value = localStorage.getItem('filterByRating');
+  }
+//жанр
+  let genre = document.querySelector('#genre-filter');
+  genre.addEventListener('change', window.filterHendler.genreFilterOnChange);
+  if (localStorage.getItem('filterByGenre')) {
+    window.filmoteka.filterByGenre = localStorage.getItem('filterByGenre');
+    genre.value = localStorage.getItem('filterByGenre');
+  }
+ //рік 
   let date = document.querySelector('#date-filter');
   date.addEventListener('change', window.filterHendler.dataFilterOnChange);
+   if (localStorage.getItem('dataFilter')) {
+    window.filmoteka.dataFilter = localStorage.getItem('dataFilter');
+    date.value = localStorage.getItem('dataFilter');
+  }
 }
 initFilterHendler();
 

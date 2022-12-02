@@ -7,6 +7,7 @@ export class Filmoteka {
   constructor() {
     this._filterByRating;
     this._dateFilter;
+    this.filterByGenre
   }
 
   async fetchFilms(valueObj) {
@@ -19,8 +20,7 @@ export class Filmoteka {
       page = 1,
     } = valueObj;
 
-    const url = `${this.BASE_URL}${option}?api_key=${this.API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}&include_adult=false`+ this.addFilterQuery() + this.addDateQuery();
-
+    const url = `${this.BASE_URL}${option}?api_key=${this.API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}&include_adult=false`+ this.addFilterQuery() + this.addDateQuery()+this.addGenreQuery();
     return await axios.get(url).then(response => {
       return response.data;
     });
@@ -41,6 +41,14 @@ export class Filmoteka {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+
+  get filterByGenre() {
+      return this._filterByGenre;
+  }
+
+  set filterByGenre(genre) {
+      this._filterByGenre = genre;
+  };
 
   get filterByRating() {
       return this._filterByRating;
@@ -69,12 +77,20 @@ export class Filmoteka {
     }
   };
 
-  addDateQuery() {
+  addGenreQuery() {
+    if (this.filterByGenre) {
+      return `&with_genres=${this._filterByGenre}`
+    }
+    return '';
+  }
+
+   addDateQuery() {
     if (this.dataFilter) {
       return `&primary_release_year=${this._dateFilter}`
     }
     return '';
   }
+
 
   addFilterQuery() {
     if (this.filterByRating) {
