@@ -5,43 +5,52 @@
   background-position: center;
   background-size: cover;
   background-color: var(--bgColorHeader);
-  background-image: url(/src/images/header-library/header-library-1280.jpg);
+  // background-image: url(/src/images/header-library/header-library-320.jpg);
+  background-image: var(--bg-image-lib-320);
 
   // retina screen
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(/src/images/header-library/header-library-320@2x.jpg);
-    background-image: -webkit-image-set(
-      url(/src/images/header-library/header-library-320@2x.webp) 2x
-    );
+    // background-image: url(/src/images/header-library/header-library-320@2x.jpg);
+    // background-image: -webkit-image-set(
+      // url(/src/images/header-library/header-library-320@2x.webp) 2x
+    // );
+    background-image: var(--bg-image-lib-320-2x);
+    background-image: var(--bg-image-lib-320-2x-webp);
   }
 
   @media screen and (min-width: 768px) {
-    background-image: url(/src/images/header-library/header-library-768.jpg);
+    // background-image: url(/src/images/header-library/header-library-768.jpg);
+    background-image: var(--bg-image-lib-768);
 
     // retina screen
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(/src/images/header-library/header-library-768@2x.jpg);
-      background-image: -webkit-image-set(
-        url(/src/images/header-library/header-library-768@2x.webp) 2x
-      );
+      // background-image: url(/src/images/header-library/header-library-768@2x.jpg);
+      // background-image: -webkit-image-set(
+      //   url(/src/images/header-library/header-library-768@2x.webp) 2x
+      // );
+      background-image: var(--bg-image-lib-768-2x);
+      background-image: var(--bg-image-lib-768-2x-webp);
     }
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url(/src/images/header-library/header-library-1280.jpg);
+    // background-image: url(/src/images/header-library/header-library-1280.jpg);
+    background-image: var(--bg-image-lib-1280);
 
     // retina screen
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(/src/images/header-library/header-library-1280@2x.jpg);
-      background-image: -webkit-image-set(
-        url(/src/images/header-library/header-library-1280@2x.webp) 2x
-      );
+      // background-image: url(/src/images/header-library/header-library-1280@2x.jpg);
+      // background-image: -webkit-image-set(
+      //   url(/src/images/header-library/header-library-1280@2x.webp) 2x
+      // );
+      background-image: var(--bg-image-lib-1280-2x);
+      background-image: var(--bg-image-lib-1280-2x-webp);
     }
   }
 }
