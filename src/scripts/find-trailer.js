@@ -1,11 +1,23 @@
-import { refs } from "/src/scripts/refs"
-
-
 export function onClickToBtnTrailer(id) {
     // event.preventDefault()
-    return window.filmoteka.fetchFilms({option:`/movie/${id}/videos`})
+    const param = {
+			option: `/movie/${id}/videos`,
+			lang: '&language=en',
+			imageLang: '&include_image_language=en',
+			region: '&region=en-US'
+    }
+    if (localStorage.getItem("siteOptions") == "ua") {
+			param.lang = '&language=uk';
+			param.imageLang = '&include_image_language=uk';
+			param.region = '&region=uk-UA';
+		} else {
+			param.lang = '&language=en';
+			param.imageLang = '&include_image_language=en';
+			param.region = '&region=en-US';
+		}
+    return window.filmoteka.fetchFilms(param)
         .then(res => {
-            return `https://www.youtube.com/embed/${res.results[0].key}`;
+            return res.results[0].key;
         })
         .catch(error => {
             console.log(error);
