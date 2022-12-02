@@ -6,7 +6,8 @@
     background-position: center;
     background-size: cover;
     background-color: var(--bgColorHeader);
-    background-image:url(/src/images/header-main/header-320.jpg);        
+    // background-image:url(/src/images/header-main/header-320.jpg);       
+    background-image: var(--bg-image-320);
 
     // retina screen
     @media (min-device-pixel-ratio: 2),

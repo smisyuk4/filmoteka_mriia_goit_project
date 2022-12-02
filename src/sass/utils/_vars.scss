@@ -16,6 +16,12 @@ $dst-between: 32px;
 $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .dark-color{
+    //test
+    --bg-image-320: url(/src/images/header-main/header-green-2-320.jpg);
+    --bg-image-320-2x: url(/src/images/header-main/header-green-2-320@2x.jpg);
+    //test
+
+
     --body-color: #767676;
     --mainRedColor: #134f01;
     --mainBlackColor: #aaa9a9;
@@ -36,6 +42,10 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .light-color {
+    //test
+    --bg-image-320: url(/src/images/header-main/header-320.jpg);
+
+    //test
     --body-color: #ffffff;
     --mainRedColor: #ff0019;
     --mainBlackColor: #000;
