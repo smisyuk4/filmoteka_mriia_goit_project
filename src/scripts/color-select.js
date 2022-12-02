@@ -16,9 +16,8 @@ function changeColor() {
 };
 
 function setColor() {
-
   const color = localStorage.getItem('theme');
-  console.log(colorSelectorRef);
+
   if (color === "dark-color") {
     colorSelectorRef.checked = true;
     colorSelectorRef.value = "dark";

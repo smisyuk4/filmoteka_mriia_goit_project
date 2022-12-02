@@ -1,6 +1,7 @@
 import { refs } from "/src/scripts/refs"
 import { Filmoteka } from "./fetch-api"
 import { markupOffer } from "./markup/markup-offer"
+import { makeLangParam } from "./changeLagnuage";
 
 
 const throttle = require('lodash.throttle');
@@ -29,6 +30,7 @@ async function onChangeInput(event) {
     }
 
     try {
+        makeLangParam(valueObj)
         const data = await filmoteka.fetchFilms(valueObj)
         data.results.sort((a, z) => z.vote_average - a.vote_average)
 

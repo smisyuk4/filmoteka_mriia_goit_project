@@ -57,6 +57,7 @@ setLagnuage(); //для першого відображення тексту, п
 document.querySelector('.translate').addEventListener('click', () => {
   changeLagnuage();
   window.movieLibrary.updateLang();
+  location.reload();
 });
 
 // Функція зміни кольору
