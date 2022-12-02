@@ -21,7 +21,7 @@ import './scripts/input-offer';
 import './scripts/modal-team';
 import './scripts/marquee';
 import {spinerStart, spinerStop } from './scripts/loader';
-
+import { News } from "./scripts/fetch-news";
 
 //ініаціплізація глобальних класів
 window.filmoteka = new Filmoteka();
@@ -31,7 +31,7 @@ window.filterHendler = new FilterHendler();
 window.modal = new Modal();
 window.loader = spinerStart;
 window.loaderRemove = spinerStop;
- 
+const newsapi = new News;
 // login по кнопці
 refs.login.addEventListener('click', e => {
   window.fireBase.login();
@@ -52,9 +52,10 @@ document.querySelector('.btn-up').addEventListener('click', upClick);
 
 // Функція зміни мови
 setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
+
+window.movieLibrary.updateLang();
 document.querySelector('.translate').addEventListener('click', () => {
   changeLagnuage();
-  window.movieLibrary.updateLang();
   location.reload();
 });
 
@@ -62,7 +63,7 @@ document.querySelector('.translate').addEventListener('click', () => {
 setColor();
 refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object
-initTrending();
+
 
 //Функції зміни жанру, року або рейтингу
 function initFilterHendler() {
@@ -87,6 +88,8 @@ function initFilterHendler() {
     window.filmoteka.dataFilter = localStorage.getItem('dataFilter');
     date.value = localStorage.getItem('dataFilter');
   }
+  window.filterHendler.updateFilters()
+
 }
 initFilterHendler();
 

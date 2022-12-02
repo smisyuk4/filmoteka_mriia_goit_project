@@ -1,5 +1,6 @@
 import { clearMurkup } from "./markup/clear-murkup";
 import { createFilmCardMarkup } from "./markup/create-markup-film";
+import { initTrending } from './get-tranding';
 
 export default class FilterHendler {
     constructor() {
@@ -14,7 +15,7 @@ export default class FilterHendler {
         };
         const date = document.querySelector('#date-filter');
         date.innerHTML = yearsList();
-
+        
     }
 
     ratingFilterOnChange(e) {
@@ -22,21 +23,13 @@ export default class FilterHendler {
 
         if (ratingFilter === "") {
             localStorage.setItem('filterByRating', "")
-            return 
+            window.filmoteka.filterByRating =''
         } else { 
         window.filmoteka.filterByRating = ratingFilter;
         localStorage.setItem('filterByRating', ratingFilter)
         }
-        window.loader()
-        filmoteka.fetchFilms({
-            region: '',
-            page:1,
-            option: '/discover/movie'
-        }).then(result => {
-            clearMurkup();
-            createFilmCardMarkup(result.results);
-        })
-        .finally(()=>window.loaderRemove());
+        
+        window.filterHendler.updateFilters()
     }
 
     genreFilterOnChange(e) {
@@ -44,21 +37,14 @@ export default class FilterHendler {
   
         if (genreFilter === "") {
             localStorage.setItem('filterByGenre', "")
-            return 
+             window.filmoteka.filterByGenre = '';
         } else { 
-        window.filmoteka.filterByGenre = genreFilter;
-        localStorage.setItem('filterByGenre', genreFilter)
+            window.filmoteka.filterByGenre = genreFilter;
+            localStorage.setItem('filterByGenre', genreFilter)
         }
-
-        filmoteka.fetchFilms({
-            region: '',
-            page:1,
-            option: '/discover/movie'
-        }).then(result => {
-            clearMurkup();
-            createFilmCardMarkup(result.results);
-           
-        });
+        
+        window.filterHendler.updateFilters()
+        
     }
 
     dataFilterOnChange(e) {
@@ -66,19 +52,27 @@ export default class FilterHendler {
 
         if (dateFilter === "") {
             localStorage.setItem('dataFilter', "")
-            return 
+             window.filmoteka.dataFilter = '';
         } else { 
         window.filmoteka.dataFilter = dateFilter;
         localStorage.setItem('dataFilter', dateFilter)
         }
-    
-      filmoteka.fetchFilms({
-            region: '',
-            page:1,
-            option: '/discover/movie'
-        }).then(result => {
-            clearMurkup();
-            createFilmCardMarkup(result.results);
-        });
-    };
+    window.filterHendler.updateFilters()
+    }
+    updateFilters() {
+        if (localStorage.getItem('filterByRating') || localStorage.getItem('filterByGenre') || localStorage.getItem('dataFilter')) {
+            window.loader()
+            filmoteka.fetchFilms({
+                region: '',
+                page:1,
+                option: '/discover/movie'
+            }).then(result => {
+                clearMurkup();
+                createFilmCardMarkup(result.results);
+            })
+                .finally(() => window.loaderRemove());
+        } else {
+            initTrending();
+        }
+    }
 }
