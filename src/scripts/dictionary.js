@@ -9,7 +9,7 @@ const ua = {
   myLibraryLink: "Моя бібліотека",
   searchForm: "Результат пошуку невдалий. Введіть правильну назву фільму та спробуйте знову",
   login: "Вхід",
-  about: "Про",
+  about: "Описання",
   vote: "Голос / Голосів",
   popularity: "Популярність",
   title: "Оригінальна назва",
@@ -19,6 +19,10 @@ const ua = {
   yearsFilter: "Рік",
   nextCat: "Наст",
   prevCat: "Попр",
+  modalWatchedAdd: "Додати до перегляду",
+  modalWatchedRemove: "Видалити з перегляду",
+  modalQueueAdd: "Додати до черги",
+  modalQueueRemove: "Видалити з черги",
   
 };
 
@@ -42,6 +46,10 @@ const eng = {
   yearsFilter: "Years",
   nextCat: "next",
   prevCat: "prev",
+  modalWatchedAdd: "add to watched",
+  modalWatchedRemove: "remove from watched",
+  modalQueueAdd: "add to queue",
+  modalQueueRemove: "remove from queue",
 };
 
 export { ua, eng };

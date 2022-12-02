@@ -19,13 +19,17 @@ function setColor() {
   const color = localStorage.getItem('theme');
 
   if (color === "dark-color") {
-    colorSelectorRef.checked = true;
-    colorSelectorRef.value = "dark";
+    if (colorSelectorRef !== null) {
+      colorSelectorRef.checked = true;
+      colorSelectorRef.value = "dark";
+    }
     document.documentElement.classList ="dark-color";
     return
   }
   document.documentElement.classList = "light-color";
-  colorSelectorRef.value = "light";
+  if (colorSelectorRef !== null) {
+    colorSelectorRef.value = "light";
+  }
 }
 
 export { changeColor, setColor };

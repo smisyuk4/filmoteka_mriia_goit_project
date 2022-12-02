@@ -3,6 +3,9 @@ import { ua, eng } from "./dictionary"
 const translateCheckboxRef = document.querySelector(".translate");
 const searchFormInputRef = document.querySelector(".search-form__input");
 
+let parseLanguage
+
+
 function setLagnuage() {
   if (localStorage.getItem('siteOptions') === null) {
     localStorage.setItem("siteOptions", "eng");
@@ -10,27 +13,20 @@ function setLagnuage() {
  
   const language = localStorage.getItem("siteOptions");
 
-  // console.log(translateCheckboxRef.checked);
-
-  let parseLanguage
-  if (searchFormInputRef !== null) {
     if (language === "eng") {
       parseLanguage = eng;
-      translateCheckboxRef.value = "eng";
+      if (searchFormInputRef !== null) { translateCheckboxRef.value = "eng"; }
     }
     if (language === "ua") {
-    
-      translateCheckboxRef.checked = true;
-      translateCheckboxRef.value = "ua";
+      if (searchFormInputRef !== null) {
+        translateCheckboxRef.checked = true;
+        translateCheckboxRef.value = "ua";
+      }
       parseLanguage = ua;
     }
-  }
 
-  document.querySelectorAll('[data-text]')
-    .forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
+  document.querySelectorAll('[data-text]').forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
 
-  
-  // console.log(searchFormInputRef.placeholder);
   if (searchFormInputRef !==null){
    searchFormInputRef.placeholder = parseLanguage["searchInput"];}
 };

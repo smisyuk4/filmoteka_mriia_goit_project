@@ -7,11 +7,9 @@ window.addEventListener('scroll', hidenButton);
 document.querySelector('.btn-up').addEventListener('click', upClick);
 
 // Функція зміни мови
-setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
-document.querySelector('.translate').addEventListener('click', changeLagnuage);
+setLagnuage(); 
 
 // Функція зміни кольору
 setColor();
-refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object setLagnuageLibrary
 

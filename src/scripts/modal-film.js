@@ -5,6 +5,7 @@ const throttle = require('lodash.throttle');
 import { Loading } from 'notiflix';
 import { onClickToBtnTrailer } from './find-trailer';
 import { DEFAULT_IMG } from './markup/create-markup-film'
+import { ua, eng } from "./dictionary"
 
 export class Modal{
     constructor() {
@@ -12,7 +13,8 @@ export class Modal{
 			option: "",
 			lang: '&language=en',
 			imageLang: '&include_image_language=en',
-			region: '&region=en-US'
+            region: '&region=en-US',
+            langText: eng,
 		}
         this.filmId=0
         refs.container.addEventListener('click', e => {
@@ -72,11 +74,13 @@ export class Modal{
         if (localStorage.getItem("siteOptions") == "ua") {
 			this.param.lang = '&language=uk';
 			this.param.imageLang = '&include_image_language=uk';
-			this.param.region = '&region=uk-UA';
+            this.param.region = '&region=uk-UA';
+            this.param.langText = ua;
 		} else {
 			this.param.lang = '&language=en';
 			this.param.imageLang = '&include_image_language=en';
-			this.param.region = '&region=en-US';
+            this.param.region = '&region=en-US';
+            this.param.langText = eng;
         }
         this.param.option = `/movie/${id}`;
 
@@ -124,32 +128,32 @@ export class Modal{
                 <h2 class="modal-film__title">${title}</h2>
                 <ul class="modal-film__info">
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Vote">Vote / Votes</p>
+                        <p class="modal-film__item-title" >${this.param.langText.vote}</p>
                         <p class="modal-film__item-text">
                             <span class="vote">${vote_average}</span> / <span class="votes">${vote_count}</span>
                         </p>
                     </li>
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Popularity">Popularity</p>
+                        <p class="modal-film__item-title">${this.param.langText.popularity}</p>
                         <p class="modal-film__item-text">${popularity.toFixed(1)}</p>
                     </li>
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Title">Original Title</p>
+                        <p class="modal-film__item-title">${this.param.langText.title}</p>
                         <p class="modal-film__item-text">${title}</p>
                     </li>
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Genre">Genre</p>
+                        <p class="modal-film__item-title">${this.param.langText.genre}</p>
                         <p class="modal-film__item-text">${allGenres}</p>
                     </li>
                 </ul>
-                <p class="modal-film__about-title" data-text="About">About</p>
+                <p class="modal-film__about-title">${this.param.langText.about}</p>
                 <p class="modal-film__about-text">${modalAbout}</p>
                 <ul class="modal-film__btn-box">
                     <li class="modal-film__btn-item">
-                        <button class="modal-film__watched-button modal-film__btn" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watched='remove'":"data-watched='add'"} data-fid=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)?"remove from watched":"add to watched"}</button>
+                        <button class="modal-film__watched-button modal-film__btn" type="button" ${window.movieLibrary.isWatched(this.filmId)?"data-watched='remove'":"data-watched='add'"} data-fid=${this.filmId}>${window.movieLibrary.isWatched(this.filmId)? this.param.langText.modalWatchedRemove : this.param.langText.modalWatchedAdd}</button>
                     </li>
                     <li class="modal-film__btn-item">
-                    <button class="modal-film__queue-button modal-film__btn" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queue='remove'":"data-queue='add'"} data-fid=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)?"remove from queue":"add to queue"}</button>
+                        <button class="modal-film__queue-button modal-film__btn" type="button" ${window.movieLibrary.isQueue(this.filmId)?"data-queue='remove'":"data-queue='add'"} data-fid=${this.filmId}>${window.movieLibrary.isQueue(this.filmId)? this.param.langText.modalQueueRemove : this.param.langText.modalQueueAdd}</button>
                     </li>
                 </ul>
             </div>

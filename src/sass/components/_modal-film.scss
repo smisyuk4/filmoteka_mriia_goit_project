@@ -44,7 +44,7 @@
     position: relative;
     padding: 48px 20px 40px 20px;
     width: 100%;
-    background-color: $mainWhiteColor;
+    background-color: var(--mainWhiteColor);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 
@@ -88,7 +88,7 @@
     &:hover,
     &:active {
         transform: scale(1.5);
-        color: $mainRedColor;
+        color: var(--mainRedColor);
     }
 }
 
@@ -139,7 +139,7 @@
     font-size: 20px;
     line-height: 1.15;
     text-transform: uppercase;
-    color: $mainBlackColor;
+    color: var(--mainBlackColor);
 
     @include desktop {
         font-size: 30px;
@@ -164,7 +164,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: $secTextColor;
+    color: var(--secTextColor);
     flex-shrink: 0;
 
     &:last-child {
@@ -194,8 +194,8 @@
     margin-right: 2px;
     text-align: center;
 
-    background-color: $filterText;
-    color: $mainWhiteColor;
+    background-color: var(--filterText);
+    color: var(--mainWhiteColor);
     border-radius: 5px;
    
 }
@@ -206,8 +206,8 @@
     margin-left: 2px;
     text-align: center;
 
-    background-color: $thirdColor;
-    color: $mainBlackColor;
+    background-color: var(--thirdColor);
+    color: var(--mainBlackColor);
     border-radius: 5px;
 }
 
@@ -220,7 +220,7 @@
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
-    color: $mainBlackColor;
+    color: var(--mainBlackColor);
 }
 
 .modal-film__about-text {
@@ -231,7 +231,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: $mainBlackColor;
+    color: var(--mainBlackColor);
 }
 
 .modal-film__btn-box {
@@ -284,17 +284,17 @@
     text-align: center;
     text-transform: uppercase;
     border-radius: 5px;
-    color: $mainBlackColor;
-    background-color: $mainWhiteColor;
+    color: var(--mainBlackColor);
+    background-color: var(--mainWhiteColor);
     cursor: pointer;
-    border: 1px solid $mainBlackColor;
+    border: 1px solid var(--mainBlackColor);
 
     &:active,
     &:focus,
     &:hover {
-        border-color: $filterText;
-        background-color: $filterText;
-        color: $mainWhiteColor;
+        border-color: var(--filterText);
+        background-color: var(--filterText);
+        color: var(--mainWhiteColor);
     }
 
     @media screen and(max-width:320px) {
