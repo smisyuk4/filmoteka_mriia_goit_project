@@ -20,7 +20,7 @@
                     }
         
 
-                   ietmsHtml += `<li class="slider__item">
+                   itemsHtml += `<li class="slider__item">
                    <img class="slider-film__img" src="${trendingPoster}" alt="poster" loading="lazy" data-id=${movie.id}>
                    <div class="film-card__box-info slider-film__title">
                    </div>
