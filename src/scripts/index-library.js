@@ -47,12 +47,10 @@ if (window.location.hash == "#queue") {
 	refs.headerButtons.classList.add('watched')
 }
 // Функція зміни мови
-setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
-document.querySelector('.translate').addEventListener('click', changeLagnuage);
+setLagnuage(); 
 
 // Функція зміни кольору
 setColor();
-refs.colorSelector.addEventListener('click', changeColor);
 // call on init to share window.filmoteka object setLagnuageLibrary
 
 //рендер бібліотеки користувача

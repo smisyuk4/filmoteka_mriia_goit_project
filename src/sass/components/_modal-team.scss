@@ -13,7 +13,7 @@
 
 
 .modal-content {
-  background-color: $thirdColor;
+  background-color: var(--thirdColor);
   margin: 15% auto; /* 15% сверху и по центру */
   padding: 20px;
   border: 1px solid #888;
@@ -23,7 +23,7 @@
 
 /* Close Btn */
 .close {
-  color: #545454;
+  color: var(--footerTextColor);
   float: right;
   font-size: 45px;
   font-style:inherit;
@@ -32,7 +32,7 @@
 
 .close:hover,
 .close:focus {
-  color: #FF6B08;
+  color: var(--cardText);
   text-decoration: none;
   cursor: pointer;
 }
@@ -45,7 +45,7 @@
 }
 
 .team-table-item {
-  color: #545454;
+  color: var(--footerTextColor);
   display: flex;
   justify-content: space-around;
   text-align: center;
@@ -66,7 +66,7 @@
 // ======================================================================================
 
 .team-title{
-  color: #545454;
+  color: var(--footerTextColor);
   font-size: 24px;
   line-height: 1.4;
   display: flex;

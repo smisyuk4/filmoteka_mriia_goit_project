@@ -8,6 +8,7 @@ import { changeColor, setColor } from './scripts/color-select';
 import FilterHendler from './scripts/filter';
 import { initTrending } from './scripts/get-tranding';
 import { sliderInit } from './scripts/slider';
+import { Modal } from './scripts/modal-film';
 
 import Notiflix from 'notiflix';
 import { Loading } from 'notiflix';
@@ -18,8 +19,8 @@ import './scripts/find-trailer';
 import './scripts/pagination';
 import './scripts/firebase-auth';
 import './scripts/input-offer';
-import { Modal } from './scripts/modal-film';
 import './scripts/modal-team';
+import './scripts/marquee';
 import './scripts/loader';
 
 
@@ -64,6 +65,7 @@ setLagnuage(); //для першого відображення тексту, п
 document.querySelector('.translate').addEventListener('click', () => {
   changeLagnuage();
   window.movieLibrary.updateLang();
+  location.reload();
 });
 
 // Функція зміни кольору

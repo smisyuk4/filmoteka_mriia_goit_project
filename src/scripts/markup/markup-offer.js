@@ -8,25 +8,30 @@ export async function markupOffer(film) {
     id,
     poster_path,
     genre_ids,
-    original_title,
     title,
     release_date,
     vote_average,
   } = film;
-  let genresList = '';
 
+  let genresList = '';
   try {
     const genresArr = await getGenres();
-      genresList = genresArr
-        .filter(film => genre_ids.includes(film.id))
-        .map(film => film.name)
-        .join(', ');
 
-    if (genresList === '') {
-      //додати умову перевірки мови
+    genresList = genresArr
+          .filter(film => genre_ids.includes(film.id))
+          .map(film => film.name)
+          .join(', ');
+
+    let langStorage = localStorage.getItem("siteOptions")
+
+    if (genresList === '' && langStorage === "ua") {
+      genresList = 'Потрібно подивитись'
+    }
+
+    if (genresList === '' && langStorage === "en") {
       genresList = 'Need watch'
-      // genresList = 'Потрібно подивитись'
-    }    
+    }
+        
   } catch (error) {
     console.log(error);
   }  
@@ -42,7 +47,7 @@ export async function markupOffer(film) {
               <img class="input-offer__img" src="${imgLink}" alt="${title}"
               loading="lazy" width="70">              
               <div class="input-offer__desc">                        
-                  <h3 class="input-offer__title">${original_title}</h3>
+                  <h3 class="input-offer__title">${title}</h3>
                   <p class="input-offer__genres">${genresList}</p>
                   <p id="release_date">
                   ${release_date}<span class="film-card__rating input-offer__rating">${vote_average}</span>

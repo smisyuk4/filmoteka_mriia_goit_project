@@ -118,13 +118,12 @@ export class Modal {
     if (modalAbout.length === 0) {
       modalAbout = "Sorry, we don't have a description for this movie";
     }
-    return `
-            <img src=${modalPoster} alt="${title}" class="modal-film__poster" />
+    return `<img src=${modalPoster} alt="${title}" class="modal-film__poster" />
             <div class="modal-film__label">
                 <h2 class="modal-film__title">${title}</h2>
                 <ul class="modal-film__info">
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Vote">Vote / Votes</p>
+                        <p class="modal-film__item-title" >${this.param.langText.vote}</p>
                         <p class="modal-film__item-text">
                             <span class="vote">${vote_average}</span> / <span class="votes">${vote_count}</span>
                         </p>
@@ -136,15 +135,15 @@ export class Modal {
                         )}</p>
                     </li>
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Title">Original Title</p>
+                        <p class="modal-film__item-title">${this.param.langText.title}</p>
                         <p class="modal-film__item-text">${title}</p>
                     </li>
                     <li class="modal-film__item">
-                        <p class="modal-film__item-title" data-text="Genre">Genre</p>
+                        <p class="modal-film__item-title">${this.param.langText.genre}</p>
                         <p class="modal-film__item-text">${allGenres}</p>
                     </li>
                 </ul>
-                <p class="modal-film__about-title" data-text="About">About</p>
+                <p class="modal-film__about-title">${this.param.langText.about}</p>
                 <p class="modal-film__about-text">${modalAbout}</p>
                 <ul class="modal-film__btn-box">
                     <li class="modal-film__btn-item ${
