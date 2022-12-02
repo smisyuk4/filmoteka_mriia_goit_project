@@ -1,16 +1,15 @@
 import axios from 'axios';
 
 export class Filmoteka {
+  BASE_URL = 'https://api.themoviedb.org/3';
+  API_KEY = '2e329d861e790504d655e6d7175d4c52';
 
   constructor() {
-    this.searchQuery = 'test query';
     this._filterByRating;
     this._dateFilter;
   }
 
   async fetchFilms(valueObj) {
-    const BASE_URL = 'https://api.themoviedb.org/3';
-    const API_KEY = '2e329d861e790504d655e6d7175d4c52';
     const {
       option,
       nameFilm = '',
@@ -20,8 +19,7 @@ export class Filmoteka {
       page = 1,
     } = valueObj;
 
-    const url = `${BASE_URL}${option}?api_key=${API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}&include_adult=false`+ this.addFilterQuery() + this.addDateQuery();
-    // console.log(url);
+    const url = `${this.BASE_URL}${option}?api_key=${this.API_KEY}${nameFilm}${lang}${imageLang}${region}&page=${page}&include_adult=false`+ this.addFilterQuery() + this.addDateQuery();
 
     return await axios.get(url).then(response => {
       return response.data;
@@ -29,10 +27,8 @@ export class Filmoteka {
   }
 
   async fetchMovieGenres() {
-    const BASE_URL = 'https://api.themoviedb.org/3';
-    const API_KEY = '2e329d861e790504d655e6d7175d4c52';
+    const url = `${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}`;
 
-    const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
     return await axios.get(url).then(response => {
       return response.data;
     });
@@ -85,6 +81,5 @@ export class Filmoteka {
       return `&vote_average.gte=${this._filterByRating}`
     }
     return '';
-  }
- 
+  } 
 }

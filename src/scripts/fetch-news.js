@@ -3,7 +3,6 @@ import axios from 'axios';
 export default class News {
 
   constructor() {
-    // this.searchQuery = 'test query';
     // this._filterByRating;
     // this._dateFilter;
   }
