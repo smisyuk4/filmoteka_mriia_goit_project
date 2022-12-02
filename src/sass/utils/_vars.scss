@@ -17,6 +17,7 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .dark-color{
     //test
+    // header main
     --bg-image-320: url(/src/images/header-main/header-green-2-320.jpg);
     --bg-image-320-2x: url(/src/images/header-main/header-green-2-320@2x.jpg);
     --bg-image-320-2x-webp: url(/src/images/header-main/header-green-2-320@2x.webp);
@@ -28,6 +29,10 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --bg-image-1280: url(/src/images/header-main/header-green-2-1280@2x.jpg);
     --bg-image-1280-2x: url(/src/images/header-main/header-green-2-1280@2x.jpg);
     --bg-image-1280-2x-webp: url(/src/images/header-main/header-green-2-1280@2x.webp);
+    
+    //header library
+    --bg-image-lib-1280: url(/src/images/header-library/header-library-green-1280.jpg);
+    
     //test
 
 
