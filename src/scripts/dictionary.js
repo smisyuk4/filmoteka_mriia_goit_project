@@ -17,8 +17,8 @@ const ua = {
   searchInput: "пошук фільму",
   ratingFilter: "Рейтинг",
   yearsFilter: "Рік",
-  nextCat: "Наст",
-  prevCat: "Попр",
+  // nextCat: "Наст",
+  // prevCat: "Попр",
   
 };
 
@@ -40,8 +40,8 @@ const eng = {
   searchInput: "movie search",
   ratingFilter: "Rating",
   yearsFilter: "Years",
-  nextCat: "next",
-  prevCat: "prev",
+  // nextCat: "next",
+  // prevCat: "prev",
 };
 
 export { ua, eng };
