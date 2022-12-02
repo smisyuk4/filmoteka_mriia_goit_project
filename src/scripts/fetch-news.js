@@ -1,32 +1,73 @@
 import axios from 'axios';
-
-export default class News {
+  const wrapper = document.querySelector('.marquee-wrapper')
+  const marquee = document.querySelector('.marquee')
+  const  wrapperWidth = wrapper.offsetWidth
+  const marqueeWidth = marquee.scrollWidth;
+export class News {
 
   constructor() {
-    // this._filterByRating;
-    // this._dateFilter;
+    this.wrapper = document.querySelector('.marquee-wrapper')
+    this.marquee = document.querySelector('.marquee')
+    this.wrapperWidth = this.wrapper.offsetWidth
+    this.marqueeWidth = this.marquee.scrollWidth;
+    let interval = setInterval(this.move, 40);
+    this.fetchNews()
   }
   
-async fetchNews() {
+fetchNews() {
+    let langStorage = localStorage.getItem("siteOptions")
+    let country
+        if (langStorage === "ua") {
+            country='ua'
+        }
 
-    var url = 'https://newsapi.org/v2/everything?' +
-    'q=Apple&' +
-    'from=2022-12-01&' +
-    'sortBy=popularity&' +
-    'apiKey=de1926e9c94248b9b9aaffe3afcbac80';
+        if (langStorage === "eng") {
+            country='us'
+        }
+    var url = `https://newsapi.org/v2/top-headlines?sortBy=popularity&country=${country}&from=${new Date}&apiKey=de1926e9c94248b9b9aaffe3afcbac80` //+
+    // 'q=Ukraine&' +
+    // `from=${new Date}&` +
+    // 'sortBy=popularity&' +
+    // 'apiKey=de1926e9c94248b9b9aaffe3afcbac80';
 
-var req = new Request(url);
+//var req = new Request(url);
 
-fetch(req)
+//fetch(req)
 // .then(function(response) {
 //   console.log(response.json());
 // })
 
-return await axios.get(url).then(response => {
-    return response.data;
+  return axios.get(url).then(response => {
+    let state = true
+    let subresult = ''
+    let i=0
+    while (state) {
+      subresult += response.data.articles[i].title
+      if (subresult.length>400) {
+        break
+      }
+      subresult +=' • '
+      i++
+    }
+    this.marquee.textContent=subresult
   }); 
   }
+  move() {
 
+  var currentTX = getComputedStyle(marquee).transform.split(',');
+  if( currentTX[4] === undefined ) {
+    currentTX = -1;
+  } else {
+    currentTX = parseFloat(currentTX[4]) - 1;
+  }
+  
+  if(-currentTX >= marqueeWidth) {
+    marquee.style.transform = 'translateX(' + wrapperWidth + 'px)';
+  
+  } else {
+    marquee.style.transform = 'translateX(' + currentTX + 'px)';
+  }
+}
   get query() {
     return this.searchQuery;
   }

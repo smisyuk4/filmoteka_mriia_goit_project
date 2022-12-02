@@ -16,8 +16,12 @@ export function onClickToBtnTrailer(id) {
 			param.region = '&region=en-US';
 		}
     return window.filmoteka.fetchFilms(param)
-        .then(res => {
-            return res.results[0].key;
+		.then(res => {
+			if (res.results.lenght==0) {
+				return '';
+			} else {
+				return res.results[0].key;
+			}
         })
         .catch(error => {
             console.log(error);
