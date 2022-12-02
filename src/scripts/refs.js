@@ -11,7 +11,7 @@ export const refs = {
   massages: document.querySelector('.search-form__error'),
 
   container: document.querySelector('[data-film-table-list]'),
-
+  headerButtons:document.querySelector('.headerButtons'),
   boxNumbersPage: document.querySelector('.container__numbers-page'),
 
   modalOverlay: document.querySelector('.modal-film__card-overlay'),

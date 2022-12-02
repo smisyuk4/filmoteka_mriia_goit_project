@@ -41,16 +41,16 @@ export class MovieLibrary {
 		}
 		this.param.option = `/movie/${id}`;
 		window.filmoteka.fetchFilms(this.param)
-			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
+			.then(({ id, poster_path, release_date, genres, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				let genreNames = genres.map(el => el.name).join(", ")
-				this.watched[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
+				this.watched[id] = { id, poster_path, year, genreNames, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
 				if (notify) Notify.success('Movie added to watched');
 			})
 			.catch(error => {
 				console.log(error);
-				Notify.warning('Some went wrong when ading to watched. Please try again.');
+				Notify.failure('Some went wrong when ading to watched. Please try again.');
 			})
 	}
 	addToQueue(id, notify = true) {
@@ -60,35 +60,35 @@ export class MovieLibrary {
 		}
 		this.param.option = `/movie/${id}`;
 		window.filmoteka.fetchFilms(this.param)
-			.then(({ id, backdrop_path, release_date, genres, popularity, title, vote_average }) => {
+			.then(({ id, poster_path, release_date, genres, title, vote_average }) => {
 				const year = new Date(release_date).getFullYear()
 				let genreNames = genres.map(el => el.name).join(", ")
-				this.queue[id] = { id, backdrop_path, year, genreNames, popularity, title, vote_average }
+				this.queue[id] = { id, poster_path, year, genreNames, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
 				if (notify) Notify.success('Movie added to queue');
 			})
-			.catch(error => Notify.warning('Some went wrong when ading to queue. Please try again.'))
+			.catch(error => Notify.failure('Some went wrong when ading to queue. Please try again.'))
 	}
 
 	removeFromWatched(id) {
 		if (this.isWatched(id)) {
 			delete this.watched[id];
 			this.#updateStorage("Watched_List", this.watched);
-			Notify.success('Movie deleted from watched');
+			Notify.warning('Movie deleted from watched');
 			
 			return;
 		} else {
-			Notify.warning('Movie not found in watched');
+			Notify.failure('Movie not found in watched');
 		}
 	}
 	removeFromQueue(id) {
 		if (this.isQueue(id)) {
 			delete this.queue[id];
 			this.#updateStorage("Queue_List", this.queue);
-			Notify.success('Movie deleted from queue');
+			Notify.warning('Movie deleted from queue');
 			return;
 		} else {
-			Notify.warning('Movie not found in queue');
+			Notify.failure('Movie not found in queue');
 		}
 	}
 
@@ -139,5 +139,54 @@ export class MovieLibrary {
 		watchedId.forEach(id => this.addToWatched(id, false));
 		queueId.forEach(id => this.addToQueue(id, false));
 	}
-	
+	markupWatched() {
+		if (Object.keys(this.watched).length <= 0) {
+			return "";
+		}
+		return this.getWatched().map(({ id, poster_path, year, genreNames, title, vote_average }) => {
+			let imgLink;
+			if (!poster_path) {
+				imgLink = 'https://i.postimg.cc/Y0NKgxRL/CDBD31-CB-2-C43-438-F-A140-5-CBA7-C480-AB3.jpg';
+			} else {
+				imgLink = `https://image.tmdb.org/t/p/w400${poster_path}`;
+			}
+			return `<li class="table-item film-card__item" data-id="${id}">
+                            <div class="film-card__box-img">
+                            <img class="film-card__img" src="${imgLink}" alt="${title}" loading="lazy" width="350"/>
+                            </div>
+                            <div class="film-card__box-info">
+                              <h3 class="film-card__title">${title}</h3>
+                              <p class="film-card__text">
+                                ${genreNames} | ${year}<span class="film-card__rating">${Math.round(vote_average * 100) / 100
+				}</span>
+                              </p>
+                            </div>
+                          </li> `;
+		}).join('');
+	}
+	markupQueue() {
+		if (Object.keys(this.watched).length <= 0) {
+			return "";
+		}
+		return this.getQueue().map(({ id, poster_path, year, genreNames, title, vote_average }) => {
+			let imgLink;
+			if (!poster_path) {
+				imgLink = 'https://i.postimg.cc/Y0NKgxRL/CDBD31-CB-2-C43-438-F-A140-5-CBA7-C480-AB3.jpg';
+			} else {
+				imgLink = `https://image.tmdb.org/t/p/w400${poster_path}`;
+			}
+			return `<li class="table-item film-card__item" data-id="${id}">
+                            <div class="film-card__box-img">
+                            <img class="film-card__img" src="${imgLink}" alt="${title}" loading="lazy" width="350"/>
+                            </div>
+                            <div class="film-card__box-info">
+                              <h3 class="film-card__title">${title}</h3>
+                              <p class="film-card__text">
+                                ${genreNames} | ${year}<span class="film-card__rating">${Math.round(vote_average * 100) / 100
+				}</span>
+                              </p>
+                            </div>
+                          </li> `;
+		}).join('');
+	}
 }

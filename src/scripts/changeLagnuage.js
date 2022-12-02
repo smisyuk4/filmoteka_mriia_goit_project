@@ -13,17 +13,19 @@ function setLagnuage() {
  
   const language = localStorage.getItem("siteOptions");
 
+  let parseLanguage
+
     if (language === "eng") {
       parseLanguage = eng;
       if (searchFormInputRef !== null) { translateCheckboxRef.value = "eng"; }
     }
-    if (language === "ua") {
-      if (searchFormInputRef !== null) {
-        translateCheckboxRef.checked = true;
-        translateCheckboxRef.value = "ua";
-      }
+    if (language == "ua") {
+    
+      translateCheckboxRef.checked = true;
+      translateCheckboxRef.value = "ua";
       parseLanguage = ua;
     }
+
 
   document.querySelectorAll('[data-text]').forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
 
