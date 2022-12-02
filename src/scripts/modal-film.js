@@ -11,7 +11,7 @@ export class Modal {
       lang: '&language=en',
       imageLang: '&include_image_language=en',
       region: '&region=en-US',
-      langText: eng
+      langText: localStorage.getItem("siteOptions") == "eng" ? eng : ua,
     };
     this.filmId = 0;
     refs.container.addEventListener('click', e => {
@@ -74,12 +74,10 @@ export class Modal {
       this.param.lang = '&language=uk';
       this.param.imageLang = '&include_image_language=uk';
       this.param.region = '&region=uk-UA';
-      this.param.langText = ua;
     } else {
       this.param.lang = '&language=en';
       this.param.imageLang = '&include_image_language=en';
       this.param.region = '&region=en-US';
-      this.param.langText = eng;
     }
     this.param.option = `/movie/${id}`;
     window.filmoteka
