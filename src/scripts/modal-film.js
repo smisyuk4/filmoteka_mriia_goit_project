@@ -22,7 +22,7 @@ export class Modal {
         refs.modalOverlay.dataset.modal = filmId;
       }
     });
-    if (window.location.pathname !== "/partials/library-pg.html") {
+    if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html") {
       document.querySelector('.slider__track').addEventListener('click', e => {
       if (e.target.nodeName === 'IMG') {
         refs.modalOverlay.classList.remove('visually-hidden');
@@ -176,7 +176,7 @@ export class Modal {
         `;
   }
   checkLibrary() {
-    if (window.location.pathname == "/partials/library-pg.html") {
+    if (window.location.pathname == "/filmoteka_mriia_goit_project/partials/library-pg.html") {
       if (window.location.hash == "#queue") {
         refs.container.innerHTML=window.movieLibrary.markupQueue()
       } else {
