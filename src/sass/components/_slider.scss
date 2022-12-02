@@ -3,36 +3,38 @@
 
 
 .wrapper {
-    background-color: rgba(206, 206, 206, 0.596);
-    // gap: 5px;
+    background-color: $secTextColor;
+    
 }
 
 .slider-container {
-    display: flex;
-    align-items: center;
+
+    display: none;
+    padding: 0 30px 0 30px;
+    @media screen and (min-width: 768px) {
+        &{    
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+    }
 }
 
 .slider {
         overflow: hidden; 
-        @media screen and (max-width: 768px) {
-            &{    
-            display: none;
-        }
-        }
+       
         @media screen and (min-width: 768px) {
             &{
+                width: calc(90px * 10);
                 margin: 0 auto;
-                width: 768px;
-                font-size: 12px;
                 padding: 10px 0px 10px 0px;
             }
         }
         @media screen and (min-width: 1280px) {
             &{
                 margin: 0 auto;
-                width: 1280px;
-                font-size: 12px;
                 padding: 10px 0px 0px 0px;
+                width: calc(120px * 10);
             }
     };
      
@@ -47,26 +49,83 @@
 
 
 .slider-film__img {
+
+    @media screen and (min-width: 768px) {
+        &{
+            width: 120px;
+            height: 180px;
+            border-radius: 5px;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        &{
+            width: 160px;
+            height: 240px;
+            border-radius: 5px;
+        }
+    }
+    
+
     border-radius: 5px;
     width: 180px;
     height: 240px;
+    cursor: pointer;
+
 }
 
-.slider-film__title {
-    text-align: center;
+// .slider__buttons {
+//     display: flex;
+//     justify-content: space-around;
+//     margin: auto;
+//     width: 50px;
+//     height: 50px;
+//     background-color:$mainRedColor;
+//     color:$mainBlackColor;
+//     outline: none;
+//     &:hover{
+//         background-color: $mainBlackColor;
+//         color: $mainRedColor;
+//         border: solid $mainRedColor;
+//         transition: background-color 500ms, outline-color 250ms;
+//     }
+// }
+
+.btn-prev {
     display: flex;
-    justify-content: center;
-    padding-left:10px ;
-    padding-right:10px ;
-    width: 140px;
-    text-transform: uppercase;
-    text-shadow: 0 -1px 0 rgba(224, 14, 14, 0.3);
+    align-items: center;
+    border-radius:  50  50  50 50 ; 
 }
 
 
-.slider__buttons {
+.btn-next {
+    align-items: center;
+    border-radius: 50 50 50 50;
+}
 
-    display: none;
+
+.button-prev {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 8%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color:$mainRedColor;
+    color:$mainBlackColor;
+    border-radius: 50px;
+    // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    
+    
+    justify-content: center;
+    
+    &:hover{
+                background-color: $mainBlackColor;
+                color: $mainRedColor;
+                border: solid $mainRedColor;
+                transition: background-color 500ms, outline-color 250ms;
+            }
 
     @media screen and (min-width: 768px) {
         &{
@@ -80,13 +139,29 @@
             
         }
     }
+}
+
+.button-next {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color:$mainRedColor;
+    color:$mainBlackColor;
+    border-radius: 50px;
+    // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
    
+    
+    justify-content: center;
+    
+    &:hover{
+                background-color: $mainBlackColor;
+                color: $mainRedColor;
+                border: solid $mainRedColor;
+                transition: background-color 500ms, outline-color 250ms;
+            }
 }
 
-.btn-prev {
-    border-radius:  50 0 0 50 ;
-}
-
-.btn-next {
-    border-radius: 0 50 50 0;
-}

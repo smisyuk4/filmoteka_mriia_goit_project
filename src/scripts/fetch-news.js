@@ -25,25 +25,6 @@ fetch(req)
 return await axios.get(url).then(response => {
     return response.data;
   }); 
-//   const NewsAPI = require('https://newsapi.org/v2/everything?');
-//   const newsapi = new NewsAPI('de1926e9c94248b9b9aaffe3afcbac80');
-  
-// newsapi.v2.topHeadlines({
-//     q: 'trump',
-//     category: 'politics',
-//     language: 'en',
-//     country: 'ukraine'
-//   }).then(response => {
-//     console.log(response);
-//     });
-
-// newsapi.articles({
-//         source: 'associated-press',
-//         sortBy: 'top'
-//       }, (err, articlesResponse) => {
-//         if (err) console.error(err);
-//         else console.log(articlesResponse);
-//       });
   }
 
   get query() {

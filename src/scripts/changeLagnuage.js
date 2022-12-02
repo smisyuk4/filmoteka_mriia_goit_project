@@ -3,7 +3,6 @@ import { ua, eng } from "./dictionary"
 const translateCheckboxRef = document.querySelector(".translate");
 const searchFormInputRef = document.querySelector(".search-form__input");
 
-let parseLanguage
 
 
 function setLagnuage() {
@@ -13,17 +12,21 @@ function setLagnuage() {
  
   const language = localStorage.getItem("siteOptions");
 
+  let parseLanguage
+
     if (language === "eng") {
       parseLanguage = eng;
       if (searchFormInputRef !== null) { translateCheckboxRef.value = "eng"; }
     }
-    if (language === "ua") {
+    if (language == "ua") {
       if (searchFormInputRef !== null) {
         translateCheckboxRef.checked = true;
         translateCheckboxRef.value = "ua";
       }
+      
       parseLanguage = ua;
     }
+
 
   document.querySelectorAll('[data-text]').forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
 

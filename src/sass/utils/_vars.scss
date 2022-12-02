@@ -22,8 +22,8 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     //test
 
 
-    --body-color: #767676;
-    --mainRedColor: #134f01;
+    --body-color: #9fa19f;
+    --mainRedColor: #1d7702;
     --mainBlackColor: #aaa9a9;
     --mainWhiteColor: #363636;
     --secTextColor: #646464;
@@ -32,8 +32,8 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     
     --filterColor: #701720;
-    --filterText: #009803;
-    --cardText: rgb(26, 174, 0);
+    --filterText: #0c800e;
+    --cardText: rgb(39, 119, 24);
     
     --thirdColor: #444444;
 
@@ -66,7 +66,4 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --bgColorHeader: rgba(0, 0, 0, 0.56);
 }
 
-body{
-        background-color: var(--brand-color);
-}
 
