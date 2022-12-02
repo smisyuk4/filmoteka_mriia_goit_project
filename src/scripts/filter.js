@@ -1,7 +1,6 @@
 import { clearMurkup } from "./markup/clear-murkup";
 import { createFilmCardMarkup } from "./markup/create-markup-film";
 
-
 export default class FilterHendler {
     constructor() {
         let startYear = 1900;
@@ -26,7 +25,7 @@ export default class FilterHendler {
         } else { 
         window.filmoteka.filterByRating = +ratingFilter;
         }
-
+        window.loader()
         filmoteka.fetchFilms({
             region: '',
             page:1,
@@ -34,7 +33,8 @@ export default class FilterHendler {
         }).then(result => {
             clearMurkup();
             createFilmCardMarkup(result.results);
-        });
+        })
+        .finally(()=>window.loaderRemove());
     }
 
     dataFilterOnChange(e) {
