@@ -1,6 +1,5 @@
 
- async function initItem () {
-    const filmoteka = window.filmoteka;    
+ async function initItem () {   
 
     //get idFilm from content
     const OPTION_FIND = `/trending/movie/week`
@@ -9,7 +8,7 @@
         option: OPTION_FIND,  
     }
 
-        let moviesResult = await filmoteka.fetchFilms(valueObj);
+        let moviesResult = await window.filmoteka.fetchFilms(valueObj);
         // let genresResult = await filmoteka.fetchMovieGenres();
     
                 let ietmsHtml = '';

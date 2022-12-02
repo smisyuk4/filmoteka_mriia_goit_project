@@ -28,7 +28,12 @@ const ua = {
   notifySuccessQueue: "Фільм додано до черги",
   notifyFailureWatched: "Помилка під час додавання до перегляду. Будь ласка, спробуйте ще раз.",
   notifyFailureQueue: "Помилка під час додавання до черги. Будь ласка, спробуйте ще раз.",
-  notifyInfo: "Фільм уже в черзі",
+  notifyInfoQueue: "Фільм уже в черзі",
+  notifyInfoWatched: "Фільм уже в переглянутих",
+  notifyDelWatched: "Фільм видалено з переглянутих",
+  notifyDelQueue: "Фільм видалено з черги",
+  notifyNotWatched: "Фільм не знайдено в переглянутих",
+  notifyNotQueue: "Фільм не знайдено в черзі",
 };
 
 const eng = {
@@ -60,7 +65,12 @@ const eng = {
   notifySuccessQueue: "Movie added in queue",
   notifyFailureWatched: "Some went wrong when ading to watched. Please try again.",
   notifyFailureQueue: "Some went wrong when ading to queue. Please try again.",
-  notifyInfo: "Movie already in queue",
+  notifyInfoQueue: "Movie already in queue",
+  notifyInfoWatched: "Movie already in watched",
+  notifyDelWatched: "Movie deleted from watched",
+  notifyDelQueue: "Movie deleted from queue",
+  notifyNotWatched: "Movie not found in watched",
+  notifyNotQueue: "Movie not found in queue",
 };
 
 export { ua, eng };

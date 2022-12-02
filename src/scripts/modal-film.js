@@ -11,7 +11,7 @@ export class Modal {
       lang: '&language=en',
       imageLang: '&include_image_language=en',
       region: '&region=en-US',
-      langText: eng,
+      langText: eng
     };
     this.filmId = 0;
     refs.container.addEventListener('click', e => {
@@ -22,7 +22,7 @@ export class Modal {
         refs.modalOverlay.dataset.modal = filmId;
       }
     });
-    if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html") {
+    if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html" && window.location.pathname !== "/partials/library-pg.html") {
       document.querySelector('.slider__track').addEventListener('click', e => {
       if (e.target.nodeName === 'IMG') {
         refs.modalOverlay.classList.remove('visually-hidden');
@@ -43,22 +43,18 @@ export class Modal {
       if (targetDat.watched) {
         window.movieLibrary.addToWatched(targetDat.watched);
         targetParent.classList.toggle('remove');
-        this.checkLibrary()
       }
       if (targetDat.queue) {
         window.movieLibrary.addToQueue(targetDat.queue);
         targetParent.classList.toggle('remove');
-        this.checkLibrary()
       }
       if (targetDat.watchedr) {
         window.movieLibrary.removeFromWatched(targetDat.watchedr);
         targetParent.classList.toggle('remove');
-        this.checkLibrary()
       }
       if (targetDat.queuer) {
         window.movieLibrary.removeFromQueue(targetDat.queuer);
         targetParent.classList.toggle('remove');
-        this.checkLibrary()
       }
     });
   }
@@ -90,11 +86,11 @@ export class Modal {
       .fetchFilms(this.param)
       .then(result => {
         refs.containerModal.innerHTML = this.markupModalFilm(result);
-        Loading.remove(1);
       })
       .catch(error => {
         console.log(error);
-      });
+      })
+      .finally(()=>window.loaderRemove());
     // onClickToBtnTrailer(id).then(url => {
     //         console.log(url);
     //         refs.containerModal.insertAdjacentHTML('beforeend',`<iframe width="866" height="487" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
@@ -176,7 +172,7 @@ export class Modal {
         `;
   }
   checkLibrary() {
-    if (window.location.pathname == "/filmoteka_mriia_goit_project/partials/library-pg.html") {
+    if (window.location.pathname == "/filmoteka_mriia_goit_project/partials/library-pg.html" || window.location.pathname == "/partials/library-pg.html") {
       if (window.location.hash == "#queue") {
         refs.container.innerHTML=window.movieLibrary.markupQueue()
       } else {

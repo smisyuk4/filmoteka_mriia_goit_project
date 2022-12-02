@@ -20,7 +20,6 @@ async function onClickSearchBtn(event) {
   // });
 
   const OPTION_SEARCH = '/search/movie';
-  const filmoteka = new Filmoteka();
   const nameFilm = refs.searchInput.value;
   console.log(nameFilm);
 
@@ -38,9 +37,9 @@ async function onClickSearchBtn(event) {
   }
 
   makeLangParam(valueObj)
-
+  window.loader()
   try {    
-    const data = await filmoteka.fetchFilms(valueObj)
+    const data = await window.filmoteka.fetchFilms(valueObj)
       // .then(res => {
         // Loading.remove(10)
       //   return res
@@ -53,7 +52,7 @@ async function onClickSearchBtn(event) {
       refs.massages.classList.remove('hidden');
       setClearTextContentTimer();
       refs.searchForm.reset();
-
+      window.loaderRemove()
       return;
     }
 
@@ -62,8 +61,10 @@ async function onClickSearchBtn(event) {
     createFilmCardMarkup(data.results);
     refs.searchForm.reset();
     refs.modalOffer.innerHTML = '';
+    window.loaderRemove()
   } catch (error) {
     console.log(error);
+    window.loaderRemove()
   }
 }
 

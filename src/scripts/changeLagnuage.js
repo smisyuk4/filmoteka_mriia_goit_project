@@ -3,7 +3,6 @@ import { ua, eng } from "./dictionary"
 const translateCheckboxRef = document.querySelector(".translate");
 const searchFormInputRef = document.querySelector(".search-form__input");
 
-let parseLanguage
 
 
 function setLagnuage() {

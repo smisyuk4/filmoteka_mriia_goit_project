@@ -16,7 +16,6 @@ export function initTrending(page) {
       return trandingToday;
     })
     .then(trandingToday => {
-      console.log(trandingToday);
       markupNumberPages(trandingToday);
       doActiveNumberPage(trandingToday);
       doArrowPages(trandingToday);
@@ -24,7 +23,6 @@ export function initTrending(page) {
 }
 
 async function getTranding(page = 1) {
-  const filmoteka = window.filmoteka;
   const OPTION_TRANDING = '/trending/movie/day';
   const valueObj = {
     option: OPTION_TRANDING,
@@ -32,13 +30,16 @@ async function getTranding(page = 1) {
   };
 
   makeLangParam(valueObj)
-
+  window.loader()
   try {
-    const trandingToday = await filmoteka.fetchFilms(valueObj);
+    const trandingToday = await window.filmoteka.fetchFilms(valueObj);
+    window.loaderRemove()
     return trandingToday;
   } catch (error) {
     console.log(error);
+    window.loaderRemove()
   }
+  
 }
 
 refs.boxNumbersPage.addEventListener('click', selectPage);

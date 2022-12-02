@@ -11,8 +11,7 @@ import { Filmoteka } from "./fetch-api"
 // onClickToCard()
 
 export async function onClickToCard(event) {
-    // event.preventDefault()
-    const filmoteka = new Filmoteka()    
+    // event.preventDefault()  
 
     //get idFilm from content
     const idFilm = 724495; //"The Woman King" 
@@ -21,11 +20,13 @@ export async function onClickToCard(event) {
     const valueObj = {
         option: OPTION_FIND,  
     }
-
+    window.loader()
     try {
-        const data = await filmoteka.fetchFilms(valueObj)
+        const data = await window.filmoteka.fetchFilms(valueObj)
         console.log(data)
+        window.loaderRemove()
     } catch (error) {
         console.log(error)
+        window.loaderRemove()
     }
 }

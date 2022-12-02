@@ -1,4 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { eng, ua } from "./dictionary"
+
 
 export class MovieLibrary {
 	constructor() {
@@ -18,7 +20,8 @@ export class MovieLibrary {
 			option: "",
 			lang: '&language=en',
 			imageLang: '&include_image_language=en',
-			region: '&region=en-US'
+			region: '&region=en-US',
+			langText: eng
 		}
 	}
 	isWatched(id) {
@@ -36,7 +39,7 @@ export class MovieLibrary {
 	}
 	addToWatched(id, notify = true) {
 		if (this.isWatched(id)) {
-			Notify.info('Movie already in watched');
+			Notify.info(this.param.langText.notifyInfoWatched);
 			return;
 		}
 		this.param.option = `/movie/${id}`;
@@ -46,16 +49,16 @@ export class MovieLibrary {
 				let genreNames = genres.map(el => el.name).join(", ")
 				this.watched[id] = { id, poster_path, year, genreNames, title, vote_average }
 				this.#updateStorage("Watched_List", this.watched);
-				if (notify) Notify.success('Movie added to watched');
+				if (notify) Notify.success(this.param.langText.notifySuccessWatched);
 			})
 			.catch(error => {
 				console.log(error);
-				Notify.failure('Some went wrong when ading to watched. Please try again.');
+				Notify.failure(this.param.langText.notifyFailureWatched);
 			})
 	}
 	addToQueue(id, notify = true) {
 		if (this.isQueue(id)) {
-			Notify.info('Movie already in queue');
+			Notify.info(this.param.langText.notifyInfoQueue);
 			return;
 		}
 		this.param.option = `/movie/${id}`;
@@ -65,30 +68,30 @@ export class MovieLibrary {
 				let genreNames = genres.map(el => el.name).join(", ")
 				this.queue[id] = { id, poster_path, year, genreNames, title, vote_average }
 				this.#updateStorage("Queue_List", this.queue);
-				if (notify) Notify.success('Movie added to queue');
+				if (notify) Notify.success(this.param.langText.notifySuccessQueue);
 			})
-			.catch(error => Notify.failure('Some went wrong when ading to queue. Please try again.'))
+			.catch(error => Notify.failure(this.param.langText.notifyFailureQueue))
 	}
 
 	removeFromWatched(id) {
 		if (this.isWatched(id)) {
 			delete this.watched[id];
 			this.#updateStorage("Watched_List", this.watched);
-			Notify.warning('Movie deleted from watched');
+			Notify.warning(this.param.langText.notifyDelWatched);
 			
 			return;
 		} else {
-			Notify.failure('Movie not found in watched');
+			Notify.failure(this.param.langText.notifyNotWatched);
 		}
 	}
 	removeFromQueue(id) {
 		if (this.isQueue(id)) {
 			delete this.queue[id];
 			this.#updateStorage("Queue_List", this.queue);
-			Notify.warning('Movie deleted from queue');
+			Notify.warning(this.param.langText.notifyDelQueue);
 			return;
 		} else {
-			Notify.failure('Movie not found in queue');
+			Notify.failure(this.param.langText.notifyNotQueue);
 		}
 	}
 
@@ -107,6 +110,7 @@ export class MovieLibrary {
 			localStorage.removeItem(key);
 			window.fireBase.saveData(key, {})
 		}
+		window.modal.checkLibrary()
 	}
 	saveData() {
 		if (Object.keys(this.queue).length > 0) {
@@ -121,10 +125,12 @@ export class MovieLibrary {
 			this.param.lang = '&language=uk';
 			this.param.imageLang = '&include_image_language=uk';
 			this.param.region = '&region=uk-UA';
+			this.param.langText = ua;
 		} else {
 			this.param.lang = '&language=en';
 			this.param.imageLang = '&include_image_language=en';
 			this.param.region = '&region=en-US';
+			this.param.langText = eng;
 		}
 		this.#updateSaves()
 		if (window.fireBase.userData) {

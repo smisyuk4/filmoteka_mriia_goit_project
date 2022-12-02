@@ -22,7 +22,6 @@ async function onChangeInput(event) {
     refs.searchInput.classList.remove('not-valid')
 
     const OPTION_SEARCH = '/search/movie'
-    const filmoteka = new Filmoteka()
 
     const valueObj = {
         option: OPTION_SEARCH,
@@ -31,7 +30,7 @@ async function onChangeInput(event) {
 
     try {
         makeLangParam(valueObj)
-        const data = await filmoteka.fetchFilms(valueObj)
+        const data = await window.filmoteka.fetchFilms(valueObj)
         data.results.sort((a, z) => z.vote_average - a.vote_average)
 
         let countOfferCards = 3
@@ -55,8 +54,6 @@ async function onChangeInput(event) {
 }
 
 function onClickCardOffer(e) {
-    console.log(e.target.nodeName)
-    console.log(e.currentTarget.nodeName)
     if (e.target.nodeName === "IMG" || e.target.nodeName === "LI") {
         refs.modalOffer.innerHTML = ''
         refs.searchForm.reset();
