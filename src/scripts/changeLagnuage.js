@@ -14,18 +14,18 @@ function setLagnuage() {
   // console.log(translateCheckboxRef.checked);
 
   let parseLanguage
-  if (searchFormInputRef !== null) {
-    if (language === "eng") {
+
+    if (language == "eng") {
       parseLanguage = eng;
       translateCheckboxRef.value = "eng";
     }
-    if (language === "ua") {
+    if (language == "ua") {
     
       translateCheckboxRef.checked = true;
       translateCheckboxRef.value = "ua";
       parseLanguage = ua;
     }
-  }
+  
 
   document.querySelectorAll('[data-text]')
     .forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })

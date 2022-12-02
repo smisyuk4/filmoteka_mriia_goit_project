@@ -296,7 +296,7 @@
         background-color: $filterText;
         color: $mainWhiteColor;
     }
-
+    
     @media screen and(max-width:320px) {
         width: 160px;
     }
@@ -308,6 +308,17 @@
     @include desktop {
         width: 136px;
     }
+}
+
+.remove .modal-film__watched-button, 
+.remove .modal-film__queue-button,
+.modal-film__watched-buttonr,
+.modal-film__queue-buttonr{
+    display: none;
+}
+.remove .modal-film__watched-buttonr,
+.remove .modal-film__queue-buttonr {
+    display: block;
 }
 
 
