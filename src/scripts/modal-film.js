@@ -3,9 +3,12 @@ import { refs } from './refs';
 import { Loading } from 'notiflix';
 import { DEFAULT_IMG } from './markup/create-markup-film';
 import { eng, ua} from "./dictionary"
+import { onClickToBtnTrailer } from "./find-trailer"
+import {YoutubeVideo} from "./youtube-video"
 
 export class Modal {
   constructor() {
+    this.video = new YoutubeVideo;
     this.param = {
       option: '',
       lang: '&language=en',
@@ -14,9 +17,11 @@ export class Modal {
       langText: localStorage.getItem("siteOptions") == "eng" ? eng : ua,
     };
     this.filmId = 0;
+    this.hash = '';
     refs.container.addEventListener('click', e => {
       if (e.target.nodeName === 'IMG') {
         refs.modalOverlay.classList.remove('visually-hidden');
+        refs.containerModal.innerHTML=''
         const filmId = e.target.parentElement.parentElement.dataset.id;
         this.openModal(filmId);
         refs.modalOverlay.dataset.modal = filmId;
@@ -26,6 +31,7 @@ export class Modal {
       document.querySelector('.slider__track').addEventListener('click', e => {
       if (e.target.nodeName === 'IMG') {
         refs.modalOverlay.classList.remove('visually-hidden');
+        refs.containerModal.innerHTML=''
         const filmId = e.target.dataset.id;
         this.openModal(filmId);
         refs.modalOverlay.dataset.modal = filmId;
@@ -37,6 +43,7 @@ export class Modal {
         const targetParent = e.target.parentElement;
       if (targetDat.close) {
         refs.modalOverlay.classList.add('visually-hidden');
+        refs.containerModal.innerHTML=''
         document.body.classList.remove('no-scroll');
         refs.modalOverlay.dataset.modal = 0;
       }
@@ -62,6 +69,7 @@ export class Modal {
     if (e.keyCode === 27) {
       window.removeEventListener('keydown', this.escEvent);
       refs.modalOverlay.classList.add('visually-hidden');
+      refs.containerModal.innerHTML=''
       document.body.classList.remove('no-scroll');
     }
   }
@@ -83,12 +91,18 @@ export class Modal {
     window.filmoteka
       .fetchFilms(this.param)
       .then(result => {
-        refs.containerModal.innerHTML = this.markupModalFilm(result);
+        onClickToBtnTrailer(this.filmId)
+          .then(hash => {
+            this.hash=hash
+            refs.containerModal.innerHTML = this.markupModalFilm(result);
+            this.video.findVideos()
+          })
       })
       .catch(error => {
         console.log(error);
       })
-      .finally(()=>window.loaderRemove());
+      .finally(() => window.loaderRemove());
+    
     // onClickToBtnTrailer(id).then(url => {
     //         console.log(url);
     //         refs.containerModal.insertAdjacentHTML('beforeend',`<iframe width="866" height="487" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
@@ -116,7 +130,7 @@ export class Modal {
     if (modalAbout.length === 0) {
       modalAbout = `${ this.param.langText.modalAboutNoTranslate }`;
     }
-    return `<img src=${modalPoster} alt="${title}" class="modal-film__poster" />
+    return `<div class="modal-film__card-container"><img src=${modalPoster} alt="${title}" class="modal-film__poster" />
             <div class="modal-film__label">
                 <h2 class="modal-film__title">${title}</h2>
                 <ul class="modal-film__info">
@@ -128,9 +142,7 @@ export class Modal {
                     </li>
                     <li class="modal-film__item">
                         <p class="modal-film__item-title">${this.param.langText.popularity}</p>
-                        <p class="modal-film__item-text">${popularity.toFixed(
-                          1
-                        )}</p>
+                        <p class="modal-film__item-text">${popularity.toFixed(1)}</p>
                     </li>
                     <li class="modal-film__item">
                         <p class="modal-film__item-title">${this.param.langText.title}</p>
@@ -165,8 +177,18 @@ export class Modal {
                         }">${this.param.langText.modalQueueRemove}</button>
                     </li>
                 </ul>
-            </div>
-            
+            </div></div>
+          <div class="video">
+          <a class="video__link" href="https://youtu.be/${this.hash}">
+              <picture>
+                  <source srcset="https://i.ytimg.com/vi_webp/${this.hash}/maxresdefault.webp" type="image/webp">
+                  <img class="video__media" src="https://i.ytimg.com/vi/${this.hash}/maxresdefault.jpg" alt="trailer">
+              </picture>
+          </a>
+          <button class="video__button" aria-label="Запустити видео">
+              <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+          </button>
+      </div>
         `;
   }
   checkLibrary() {
