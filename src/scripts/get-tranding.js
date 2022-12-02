@@ -6,6 +6,7 @@ import { markupNumberPages } from './pagination';
 import { doActiveNumberPage } from './pagination';
 // import { doArrowPages } from './pagination';
 import { refs } from './refs';
+import { makeLangParam } from "./changeLagnuage";
 
 export function initTrending(page) {
   getTranding(page)
@@ -29,6 +30,8 @@ async function getTranding(page = 1) {
     option: OPTION_TRANDING,
     page,
   };
+
+  makeLangParam(valueObj)
 
   try {
     const trandingToday = await filmoteka.fetchFilms(valueObj);

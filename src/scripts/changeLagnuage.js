@@ -5,6 +5,7 @@ const searchFormInputRef = document.querySelector(".search-form__input");
 
 let parseLanguage
 
+
 function setLagnuage() {
   if (localStorage.getItem('siteOptions') === null) {
     localStorage.setItem("siteOptions", "eng");
@@ -40,7 +41,29 @@ function changeLagnuage() {
     localStorage.setItem("siteOptions", "eng");
   }
 
- setLagnuage()
+  setLagnuage()
 };
 
-export { setLagnuage, changeLagnuage };
+function makeLangParam(valueObj) {
+    try {
+        let langStorage = localStorage.getItem("siteOptions")
+
+        if (langStorage === "ua") {
+            valueObj.lang = '&language=uk'
+            valueObj.imageLang = '&include_image_language=uk'
+            valueObj.region = '&region=uk-UA'
+        }
+
+        if (langStorage === "en") {
+            valueObj.lang = '&language=en'
+            valueObj.imageLang = '&include_image_language=en'
+            valueObj.region = '&region=en-US'
+        }
+    } catch (error) {
+        console.log(error)
+    }      
+
+    return valueObj
+}
+
+export { setLagnuage, changeLagnuage, makeLangParam };

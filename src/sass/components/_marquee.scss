@@ -1,0 +1,26 @@
+.marquee-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;  
+    z-index: 999;
+    padding: 3px;
+    text-align: center;
+
+    color: $mainWhiteColor;
+    background: linear-gradient(0deg, rgba(5, 5, 4, 1) 40%, rgb(175, 26, 26) 60%);
+  
+    &:after {
+      position: absolute;
+      content: 'UA NEWS';
+      right: 0;
+      top: 0;
+      width: 80px;
+      height: 100%;
+      background-color: $mainBlackColor;
+    }
+  }
+
+  .marquee {
+    white-space: nowrap;
+  }

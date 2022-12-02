@@ -51,6 +51,12 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     --thirdColor: #F7F7F7;
 
+
     --cardTextOpac: rgba(255, 107, 8, 0.5);
     --bgColorHeader: rgba(0, 0, 0, 0.56);
 }
+
+body{
+        background-color: var(--brand-color);
+}
+
