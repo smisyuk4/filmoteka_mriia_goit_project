@@ -95,8 +95,8 @@
 
 .logo:hover,
 .logo:focus{
-    color: $mainRedColor;
-    box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
+    color: var(--mainRedColor);
+    box-shadow: var(--boxShadowHeader1) 0px 54px 55px, var(--boxShadowHeader2) 0px -12px 30px, var(--boxShadowHeader2) 0px 4px 6px, var(--boxShadowHeader3) 0px 12px 13px, var(--boxShadowHeader4) 15px -15px 15px;
 }
 
 .nav-list {
@@ -115,7 +115,7 @@
     &:hover,
     &:focus {
         color: var(--mainRedColor);
-        box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
+        box-shadow: var(--boxShadowHeader1) 0px 54px 55px, var(--boxShadowHeader2) 0px -12px 30px, var(--boxShadowHeader2) 0px 4px 6px, var(--boxShadowHeader3) 0px 12px 13px, var(--boxShadowHeader4) 15px -15px 15px;
     }
 }
 
@@ -213,13 +213,13 @@
     }
 
     &.not-valid{
-        color: var(--mainRedColor);
+        color: var(--notValid);
     }
 
     &:hover,
     &:focus {
         background-color: rgba(255, 0, 0, 0.1);
-        box-shadow: rgba(255, 0, 0, 0.25) 0px 54px 55px, rgba(255, 0, 0, 0.12) 0px -12px 30px, rgba(255, 0, 0, 0.12) 0px 4px 6px, rgba(255, 0, 0, 0.17) 0px 12px 13px, rgba(255, 0, 0, 0.09) 15px -15px 15px;
+        box-shadow: var(--boxShadowHeader1) 0px 54px 55px, var(--boxShadowHeader2) 0px -12px 30px, var(--boxShadowHeader2) 0px 4px 6px, var(--boxShadowHeader3) 0px 12px 13px, var(--boxShadowHeader4) 15px -15px 15px;
     }
 }
 
@@ -228,7 +228,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
-    color: var(--mainRedColor);
+    color: var(--notValid);
 
     @media screen and (min-width: 768px) {
         text-align: center;
