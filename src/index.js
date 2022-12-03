@@ -32,7 +32,7 @@ window.filterHendler = new FilterHendler();
 window.modal = new Modal();
 window.loader = spinerStart;
 window.loaderRemove = spinerStop;
-//const newsapi = new News;
+const newsapi = new News;
 
 // login по кнопці
 refs.login.addEventListener('click', e => {
@@ -49,6 +49,7 @@ setLagnuage(); //для першого відображення тексту, п
 window.movieLibrary.updateLang();
 document.querySelector('.translate').addEventListener('click', () => {
   changeLagnuage();
+  localStorage.removeItem('newsArr')
   location.reload();
 });
 
