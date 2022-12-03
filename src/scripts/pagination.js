@@ -1,6 +1,6 @@
 import { refs } from './refs';
 
-export function markupNumberPages({ page, total_pages }) {
+export function paginationPages({ page, total_pages }, func) {
   refs.boxNumbersPage.innerHTML = '';
   let markup = [];
   //   Початок
@@ -86,20 +86,23 @@ export function markupNumberPages({ page, total_pages }) {
       markup.reverse().join('')
     );
   }
-}
-
-export function doActiveNumberPage({ page }) {
+  // Активна сторінка
   const targetActice = document.querySelector(`[data-page="${page}"]`);
   targetActice.classList.add('is-active-page');
+  // Стрілки
+  if (total_pages > 9) {
+    refs.boxNumbersPage.firstElementChild.addEventListener('click', () => {
+      let numPage = page;
+      if (numPage > 1) {
+        func(numPage - 1);
+      }
+    });
+    refs.boxNumbersPage.lastElementChild.addEventListener('click', () => {
+      let numPage = page;
+      let allPages = total_pages;
+      if (numPage < allPages) {
+        func(numPage + 1);
+      }
+    });
+  }
 }
-// export function doArrowPages({ page }) {
-//   refs.boxNumbersPage.firstElementChild.addEventListener('click', () => {
-//     let numPage = page;
-//     if(page > 1) {
-
-//     }
-//   });
-//   refs.boxNumbersPage.lastElementChild.addEventListener('click', () => {
-//     let numPage = page;
-//   });
-// }
