@@ -95,6 +95,8 @@
 .modal-film__card-content {
     max-height: 80vh;
     overflow: auto;
+    z-index: 103;
+    position: relative;
 }
 .modal-film__card-container{
     @include tablet {
@@ -381,4 +383,39 @@
 
 .video--enabled .video__button {
     display: block;
+}
+.modal-film__back-btn, .modal-film__next-btn{
+    border: none;
+    position: absolute;
+    top: 50%;
+    height: 54px;
+    width: 60px;
+    background-color: rgba(255, 255, 255,0.5);
+    transition: background-color 250ms;
+    padding: 15px;
+    border-radius: 50%;
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+.modal-film__back-btn svg, .modal-film__next-btn svg{
+    fill: #ff0000;
+    transform: scale(1.5, 1.8);
+    position: absolute;
+    top: 30%;
+    cursor: pointer;
+}
+.modal-film__back-btn path,
+.modal-film__next-btn path{
+    pointer-events: none;
+}
+.modal-film__back-btn {
+    transform: rotate(180deg) translateY(50%);
+    left: -25px;
+}
+
+
+.modal-film__next-btn {
+    transform: translateY(-50%);
+    right: -25px;
 }

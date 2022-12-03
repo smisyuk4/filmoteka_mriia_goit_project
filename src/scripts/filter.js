@@ -74,5 +74,6 @@ export default class FilterHendler {
         } else {
             initTrending();
         }
+        
     }
 }
