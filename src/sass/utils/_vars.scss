@@ -16,7 +16,6 @@ $dst-between: 32px;
 $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .dark-color{
-    //test
     // header main
     --bg-image-320: url(/src/images/header-main/header-green-2-320.jpg);
     --bg-image-320-2x: url(/src/images/header-main/header-green-2-320@2x.jpg);
@@ -42,8 +41,6 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --bg-image-lib-1280: url(/src/images/header-library/header-library-green-1280.jpg);
     --bg-image-lib-1280-2x: url(/src/images/header-library/header-library-green-1280@2x.jpg);
     --bg-image-lib-1280-2x-webp: url(/src/images/header-library/header-library-green-1280@2x.webp);
-    //test
-
 
     --body-color: #9fa19f;
     --mainRedColor: #1d7702;
@@ -69,10 +66,12 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --boxShadowHeader4: rgba(14, 112, 2, 0.09);
     --InputHeaderBgColor: #067b061a;
     --inputModalBgColor: #101a07;
+
+    --boxShadowModal1: rgba(26, 174, 0, 0.603);
+    --boxShadowModal2: rgb(26, 174, 0);
 }
 
 .light-color {
-    //test
     // header main
     --bg-image-320: url(/src/images/header-main/header-320.jpg);
     --bg-image-320-2x: url(/src/images/header-main/header-320@2x.jpg);
@@ -98,7 +97,6 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --bg-image-lib-1280: url(/src/images/header-library/header-library-1280.jpg);
     --bg-image-lib-1280-2x: url(/src/images/header-library/header-library-1280@2x.jpg);
     --bg-image-lib-1280-2x-webp: url(/src/images/header-library/header-library-1280@2x.webp);
-    //test
 
     --body-color: #ffffff;
     --mainRedColor: #ff0019;
@@ -126,6 +124,8 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --InputHeaderBgColor: rgba(255, 0, 0, 0.1);
     --inputModalBgColor: #b32331;
 
+    --boxShadowModal1: rgba(255, 0, 0, 0);
+    --boxShadowModal2: rgba(255, 0, 0, 0);
 }
 
 

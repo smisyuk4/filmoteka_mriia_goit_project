@@ -9,6 +9,8 @@ import FilterHendler from './scripts/filter';
 import { initTrending } from './scripts/get-tranding';
 import { sliderInit } from './scripts/slider';
 import { Modal } from './scripts/modal-film';
+import {spinerStart, spinerStop } from './scripts/loader';
+import { News } from "./scripts/fetch-news";
 
 import Notiflix from 'notiflix';
 import './scripts/get-tranding';
@@ -20,8 +22,7 @@ import './scripts/firebase-auth';
 import './scripts/input-offer';
 import './scripts/modal-team';
 import './scripts/marquee';
-import {spinerStart, spinerStop } from './scripts/loader';
-import { News } from "./scripts/fetch-news";
+
 
 //ініаціплізація глобальних класів
 window.filmoteka = new Filmoteka();
@@ -32,26 +33,18 @@ window.modal = new Modal();
 window.loader = spinerStart;
 window.loaderRemove = spinerStop;
 const newsapi = new News;
+
 // login по кнопці
 refs.login.addEventListener('click', e => {
   window.fireBase.login();
 });
 
-// setInterval(() => {
-//   console.clear()
-// }, 10);
-
-
-
-// document.querySelector('.film-card').addEventListener('click', e => {
-//     window.movieLibrary.addToQueue(505)
-// });
-
+// кнопка повернення вгору документу
 window.addEventListener('scroll', hidenButton);
 document.querySelector('.btn-up').addEventListener('click', upClick);
 
 // Функція зміни мови
-setLagnuage(); //для першого відображення тексту, по замовчуванню Eng
+setLagnuage(); //для першого відображення тексту, по замовчуванню ua
 
 window.movieLibrary.updateLang();
 document.querySelector('.translate').addEventListener('click', () => {
@@ -66,11 +59,12 @@ refs.colorSelector.addEventListener('click', changeColor);
 
 
 //Функції зміни жанру, року або рейтингу
+initFilterHendler();
 function initFilterHendler() {
   //рейтинг
   let rating = document.querySelector('#rating-filter');
   rating.addEventListener('change', window.filterHendler.ratingFilterOnChange);
-   if (localStorage.getItem('filterByRating')) {
+  if (localStorage.getItem('filterByRating')) {
     window.filmoteka.filterByRating = localStorage.getItem('filterByRating');
     rating.value = localStorage.getItem('filterByRating');
   }
@@ -84,13 +78,13 @@ function initFilterHendler() {
  //рік 
   let date = document.querySelector('#date-filter');
   date.addEventListener('change', window.filterHendler.dataFilterOnChange);
-   if (localStorage.getItem('dataFilter')) {
+  if (localStorage.getItem('dataFilter')) {
     window.filmoteka.dataFilter = localStorage.getItem('dataFilter');
     date.value = localStorage.getItem('dataFilter');
   }
   window.filterHendler.updateFilters()
 
 }
-initFilterHendler();
 
+// Формування слайдеру
 sliderInit();

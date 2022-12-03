@@ -2,12 +2,12 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: --mainBlackColor;
+    color: var(--mainBlackColor);
     background-color: var(--body-color);
 }
 
 html {
-    scroll-behavior: smooth;
-    
+    scroll-behavior: smooth;    
 }
+
 
