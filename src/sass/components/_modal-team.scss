@@ -9,6 +9,7 @@
   height: 100%; 
   overflow: auto; /* Включите прокрутку, если это необходимо */
   background-color: rgba(0, 0, 0, 0.4); /* Черный с непрозрачностью */
+  
 }
 
 
@@ -19,6 +20,8 @@
   border: 1px solid #888;
   border-radius: 5px;
   width: 80%; /* Может быть больше или меньше, в зависимости от размера экрана */
+  opacity: 0.95;
+  
 }
 
 /* Close Btn */
@@ -74,3 +77,16 @@
   padding-bottom: 30px;
 }
 
+
+.team-photo{
+  
+  margin-bottom: 20px;
+  border-radius: 10px 10px;
+
+  &:hover,
+    &:active {
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1.03);
+        
+    }
+}
