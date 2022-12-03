@@ -27,10 +27,10 @@
   --footerTextColor: #171717;
   --mainWhiteColorFooter: rgb(194, 194, 194);
   --filterColor: #1d7702;
-  --filterText: #1d7702;
-  --cardText: #FF6B08;
+  --filterText: #2f9b29;
+  --cardText: #2f9b29;
   --thirdColor: #444444;
-  --cardTextOpac: rgba(255, 107, 8, 0.5);
+  --cardTextOpac: rgba(26, 174, 0, 0.5);
   --bgColorHeader: rgba(0, 0, 0, 0.936);
   --notValid:#ff0019;
   --boxShadowHeader1: rgba(14, 112, 2, 0.25);
@@ -1055,6 +1055,8 @@ body.no-scroll {
 .modal-film__card-content {
   max-height: 80vh;
   overflow: auto;
+  z-index: 103;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
@@ -1342,6 +1344,44 @@ body.no-scroll {
 
 .video--enabled .video__button {
   display: block;
+}
+
+.modal-film__back-btn, .modal-film__next-btn {
+  border: none;
+  position: absolute;
+  top: 50%;
+  height: 54px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 250ms;
+  padding: 15px;
+  border-radius: 50%;
+}
+.modal-film__back-btn:hover, .modal-film__next-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-film__back-btn svg, .modal-film__next-btn svg {
+  fill: #ff0000;
+  transform: scale(1.5, 1.8);
+  position: absolute;
+  top: 30%;
+  cursor: pointer;
+}
+
+.modal-film__back-btn path,
+.modal-film__next-btn path {
+  pointer-events: none;
+}
+
+.modal-film__back-btn {
+  transform: rotate(180deg) translateY(50%);
+  left: -25px;
+}
+
+.modal-film__next-btn {
+  transform: translateY(-50%);
+  right: -25px;
 }
 
 /* Модальный (фон) */
