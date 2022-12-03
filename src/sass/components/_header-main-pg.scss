@@ -163,12 +163,13 @@
 // switcher lang
 .nav-item.nav-item--checkbox {
     position: absolute;
-    bottom: 0;
+    bottom: -25px;
     right: 0;
     transform: translateX(-60px) translateY(23px);
 
     @media screen and (min-width: 768px) {
         position: relative;
+        bottom: 0;
         transform: translateY(0);
     }
 }
