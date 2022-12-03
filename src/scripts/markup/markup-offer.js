@@ -53,21 +53,3 @@ export async function markupOffer(film) {
               </div>              
           </li>`;
 }
-
-// make link img https://image.tmdb.org/t/p/w500
-// https://image.tmdb.org/t/p/w500/l3rIbP71sR7hKtz77E6x7mdz6vG.jpg
-
-//                    one obj from API
-//- backdrop_path: "/a2BeIDEOq94NS9b8mYB6fiV2Ijx.jpg"
-//+ genre_ids: (2) [16, 10751]
-//+ id: 991833
-// original_language: "en"
-//+ original_title: "Cat Pack: A PAW Patrol Exclusive Event"
-// overview: "When Mayor Humdinger transforms his robot cat Meow-Meow into a tiger-sized metal-eating menace, the PAW Patrol calls in the Cat Pack for help in the stopping the creature."
-// popularity: 144.819
-//+ poster_path: "/l3rIbP71sR7hKtz77E6x7mdz6vG.jpg"
-//+ release_date: "2022-06-24"
-// title: "Cat Pack: A PAW Patrol Exclusive Event"
-// video: false
-//+ vote_average: 7.6
-// vote_count: 61

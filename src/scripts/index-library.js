@@ -17,7 +17,7 @@ window.loader = spinerStart;
 window.loaderRemove = spinerStop;
 
 window.addEventListener('scroll', hidenButton);
-document.querySelector('.btn-up').addEventListener('click', upClick);
+refs.btnUp.addEventListener('click', upClick);
 
 refs.headerButtons.addEventListener('click', e => {
 	const target = e.target

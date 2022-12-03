@@ -1,6 +1,8 @@
+import { refs } from "./refs"
 import { clearMurkup } from "./markup/clear-murkup";
 import { createFilmCardMarkup } from "./markup/create-markup-film";
 import { initTrending } from './get-tranding';
+
 
 export default class FilterHendler {
     constructor() {
@@ -13,9 +15,8 @@ export default class FilterHendler {
             }
             return str;
         };
-        const date = document.querySelector('#date-filter');
-        date.innerHTML = yearsList();
-        
+
+        refs.dateFilter.innerHTML = yearsList();        
     }
 
     ratingFilterOnChange(e) {
@@ -34,10 +35,10 @@ export default class FilterHendler {
 
     genreFilterOnChange(e) {
         const genreFilter = e.target.value;    
-  
+        
         if (genreFilter === "") {
             localStorage.setItem('filterByGenre', "")
-             window.filmoteka.filterByGenre = '';
+            window.filmoteka.filterByGenre = '';
         } else { 
             window.filmoteka.filterByGenre = genreFilter;
             localStorage.setItem('filterByGenre', genreFilter)

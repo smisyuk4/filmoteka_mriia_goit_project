@@ -1,8 +1,6 @@
-export const refs = {
-  test: 'test ref',
-  testLibrary: 'test library',
-  libP: document.querySelector('#lib'),
+import { doc } from "firebase/firestore/lite";
 
+export const refs = {
   //form search
   searchForm: document.querySelector('.search-form'),
   searchInput: document.querySelector('.search-form__input'),
@@ -10,6 +8,13 @@ export const refs = {
   modalOffer: document.querySelector('.input-offer__list'),
   massages: document.querySelector('.search-form__error'),
 
+  // slider
+  track: document.querySelector('.slider__track'),
+  btnPrev: document.querySelector('.btn-prev'),
+  btnNext: document.querySelector('.btn-next'),
+  jsSliderContainer: document.querySelector('.js-slider-container'),
+
+  // main
   container: document.querySelector('[data-film-table-list]'),
   headerButtons:document.querySelector('.headerButtons'),
   boxNumbersPage: document.querySelector('.container__numbers-page'),
@@ -19,7 +24,27 @@ export const refs = {
 
   //color switcher
   colorSelector: document.querySelector('.color--input'),
+  
+  //translate
+  translateCheckboxRef: document.querySelector(".translate"),
+  searchFormInputRef: document.querySelector(".search-form__input"),
+  elementForTranslate: document.querySelectorAll('[data-text]'),
+
   //login
   login: document.querySelector('.login-btn'),
-  //сонтейнер карток з фільмами
+
+  //news feed
+  newsWrapper: document.querySelector('.news-wrapper'),
+  news: document.querySelector('.news'),
+
+  //filters
+  dateFilter: document.querySelector('#date-filter'),
+
+  //btn-up
+  btnUp: document.querySelector('.btn-up'),
+
+  //modal team
+  modalTeam: document.getElementById("modal-team"),
+  modalTeamBtnOpen: document.getElementById("modal-team-Btn"),
+  modalTEamBtnClose: document.getElementsByClassName("close")[0], 
 };

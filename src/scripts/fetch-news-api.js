@@ -1,8 +1,9 @@
 import axios from 'axios';
-const wrapper = document.querySelector('.marquee-wrapper');
-const marquee = document.querySelector('.marquee');
-const wrapperWidth = wrapper.offsetWidth;
-const marqueeWidth = marquee.scrollWidth;
+import { refs } from "./refs"
+
+const wrapperWidth = refs.newsWrapper.offsetWidth;
+const newsWidth = refs.news.scrollWidth;
+
 export class News {
   constructor() {
     this.toDate=new Date().getDate()
@@ -18,20 +19,24 @@ export class News {
       this.fetchNews()
     }
     let interval = setInterval(this.move, 40);
-    ;
   }
 
   fetchNews() {
-    let langStorage = localStorage.getItem('siteOptions');
-    let lang="uk";
-    if (langStorage === 'ua') {
-      lang = 'uk';
-    }
+    try {
+      let langStorage = localStorage.getItem('siteOptions');
+      
+      let lang = "uk";
+      if (langStorage === 'ua') {
+        lang = 'uk';
+      }
 
-    if (langStorage === 'eng') {
-      lang = 'en';
-    }
-    //let url = `https://api.newscatcherapi.com/v2/search?q=Ukraine&`
+      if (langStorage === 'eng') {
+        lang = 'en';
+      }
+    } catch (error) {
+      console.log(error)
+    }   
+    
     let url = `https://gnews.io/api/v4/top-headlines?q=Ukraine&from=${new Date}&token=1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw&lang=${lang}&max=40`;
     
     let options = {
@@ -56,6 +61,7 @@ export class News {
       });
     
   }
+
   updateNews() {
     let state = true;
           let subresult = '';
@@ -68,20 +74,21 @@ export class News {
             subresult += ' • ';
             i++;
           }
-          marquee.textContent = subresult;
+          refs.news.textContent = subresult;
   }
+
   move() {
-    var currentTX = getComputedStyle(marquee).transform.split(',');
+    var currentTX = getComputedStyle(refs.news).transform.split(',');
     if (currentTX[4] === undefined) {
       currentTX = -1;
     } else {
       currentTX = parseFloat(currentTX[4]) - 1;
     }
 
-    if (-currentTX >= marqueeWidth) {
-      marquee.style.transform = 'translateX(' + wrapperWidth + 'px)';
+    if (-currentTX >= newsWidth) {
+      refs.news.style.transform = 'translateX(' + wrapperWidth + 'px)';
     } else {
-      marquee.style.transform = 'translateX(' + currentTX + 'px)';
+      refs.news.style.transform = 'translateX(' + currentTX + 'px)';
     }
   }
 }

@@ -1,4 +1,6 @@
+import { refs } from "./refs"
 import { markupSlider } from "./markup/markup-slider-card"
+
 
 async function initItem () { 
     const OPTION_FIND = `/trending/movie/week`
@@ -21,15 +23,13 @@ export async function sliderInit () {
     let position = 0;
     const slidesToShow = 7;
     const slidesToScroll = 1;
-    const container = document.querySelector('.slider-container');
-    const track = document.querySelector('.slider__track');
-    // const item = document.querySelector('.slider-item');
-    const btnPrev = document.querySelector('.btn-prev');
-    const btnNext = document.querySelector('.btn-next');
+
+    const container = document.querySelector('.slider-container'); //не переноситься у refs
     const itemsHtml = await initItem();
-    const jsSliderContainer = document.querySelector('.js-slider-container');
-    jsSliderContainer.innerHTML = itemsHtml;
-    const items = document.querySelectorAll('.slider__item');
+    
+    refs.jsSliderContainer.innerHTML = itemsHtml;
+    const items = document.querySelectorAll('.slider__item'); //не переноситься у refs
+    
     const itemsCount = items.length;
     const itemsWidth = container.clientWidth / slidesToShow;
     const movePosition = slidesToScroll * itemsWidth;  
@@ -37,6 +37,7 @@ export async function sliderInit () {
     items.forEach((item) => {
         item.style.minWidth = `${itemsWidth}px`
     });
+
     window.addEventListener('resize',()=> {
         const itemsWidth = container.clientWidth / slidesToShow;
         const movePosition = slidesToScroll * itemsWidth;  
@@ -45,7 +46,8 @@ export async function sliderInit () {
             item.style.minWidth = `${itemsWidth}px`
         });
     })
-    btnNext.addEventListener('click', () => {
+
+    refs.btnNext.addEventListener('click', () => {
         const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemsWidth) / itemsWidth;
 
         position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemsWidth;
@@ -55,7 +57,7 @@ export async function sliderInit () {
     });
 
 
-    btnPrev.addEventListener('click', () => {
+    refs.btnPrev.addEventListener('click', () => {
         const itemsLeft = Math.abs(position) / itemsWidth;
 
         position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemsWidth;
@@ -65,12 +67,12 @@ export async function sliderInit () {
     });
 
     const setPosition = () => {
-        track.style.transform = `translateX(${position}px)`;
+        refs.track.style.transform = `translateX(${position}px)`;
     };
 
     const checkBtns = () => {
-        btnPrev.disabled = position === 0;
-        btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemsWidth;
+        refs.btnPrev.disabled = position === 0;
+        refs.btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemsWidth;
     };
 
     setPosition();

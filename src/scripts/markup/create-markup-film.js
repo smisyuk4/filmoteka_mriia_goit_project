@@ -1,7 +1,7 @@
 import { getGenres } from '../get-generes';
 import { refs } from '../refs';
 
-export const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
+export const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 export const DEFAULT_IMG ="https://i.ibb.co/cLM23Z5/default-card-img.jpg";
 
 export async function createFilmCardMarkup(data) {

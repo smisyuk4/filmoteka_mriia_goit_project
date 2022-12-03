@@ -1,4 +1,3 @@
-import { Filmoteka } from './fetch-api';
 import { makeLangParam } from "./changeLagnuage";
 
 export async function getGenres() {
