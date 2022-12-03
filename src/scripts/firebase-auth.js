@@ -24,7 +24,7 @@ export class FireBaseData {
 			if (user) {
 				this.userData = user;
 				this.updateLocal();
-				if (window.location.pathname !== "/partials/library-pg.html") {
+				if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html" && window.location.pathname !== "/partials/library-pg.html") {
 					document.querySelector('.login-btn').textContent = this.userData.displayName;
 				}
 			}
@@ -36,7 +36,7 @@ export class FireBaseData {
 				const credential = GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
 				this.userData = result.user;
-				if (window.location.pathname !== "/partials/library-pg.html") {
+				if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html" && window.location.pathname !== "/partials/library-pg.html") {
 					document.querySelector('.login-btn').textContent = this.userData.displayName;
 				}
 				window.movieLibrary.saveData();

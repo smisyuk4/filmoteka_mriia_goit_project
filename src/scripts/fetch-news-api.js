@@ -37,22 +37,18 @@ export class News {
       console.log(error)
     }   
     
-    let url = `https://gnews.io/api/v4/top-headlines?q=Ukraine&from=${new Date}&token=1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw&lang=${lang}&max=40`;
-    
     let options = {
       method: 'GET',
       url: 'https://api.newscatcherapi.com/v2/search',
       params: {q: 'Ukraine', lang: lang, sort_by: 'relevancy', page: '1'},
       headers: {
-        'x-api-key': '1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw'
+        'x-api-key': 'rcSSvEs8hB_CIw0TFYT2auCG2-8vxu7KUvcnbOpj2js'
       }
     };
 
     axios.request(options)
       .then((response)=>{
         this.newsArr = response.data.articles
-        console.log(this.newsArr)
-      
         localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
         localStorage.setItem('upDate', new Date().getDate())
         this.updateNews()
