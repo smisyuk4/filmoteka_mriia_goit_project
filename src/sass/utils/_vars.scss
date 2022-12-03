@@ -42,22 +42,22 @@ $animation-regular: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --bg-image-lib-1280-2x: url(/src/images/header-library/header-library-green-1280@2x.jpg);
     --bg-image-lib-1280-2x-webp: url(/src/images/header-library/header-library-green-1280@2x.webp);
 
-    --body-color: #9fa19f;
+    --body-color: #313131;
     --mainRedColor: #1d7702;
-    --mainBlackColor: #aaa9a9;
+    --mainBlackColor: #d9d9d9;
     --mainWhiteColor: #363636;
     --secTextColor: #646464;
     --footerTextColor: #171717;
     --mainWhiteColorFooter: rgb(194, 194, 194);
     
     
-    --filterColor: #701720;
-    --filterText: #0c800e;
-    --cardText: rgb(39, 119, 24);
+    --filterColor: #1d7702;
+    --filterText: #1d7702;
+    --cardText: #FF6B08;
     
     --thirdColor: #444444;
 
-    --cardTextOpac: rgba(26, 174, 0, 0.5);
+    --cardTextOpac: rgba(255, 107, 8, 0.5); // rgba(26, 174, 0, 0.5)
     --bgColorHeader: rgba(0, 0, 0, 0.936);
     --notValid:#ff0019;
     --boxShadowHeader1: rgba(14, 112, 2, 0.25);
