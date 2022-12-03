@@ -1,4 +1,4 @@
-import { markupSlider } from './markup/markup-slider-card'
+import { markupSlider } from "./markup/markup-slider-card"
 
 async function initItem () { 
     const OPTION_FIND = `/trending/movie/week`
@@ -7,7 +7,7 @@ async function initItem () {
         option: OPTION_FIND,  
     }
 
-    moviesResult = await window.filmoteka.fetchFilms(valueObj);    
+    const moviesResult = await window.filmoteka.fetchFilms(valueObj);    
     let itemsHtml = '';
 
     moviesResult.results.forEach(movie => {
