@@ -45,8 +45,8 @@
     padding: 48px 20px 40px 20px;
     width: 100%;
     background-color: var(--mainWhiteColor);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+    box-shadow: var(--boxShadowModal1) 0px 2px 4px 0px, var(--boxShadowModal2) 0px 2px 16px 0px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);      
 
     @include mobile {
         width: 280px;
@@ -136,8 +136,6 @@
 .modal-film__title {
     margin-bottom: 20px;
 
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.15;
@@ -162,8 +160,6 @@
     width: 110px;
     margin-right: 10px;
 
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -184,8 +180,6 @@
     align-items: center;
     justify-content: center;
 
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -217,8 +211,6 @@
 .modal-film__about-title {
     margin-bottom: 8px;
 
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -229,8 +221,6 @@
 .modal-film__about-text {
     margin-bottom: 20px;
 
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -279,8 +269,6 @@
     width: 110px;
     min-height: 44px;
 
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;

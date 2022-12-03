@@ -6,46 +6,35 @@
     background-position: center;
     background-size: cover;
     background-color: var(--bgColorHeader);
-    // background-image:url(/src/images/header-main/header-320.jpg);       
-    // background-image: var(--bg-image-320);
     background-image: var(--bg-image-320);
 
     // retina screen
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-        // background-image: url(/src/images/header-main/header-320@2x.jpg);
-        // background-image: -webkit-image-set(url(/src/images/header-main/header-320@2x.webp) 2x);
-    
+    (min-resolution: 2dppx) {       
         background-image: var(--bg-image-320-2x);
         background-image: var(--bg-image-320-2x-webp);
     }
 
-    @media screen and (min-width: 768px) {
-        // background-image: url(/src/images/header-main/header-768.jpg);
+    @media screen and (min-width: 768px) {   
         background-image: var(--bg-image-768);
 
         // retina screen
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-            // background-image: url(/src/images/header-main/header-768@2x.jpg);
-            // background-image: -webkit-image-set(url(/src/images/header-main/header-768@2x.webp) 2x);
             background-image: var(--bg-image-768-2x);
             background-image: var(--bg-image-768-2x-webp);
         }
     }
 
-    @media screen and (min-width: 1280px) {
-        // background-image: url(/src/images/header-main/header-1280.jpg);
+    @media screen and (min-width: 1280px) {        
         background-image: var(--bg-image-1280);
 
         // retina screen
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            // background-image: url(/src/images/header-main/header-1280@2x.jpg);
-            // background-image: -webkit-image-set(url(/src/images/header-main/header-1280@2x.webp) 2x);
+        (min-resolution: 2dppx) {            
             background-image: var(--bg-image-1280-2x);
             background-image: var(--bg-image-1280-2x-webp);
         }
@@ -126,7 +115,11 @@
     &:hover,
     &:focus {
         color: var(--mainRedColor);
-        box-shadow: var(--boxShadowHeader1) 0px 54px 55px, var(--boxShadowHeader2) 0px -12px 30px, var(--boxShadowHeader2) 0px 4px 6px, var(--boxShadowHeader3) 0px 12px 13px, var(--boxShadowHeader4) 15px -15px 15px;
+        box-shadow: var(--boxShadowHeader1) 0px 54px 55px, 
+        var(--boxShadowHeader2) 0px -12px 30px, 
+        var(--boxShadowHeader2) 0px 4px 6px, 
+        var(--boxShadowHeader3) 0px 12px 13px, 
+        var(--boxShadowHeader4) 15px -15px 15px;
     }
 }
 
