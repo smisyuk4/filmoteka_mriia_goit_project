@@ -1,79 +1,73 @@
-
-
-
-
 .wrapper {
-    background-color: var(--secTextColor);
-    
+    background-color: var(--secTextColor);    
 }
 
 .slider-container {
-
     display: none;
     padding: 0 30px 0 30px;
-    @media screen and (min-width: 768px) {
-        &{    
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+
+    @media screen and (min-width: 768px) {  
+        position: relative;
+        display: flex;
+        align-items: center;
     }
 }
 
 .slider {
-        overflow: hidden; 
-       
-        @media screen and (min-width: 768px) {
-            &{
-                width: calc(90px * 10);
-                margin: 0 auto;
-                padding: 10px 0px 10px 0px;
-            }
-        }
-        @media screen and (min-width: 1280px) {
-            &{
-                margin: 0 auto;
-                padding: 10px 0px 0px 0px;
-                width: calc(120px * 10);
-            }
-    };
-
-    &__track {
-        display: flex;
-        transition:.5s;
+    overflow: hidden; 
+    
+    @media screen and (min-width: 768px) {
+        width: calc(90px * 10);
+        margin: 0 auto;
+        padding: 10px 0px;
     }
-     
+    
+    @media screen and (min-width: 1280px) {
+        width: calc(120px * 10);
+    };    
 };
 
-
+.slider__track {    
+    display: flex;
+    transition:.5s;
+}
 
 .slider-film__img {
+    transition: transform $animation-regular;
 
     @media screen and (min-width: 768px) {
-        &{
-            width: 120px;
-            height: 180px;
-            border-radius: 5px;
-        }
+        width: 120px;
+        height: 180px;
+        border-radius: 5px;
     }
 
     @media screen and (min-width: 1280px) {
-        &{
-            width: 160px;
-            height: 240px;
-            border-radius: 5px;
-        }
-    }
-    
+        width: 160px;
+        height: 240px;
+        border-radius: 5px;
+    }    
 
     border-radius: 5px;
     width: 180px;
     height: 240px;
     cursor: pointer;
 
+    &:hover,
+    &:focus {
+        transform: scale(1.09);        
+    }
 }
 
+.btn-prev {
+    display: flex;
+    align-items: center;
+    border-radius:  50  50  50 50 ; 
+}
 
+.btn-next {
+    align-items: center;
+    border-radius: 50 50 50 50;
+}
 
 .button-prev {
     position: absolute;
@@ -86,15 +80,15 @@
     background-color:$mainRedColor;
     color:$mainBlackColor;
     border-radius: 50px;    
-    
     justify-content: center;
     
-    &:hover{
-                background-color: var(--mainBlackColor);
-                color: var(--mainRedColor);
-                border: solid var(--mainRedColor);
-                transition: background-color 500ms, outline-color 250ms;
-            }
+    &:hover,
+    &:focus{
+        background-color: var(--mainBlackColor);
+        color: var(--mainRedColor);
+        border: solid var(--mainRedColor);
+        transition: background-color 500ms, outline-color 250ms;
+    }
 
    
 }
@@ -113,11 +107,12 @@
     
     justify-content: center;
     
-    &:hover{
-                background-color: var(--mainBlackColor);
-                color: var(--mainRedColor);
-                border: solid var(--mainRedColor);
-                transition: background-color 500ms, outline-color 250ms;
-            }
+    &:hover,
+    &:focus{
+        background-color: var(--mainBlackColor);
+        color: var(--mainRedColor);
+        border: solid var(--mainRedColor);
+        transition: background-color 500ms, outline-color 250ms;
+    }
 }
 
