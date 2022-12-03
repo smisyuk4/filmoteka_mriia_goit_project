@@ -37,15 +37,14 @@
                 width: calc(120px * 10);
             }
     };
+
+    &__track {
+        display: flex;
+        transition:.5s;
+    }
      
 };
 
-
-.slider__track {
-    
-    display: flex;
-    transition:.5s;
-}
 
 
 .slider-film__img {
@@ -74,34 +73,6 @@
 
 }
 
-// .slider__buttons {
-//     display: flex;
-//     justify-content: space-around;
-//     margin: auto;
-//     width: 50px;
-//     height: 50px;
-//     background-color:$mainRedColor;
-//     color:$mainBlackColor;
-//     outline: none;
-//     &:hover{
-//         background-color: $mainBlackColor;
-//         color: $mainRedColor;
-//         border: solid $mainRedColor;
-//         transition: background-color 500ms, outline-color 250ms;
-//     }
-// }
-
-.btn-prev {
-    display: flex;
-    align-items: center;
-    border-radius:  50  50  50 50 ; 
-}
-
-
-.btn-next {
-    align-items: center;
-    border-radius: 50 50 50 50;
-}
 
 
 .button-prev {
@@ -114,9 +85,7 @@
     z-index: 100;
     background-color:$mainRedColor;
     color:$mainBlackColor;
-    border-radius: 50px;
-    // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    
+    border-radius: 50px;    
     
     justify-content: center;
     
@@ -127,18 +96,7 @@
                 transition: background-color 500ms, outline-color 250ms;
             }
 
-    @media screen and (min-width: 768px) {
-        &{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 40px;
-            height: 80px;
-            background-color: rgb(41, 36, 36);
-            color: var(--mainRedColor);
-            
-        }
-    }
+   
 }
 
 .button-next {
@@ -151,9 +109,7 @@
     z-index: 100;
     background-color:var(--mainRedColor);
     color:var(--mainBlackColor);
-    border-radius: 50px;
-    // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-   
+    border-radius: 50px;   
     
     justify-content: center;
     
