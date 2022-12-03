@@ -4,8 +4,10 @@ import { Loading } from 'notiflix';
 import { DEFAULT_IMG } from './markup/create-markup-film';
 import { eng, ua} from "./dictionary"
 import { onClickToBtnTrailer } from "./find-trailer"
-import {YoutubeVideo} from "./youtube-video"
+import { YoutubeVideo } from "./youtube-video"
+
 let sliderRef;
+
 export class Modal {
   constructor() {
     this.video = new YoutubeVideo;

@@ -10,18 +10,16 @@ import { initTrending } from './scripts/get-tranding';
 import { sliderInit } from './scripts/slider';
 import { Modal } from './scripts/modal-film';
 import {spinerStart, spinerStop } from './scripts/loader';
-import { News } from "./scripts/fetch-news";
+import { News } from "./scripts/fetch-news-api";
 
 import Notiflix from 'notiflix';
 import './scripts/get-tranding';
 import './scripts/find-by-name';
-import './scripts/find-by-id';
 import './scripts/find-trailer';
 import './scripts/pagination';
 import './scripts/firebase-auth';
 import './scripts/input-offer';
 import './scripts/modal-team';
-import './scripts/marquee';
 
 
 //ініаціплізація глобальних класів

@@ -1,7 +1,5 @@
 import { ua, eng } from "./dictionary"
-
-const translateCheckboxRef = document.querySelector(".translate");
-const searchFormInputRef = document.querySelector(".search-form__input");
+import { refs } from "./refs"
 
 function setLagnuage() {
   if (localStorage.getItem('siteOptions') === null) {
@@ -13,30 +11,29 @@ function setLagnuage() {
 
     if (language === "eng") {
       parseLanguage = eng;
-      if (searchFormInputRef !== null) { translateCheckboxRef.value = "eng"; }
+      if (refs.searchFormInputRef !== null) { refs.translateCheckboxRef.value = "eng"; }
     }
     if (language == "ua") {
-      if (searchFormInputRef !== null) {
-        translateCheckboxRef.checked = true;
-        translateCheckboxRef.value = "ua";
+      if (refs.searchFormInputRef !== null) {
+        refs.translateCheckboxRef.checked = true;
+        refs.translateCheckboxRef.value = "ua";
       }
       
       parseLanguage = ua;
     }    
 
-  document.querySelectorAll('[data-text]').forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
+  refs.elementForTranslate.forEach(el => { el.innerHTML = parseLanguage[el.dataset.text]; })
 
-  if (searchFormInputRef !==null){
-    searchFormInputRef.placeholder = parseLanguage["searchInput"];}
+  if (refs.searchFormInputRef !==null){
+    refs.searchFormInputRef.placeholder = parseLanguage["searchInput"];}
 };
 
-function changeLagnuage() {
-  
-  if (translateCheckboxRef.checked) {
-    translateCheckboxRef.value = "ua";
+function changeLagnuage() {  
+  if (refs.translateCheckboxRef.checked) {
+    refs.translateCheckboxRef.value = "ua";
     localStorage.setItem("siteOptions", "ua");
   } else {
-    translateCheckboxRef.value = "eng";
+    refs.translateCheckboxRef.value = "eng";
     localStorage.setItem("siteOptions", "eng");
   }
 

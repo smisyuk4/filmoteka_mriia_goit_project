@@ -1,11 +1,9 @@
 import { refs } from "/src/scripts/refs"
-import { Filmoteka } from "./fetch-api"
 import { markupOffer } from "./markup/markup-offer"
 import { makeLangParam } from "./changeLagnuage";
-
-
 const throttle = require('lodash.throttle');
-const TIME_DELAY = 500
+
+const TIME_DELAY = 1000
 
 refs.searchInput.addEventListener('input', throttle(onChangeInput, TIME_DELAY))
 refs.searchInput.addEventListener('focusout', e => {
@@ -67,7 +65,6 @@ function onClickCardOffer(e) {
         refs.searchForm.reset();
         refs.modalOverlay.classList.remove('visually-hidden');
         const filmId=e.target.dataset.id
-
 
         window.modal.openModal(filmId);
         refs.modalOverlay.dataset.modal = filmId;

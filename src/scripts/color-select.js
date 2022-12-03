@@ -1,34 +1,31 @@
 import {refs} from './refs'
-const colorSelectorRef = document.querySelector(".color--input");
 
 function changeColor() {
-
   if (refs.colorSelector.checked) {
-    colorSelectorRef.value = "dark";
+    refs.colorSelector.value = "dark";
     localStorage.setItem("theme", "dark-color");
   } else {
-    colorSelectorRef.value = "light";
+    refs.colorSelector.value = "light";
     localStorage.setItem("theme", "light-color");
   }
 
-    setColor()
-  
+  setColor()  
 };
 
 function setColor() {
   const color = localStorage.getItem('theme');
 
   if (color === "dark-color") {
-    if (colorSelectorRef !== null) {
-      colorSelectorRef.checked = true;
-      colorSelectorRef.value = "dark";
+    if (refs.colorSelector !== null) {
+      refs.colorSelector.checked = true;
+      refs.colorSelector.value = "dark";
     }
     document.documentElement.classList ="dark-color";
     return
   }
   document.documentElement.classList = "light-color";
-  if (colorSelectorRef !== null) {
-    colorSelectorRef.value = "light";
+  if (refs.colorSelector !== null) {
+    refs.colorSelector.value = "light";
   }
 }
 

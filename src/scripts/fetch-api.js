@@ -84,13 +84,12 @@ export class Filmoteka {
     return '';
   }
 
-   addDateQuery() {
+  addDateQuery() {
     if (this.dataFilter) {
       return `&primary_release_year=${this._dateFilter}`
     }
     return '';
   }
-
 
   addFilterQuery() {
     if (this.filterByRating) {

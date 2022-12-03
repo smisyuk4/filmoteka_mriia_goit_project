@@ -1,11 +1,12 @@
-const srollUpRef = document.querySelector('.btn-up');
+import { refs } from './refs'
 
 function hidenButton() {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    scrollY > 400 ? srollUpRef.classList.remove('btn-up--hide') : srollUpRef.classList.add('btn-up--hide');
+    scrollY > 400 ? refs.btnUp.classList.remove('btn-up--hide') : refs.btnUp.classList.add('btn-up--hide');
 };
+
 function upClick() {
-    window.scrollTo(pageYOffset, 0); 
+    window.scrollTo(scrollY, 0); 
 };
 
 export { hidenButton, upClick };
