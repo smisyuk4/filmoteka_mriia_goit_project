@@ -31,30 +31,51 @@ export class News {
     if (langStorage === 'eng') {
       lang = 'en';
     }
-    //var url = `https://newsapi.org/v2/top-headlines?sortBy=popularity&country=${country}&from=${new Date()}&apiKey=`; //+
-    let url = `https://gnews.io/api/v4/top-headlines?q=Ukraine&from=${new Date}&token=ca196b177f363bede0e6950d088df3ac&lang=${lang}&max=40`;
-    return axios
-      .get(url, {
-        validateStatus: status => {
-          return status < 500; // Resolve only if the status code is less than 500
-        },
-      })
-      .then(function (response) {
-        console.log(response)
-        return response.data;
+    //let url = `https://api.newscatcherapi.com/v2/search?q=Ukraine&`
+    let url = `https://gnews.io/api/v4/top-headlines?q=Ukraine&from=${new Date}&token=1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw&lang=${lang}&max=40`;
+    
+    let options = {
+      method: 'GET',
+      url: 'https://api.newscatcherapi.com/v2/search',
+      params: {q: 'Ukraine', lang: lang, sort_by: 'relevancy', page: '1'},
+      headers: {
+        'x-api-key': '1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw'
+      }
+    };
 
-      })
-      .then(response => {
-        this.newsArr = response.articles
-          console.log(this.newsArr)
-        
-          localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
-          localStorage.setItem('upDate', new Date().getDate())
-          this.updateNews()
-      })
-      .catch(error => {
-        console.log(error);
+    axios.request(options)
+      .then((response)=>{
+        this.newsArr = response.data.articles
+        console.log(this.newsArr)
+      
+        localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
+        localStorage.setItem('upDate', new Date().getDate())
+        this.updateNews()
+      }).catch((error)=>{
+        console.error(error);
       });
+    // return axios
+    //   .get(url, {
+    //     validateStatus: status => {
+    //       return status < 500; // Resolve only if the status code is less than 500
+    //     },
+    //   })
+    //   .then(function (response) {
+    //     console.log(response)
+    //     return response.data;
+
+    //   })
+    //   .then(response => {
+    //     this.newsArr = response.articles
+    //       console.log(this.newsArr)
+        
+    //       localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
+    //       localStorage.setItem('upDate', new Date().getDate())
+    //       this.updateNews()
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
   updateNews() {
     let state = true;
