@@ -5,7 +5,7 @@ import { DEFAULT_IMG } from './markup/create-markup-film';
 import { eng, ua} from "./dictionary"
 import { onClickToBtnTrailer } from "./find-trailer"
 import {YoutubeVideo} from "./youtube-video"
-
+let sliderRef;
 export class Modal {
   constructor() {
     this.video = new YoutubeVideo;
@@ -18,22 +18,24 @@ export class Modal {
     };
     this.filmId = 0;
     this.hash = '';
+    this.ids=[]
     refs.container.addEventListener('click', e => {
       if (e.target.nodeName === 'IMG') {
         refs.modalOverlay.classList.remove('visually-hidden');
         refs.containerModal.innerHTML=''
         const filmId = e.target.parentElement.parentElement.dataset.id;
-        this.openModal(filmId);
+        this.openModal(filmId, 'table');
         refs.modalOverlay.dataset.modal = filmId;
       }
     });
     if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html" && window.location.pathname !== "/partials/library-pg.html") {
-      document.querySelector('.slider__track').addEventListener('click', e => {
+      sliderRef=document.querySelector('.slider__track')
+      sliderRef.addEventListener('click', e => {
       if (e.target.nodeName === 'IMG') {
         refs.modalOverlay.classList.remove('visually-hidden');
         refs.containerModal.innerHTML=''
         const filmId = e.target.dataset.id;
-        this.openModal(filmId);
+        this.openModal(filmId, 'slider');
         refs.modalOverlay.dataset.modal = filmId;
       }
     });
@@ -63,6 +65,22 @@ export class Modal {
         window.movieLibrary.removeFromQueue(targetDat.queuer);
         targetParent.classList.toggle('remove');
       }
+      if (targetDat.back) {
+        if (this.ids.length>0) {
+          let index = this.ids.indexOf(this.filmId)
+          if (index>0) {
+            this.openModal(this.ids[index - 1])
+          }
+        }
+      }
+      if (targetDat.next) {
+        if (this.ids.length>0) {
+          let index = this.ids.indexOf(this.filmId)
+          if (index<(this.ids.length-1)) {
+            this.openModal(this.ids[index + 1])
+          }
+        }
+      }
     });
   }
   closeByEcs(e) {
@@ -73,11 +91,13 @@ export class Modal {
       document.body.classList.remove('no-scroll');
     }
   }
-  openModal(id) {
+  openModal(id, slider='') {
     document.body.classList.add('no-scroll');
     this.filmId = id;
     window.loader();
-    window.addEventListener('keydown', this.closeByEcs);
+    if (slider=='') {
+      window.addEventListener('keydown', this.closeByEcs);
+    }
     if (localStorage.getItem('siteOptions') == 'ua') {
       this.param.lang = '&language=uk';
       this.param.imageLang = '&include_image_language=uk';
@@ -102,11 +122,25 @@ export class Modal {
         console.log(error);
       })
       .finally(() => window.loaderRemove());
-    
-    // onClickToBtnTrailer(id).then(url => {
-    //         console.log(url);
-    //         refs.containerModal.insertAdjacentHTML('beforeend',`<iframe width="866" height="487" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);
-    //     })
+    if (slider=='slider') {
+      if (sliderRef.dataset.ids) {
+        this.ids=JSON.parse(sliderRef.dataset.ids)
+      } else {
+        let ids=[]
+        sliderRef.querySelectorAll('[data-id]').forEach(el => ids.push(el.dataset.id))
+        sliderRef.dataset.ids = JSON.stringify(ids)
+        this.ids=ids
+      }
+    } else if (slider == 'table') {
+      if (refs.container.dataset.ids) {
+        this.ids=JSON.parse(refs.container.dataset.ids)
+      } else {
+        let ids=[]
+        refs.container.querySelectorAll('[data-id]').forEach(el => ids.push(el.dataset.id))
+        refs.container.dataset.ids = JSON.stringify(ids)
+        this.ids=ids
+      }
+    }
   }
   markupModalFilm({
     poster_path,
