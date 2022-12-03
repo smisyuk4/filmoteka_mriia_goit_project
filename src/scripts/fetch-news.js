@@ -23,32 +23,38 @@ export class News {
 
   fetchNews() {
     let langStorage = localStorage.getItem('siteOptions');
-    let country;
+    let lang="uk";
     if (langStorage === 'ua') {
-      country = 'ua';
+      lang = 'uk';
     }
 
     if (langStorage === 'eng') {
-      country = 'us';
+      lang = 'en';
     }
-    var url = `https://newsapi.org/v2/top-headlines?sortBy=popularity&country=${country}&from=${new Date()}&apiKey=faaeb88fca2547e79a27c6b908f6655f`; //+
+    //let url = `https://api.newscatcherapi.com/v2/search?q=Ukraine&`
+    let url = `https://gnews.io/api/v4/top-headlines?q=Ukraine&from=${new Date}&token=1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw&lang=${lang}&max=40`;
+    
+    let options = {
+      method: 'GET',
+      url: 'https://api.newscatcherapi.com/v2/search',
+      params: {q: 'Ukraine', lang: lang, sort_by: 'relevancy', page: '1'},
+      headers: {
+        'x-api-key': '1BYQ_xWnCGdOZO5vADf9kDQuB5bTYYz8y-IZQnUBnbw'
+      }
+    };
 
-    return axios
-      .get(url, {
-        validateStatus: status => {
-          return status < 500; // Resolve only if the status code is less than 500
-        },
-      })
-      .then(response => {
-          this.newsArr = response.data.articles
-          console.log(response.data)
-          localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
-          localStorage.setItem('upDate', new Date().getDate())
-          this.updateNews()
-      })
-      .catch(error => {
-        console.log(error.response.status);
+    axios.request(options)
+      .then((response)=>{
+        this.newsArr = response.data.articles
+        console.log(this.newsArr)
+      
+        localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
+        localStorage.setItem('upDate', new Date().getDate())
+        this.updateNews()
+      }).catch((error)=>{
+        console.error(error);
       });
+    
   }
   updateNews() {
     let state = true;
