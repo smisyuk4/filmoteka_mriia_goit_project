@@ -9,7 +9,9 @@ const TIME_DELAY = 500
 
 refs.searchInput.addEventListener('input', throttle(onChangeInput, TIME_DELAY))
 refs.searchInput.addEventListener('focusout', e => {
-    refs.modalOffer.classList.add('visually-hidden')
+    setTimeout(() => {
+        refs.modalOffer.classList.add('visually-hidden')
+    }, 150);
 })
 refs.searchInput.addEventListener('focusin', e => {
     refs.modalOffer.classList.remove('visually-hidden')
