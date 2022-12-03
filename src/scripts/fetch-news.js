@@ -54,28 +54,7 @@ export class News {
       }).catch((error)=>{
         console.error(error);
       });
-    // return axios
-    //   .get(url, {
-    //     validateStatus: status => {
-    //       return status < 500; // Resolve only if the status code is less than 500
-    //     },
-    //   })
-    //   .then(function (response) {
-    //     console.log(response)
-    //     return response.data;
-
-    //   })
-    //   .then(response => {
-    //     this.newsArr = response.articles
-    //       console.log(this.newsArr)
-        
-    //       localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
-    //       localStorage.setItem('upDate', new Date().getDate())
-    //       this.updateNews()
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
+    
   }
   updateNews() {
     let state = true;
