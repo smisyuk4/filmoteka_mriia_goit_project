@@ -34,6 +34,7 @@ window.loader = spinerStart;
 window.loaderRemove = spinerStop;
 // const newsapi = new News;
 
+
 // login по кнопці
 refs.login.addEventListener('click', e => {
   window.fireBase.login();
