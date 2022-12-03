@@ -7,6 +7,7 @@ export class News {
   constructor() {
     this.toDate=new Date().getDate()
     if (localStorage.getItem('newsArr')) {
+      console.log(localStorage.getItem('newsArr'))
       this.newsArr = JSON.parse(localStorage.getItem('newsArr'))
       this.upDate = localStorage.getItem('upDate')
       if (this.toDate!=this.upDate) {
@@ -40,12 +41,10 @@ export class News {
         },
       })
       .then(response => {
-        if (response.status != 429) {
           this.newsArr = response.data.articles
           localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
           localStorage.setItem('upDate', new Date().getDate())
           this.updateNews()
-        }
       })
       .catch(error => {
         console.log(error.response.status);
