@@ -1,7 +1,5 @@
 import { getGenres } from '../get-generes';
-
-const DEFAULT_IMG =
-  'https://i.postimg.cc/Y0NKgxRL/CDBD31-CB-2-C43-438-F-A140-5-CBA7-C480-AB3.jpg';
+import { DEFAULT_IMG } from './create-markup-film';
 
 export async function markupOffer(film) {
   const {
