@@ -34,7 +34,7 @@
     content: '';
     width: 100%;
     height: 100%;
-    
+    padding-right: 5px;
     @include mobile-only {
         margin-top: 20px;
     }
@@ -95,6 +95,7 @@
 .modal-film__card-content {
     max-height: 80vh;
     overflow: auto;
+    padding-right: 10px;
     z-index: 103;
     position: relative;
 }
@@ -116,12 +117,10 @@
 
     @include tablet {
         width: 264px;
-        height: 374px;
     }
 
     @include desktop {
         width: 375px;
-        height: 478px;
     }
 }
 
@@ -131,7 +130,7 @@
     }
 
     @include desktop {
-        width: 391px;
+        width: 350px;
     }
 }
 
@@ -231,7 +230,6 @@
 
 .modal-film__btn-box {
     display: flex;
-    justify-content: center;
 
     @media screen and(max-width: 320px) {
         flex-direction: column;
@@ -418,4 +416,10 @@
 .modal-film__next-btn {
     transform: translateY(-50%);
     right: -25px;
+}
+.single .modal-film__back-btn,
+.single .modal-film__next-btn,
+.not-back .modal-film__back-btn,
+.not-next .modal-film__next-btn {
+    display: none;
 }

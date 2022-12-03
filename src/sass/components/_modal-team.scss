@@ -15,13 +15,14 @@
 
 .modal-content {
   background-color: var(--thirdColor);
-  margin: 15% auto; /* 15% сверху и по центру */
+  margin: 35px auto; /* 15% сверху и по центру */
   padding: 20px;
   border: 1px solid #888;
   border-radius: 5px;
   width: 80%; /* Может быть больше или меньше, в зависимости от размера экрана */
   opacity: 0.95;
-  
+  max-height: 90vh;
+  overflow: auto;
 }
 
 /* Close Btn */
