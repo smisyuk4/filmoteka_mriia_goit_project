@@ -42,6 +42,7 @@
 
     &__img {
         margin-right: 5px;
+        pointer-events: none;
     }
 }
 
@@ -50,7 +51,7 @@
         padding: 5px;
         text-align: left;
         margin: auto 0;
-
+        pointer-events: none;
         & p:not(:last-child) {
             margin-bottom: 3px;
         }
