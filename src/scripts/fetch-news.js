@@ -23,31 +23,37 @@ export class News {
 
   fetchNews() {
     let langStorage = localStorage.getItem('siteOptions');
-    let country;
+    let lang="uk";
     if (langStorage === 'ua') {
-      country = 'ua';
+      lang = 'uk';
     }
 
     if (langStorage === 'eng') {
-      country = 'us';
+      lang = 'en';
     }
-    var url = `https://newsapi.org/v2/top-headlines?sortBy=popularity&country=${country}&from=${new Date()}&apiKey=faaeb88fca2547e79a27c6b908f6655f`; //+
-
+    //var url = `https://newsapi.org/v2/top-headlines?sortBy=popularity&country=${country}&from=${new Date()}&apiKey=`; //+
+    let url = `https://gnews.io/api/v4/top-headlines?q=Ukraine&from=${new Date}&token=ca196b177f363bede0e6950d088df3ac&lang=${lang}&max=40`;
     return axios
       .get(url, {
         validateStatus: status => {
           return status < 500; // Resolve only if the status code is less than 500
         },
       })
+      .then(function (response) {
+        console.log(response)
+        return response.data;
+
+      })
       .then(response => {
-          this.newsArr = response.data.articles
-          console.log(response.data)
+        this.newsArr = response.articles
+          console.log(this.newsArr)
+        
           localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
           localStorage.setItem('upDate', new Date().getDate())
           this.updateNews()
       })
       .catch(error => {
-        console.log(error.response.status);
+        console.log(error);
       });
   }
   updateNews() {
