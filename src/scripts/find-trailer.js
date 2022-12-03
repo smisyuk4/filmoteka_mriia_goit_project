@@ -17,9 +17,10 @@ export function onClickToBtnTrailer(id) {
 		}
     return window.filmoteka.fetchFilms(param)
 		.then(res => {
-			if (res.results.lenght==0) {
+			if (res.results.length==0) {
 				return '';
 			} else {
+				
 				return res.results[0].key;
 			}
         })
