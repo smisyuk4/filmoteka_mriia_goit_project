@@ -6,8 +6,7 @@ const marqueeWidth = marquee.scrollWidth;
 export class News {
   constructor() {
     this.toDate=new Date().getDate()
-    if (localStorage.getItem('newsArr')) {
-      console.log(localStorage.getItem('newsArr'))
+    if (localStorage.getItem('newsArr') && localStorage.getItem('newsArr')!=undefined) {
       this.newsArr = JSON.parse(localStorage.getItem('newsArr'))
       this.upDate = localStorage.getItem('upDate')
       if (this.toDate!=this.upDate) {
@@ -42,6 +41,7 @@ export class News {
       })
       .then(response => {
           this.newsArr = response.data.articles
+          console.log(response.data)
           localStorage.setItem('newsArr', JSON.stringify(this.newsArr))
           localStorage.setItem('upDate', new Date().getDate())
           this.updateNews()
