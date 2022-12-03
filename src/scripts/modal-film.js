@@ -68,17 +68,13 @@ export class Modal {
       if (targetDat.back) {
         if (this.ids.length>0) {
           let index = this.ids.indexOf(this.filmId)
-          if (index>0) {
-            this.openModal(this.ids[index - 1])
-          }
+          this.openModal(this.ids[index - 1], 'slide')
         }
       }
       if (targetDat.next) {
         if (this.ids.length>0) {
           let index = this.ids.indexOf(this.filmId)
-          if (index<(this.ids.length-1)) {
-            this.openModal(this.ids[index + 1])
-          }
+          this.openModal(this.ids[index + 1],'slide')
         }
       }
     });
@@ -95,8 +91,45 @@ export class Modal {
     document.body.classList.add('no-scroll');
     this.filmId = id;
     window.loader();
-    if (slider=='') {
+    if (slider!='slide') {
       window.addEventListener('keydown', this.closeByEcs);
+    }
+    if (slider == 'slider') {
+      if (sliderRef.dataset.ids) {
+        this.ids=JSON.parse(sliderRef.dataset.ids)
+      } else {
+        let ids=[]
+        sliderRef.querySelectorAll('[data-id]').forEach(el => ids.push(el.dataset.id))
+        sliderRef.dataset.ids = JSON.stringify(ids)
+        this.ids=ids
+      }
+    } else if (slider == 'table') {
+      if (refs.container.dataset.ids) {
+        this.ids=JSON.parse(refs.container.dataset.ids)
+      } else {
+        let ids=[]
+        refs.container.querySelectorAll('[data-id]').forEach(el => ids.push(el.dataset.id))
+        refs.container.dataset.ids = JSON.stringify(ids)
+        this.ids=ids
+      }
+    }
+    if (slider=='') {
+      refs.modalOverlay.classList.add('single')
+      refs.modalOverlay.classList.remove('not-back')
+      refs.modalOverlay.classList.remove('not-next')
+    } else {
+      refs.modalOverlay.classList.remove('single')
+      let index = this.ids.indexOf(this.filmId)
+      if (index<=0) {
+        refs.modalOverlay.classList.add('not-back')
+      } else {
+        refs.modalOverlay.classList.remove('not-back')
+      }
+      if (index>=(this.ids.length-1)) {
+        refs.modalOverlay.classList.add('not-next')
+      }else {
+        refs.modalOverlay.classList.remove('not-next')
+      }
     }
     if (localStorage.getItem('siteOptions') == 'ua') {
       this.param.lang = '&language=uk';
@@ -122,25 +155,6 @@ export class Modal {
         console.log(error);
       })
       .finally(() => window.loaderRemove());
-    if (slider=='slider') {
-      if (sliderRef.dataset.ids) {
-        this.ids=JSON.parse(sliderRef.dataset.ids)
-      } else {
-        let ids=[]
-        sliderRef.querySelectorAll('[data-id]').forEach(el => ids.push(el.dataset.id))
-        sliderRef.dataset.ids = JSON.stringify(ids)
-        this.ids=ids
-      }
-    } else if (slider == 'table') {
-      if (refs.container.dataset.ids) {
-        this.ids=JSON.parse(refs.container.dataset.ids)
-      } else {
-        let ids=[]
-        refs.container.querySelectorAll('[data-id]').forEach(el => ids.push(el.dataset.id))
-        refs.container.dataset.ids = JSON.stringify(ids)
-        this.ids=ids
-      }
-    }
   }
   markupModalFilm({
     poster_path,

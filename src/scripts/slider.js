@@ -37,7 +37,14 @@ export async function sliderInit () {
     items.forEach((item) => {
         item.style.minWidth = `${itemsWidth}px`
     });
+    window.addEventListener('resize',()=> {
+        const itemsWidth = container.clientWidth / slidesToShow;
+        const movePosition = slidesToScroll * itemsWidth;  
 
+        items.forEach((item) => {
+            item.style.minWidth = `${itemsWidth}px`
+        });
+    })
     btnNext.addEventListener('click', () => {
         const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemsWidth) / itemsWidth;
 
