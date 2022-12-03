@@ -229,7 +229,7 @@
 
     &:hover,
     &:focus {
-        background-color: rgba(255, 0, 0, 0.1);
+        background-color: var(--InputHeaderBgColor);
         box-shadow: var(--boxShadowHeader1) 0px 54px 55px, var(--boxShadowHeader2) 0px -12px 30px, var(--boxShadowHeader2) 0px 4px 6px, var(--boxShadowHeader3) 0px 12px 13px, var(--boxShadowHeader4) 15px -15px 15px;
     }
 }
