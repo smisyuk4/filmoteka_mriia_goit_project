@@ -22,10 +22,10 @@ export class News {
   }
 
   fetchNews() {
+    let lang = "uk";
     try {
-      let langStorage = localStorage.getItem('siteOptions');
-      
-      let lang = "uk";
+      let langStorage = localStorage.getItem('siteOptions');      
+
       if (langStorage === 'ua') {
         lang = 'uk';
       }
