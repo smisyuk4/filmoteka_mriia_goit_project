@@ -1,6 +1,6 @@
 import { refs } from "/src/scripts/refs"
 import { markupOffer } from "./markup/markup-offer"
-import { makeLangParam } from "./changeLagnuage";
+import { makeLangParam } from "./change-language";
 const throttle = require('lodash.throttle');
 
 const TIME_DELAY = 1000

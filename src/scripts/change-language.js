@@ -1,7 +1,7 @@
 import { ua, eng } from "./dictionary"
 import { refs } from "./refs"
 
-function setLagnuage() {
+function setLanguage() {
   if (localStorage.getItem('siteOptions') === null) {
     localStorage.setItem("siteOptions", "ua");
   }
@@ -28,7 +28,7 @@ function setLagnuage() {
     refs.searchFormInputRef.placeholder = parseLanguage["searchInput"];}
 };
 
-function changeLagnuage() {  
+function changeLanguage() {  
   if (refs.translateCheckboxRef.checked) {
     refs.translateCheckboxRef.value = "ua";
     localStorage.setItem("siteOptions", "ua");
@@ -37,7 +37,7 @@ function changeLagnuage() {
     localStorage.setItem("siteOptions", "eng");
   }
 
-  setLagnuage()
+  setLanguage()
 };
 
 function makeLangParam(valueObj) {
@@ -62,4 +62,4 @@ function makeLangParam(valueObj) {
     return valueObj
 }
 
-export { setLagnuage, changeLagnuage, makeLangParam };
+export { setLanguage, changeLanguage, makeLangParam };
