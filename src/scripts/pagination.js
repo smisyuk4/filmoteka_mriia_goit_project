@@ -1,6 +1,6 @@
 import { refs } from './refs';
 
-export function paginationPages({ page, total_pages }, func) {
+export function paginationPages({ page, total_pages }) {
   refs.boxNumbersPage.innerHTML = '';
   let markup = [];
   //   Початок
@@ -94,14 +94,14 @@ export function paginationPages({ page, total_pages }, func) {
     refs.boxNumbersPage.firstElementChild.addEventListener('click', () => {
       let numPage = page;
       if (numPage > 1) {
-        func(numPage - 1);
+        window.filterHendler.updateFilters(numPage - 1);
       }
     });
     refs.boxNumbersPage.lastElementChild.addEventListener('click', () => {
       let numPage = page;
       let allPages = total_pages;
       if (numPage < allPages) {
-        func(numPage + 1);
+        window.filterHendler.updateFilters(numPage + 1);
       }
     });
   }

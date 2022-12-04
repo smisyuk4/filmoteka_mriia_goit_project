@@ -39,6 +39,6 @@ refs.boxNumbersPage.addEventListener('click', selectPage);
 
 function selectPage(event) {
   if (event.target.nodeName === 'LI') {
-    initTrending(event.target.textContent);
+    window.filterHendler.updateFilters(event.target.textContent);
   }
 }

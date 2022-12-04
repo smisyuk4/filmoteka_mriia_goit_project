@@ -60,12 +60,12 @@ export default class FilterHendler {
         }
     window.filterHendler.updateFilters()
     }
-    updateFilters() {
+    updateFilters(page=1) {
         if (localStorage.getItem('filterByRating') || localStorage.getItem('filterByGenre') || localStorage.getItem('dataFilter')) {
             window.loader()
             filmoteka.fetchFilms({
                 region: '',
-                page:1,
+                page,
                 option: '/discover/movie'
             }).then(result => {
                 clearMurkup();
@@ -73,7 +73,7 @@ export default class FilterHendler {
             })
                 .finally(() => window.loaderRemove());
         } else {
-            initTrending();
+            initTrending(page);
         }
         
     }
