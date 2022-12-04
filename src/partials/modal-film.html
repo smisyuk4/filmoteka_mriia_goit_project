@@ -4,7 +4,7 @@
   data-close="close"
 >
   <div class="modal-film__card">
-    <button type="button" class="modal-film__close-btn" data-close="close">
+    <button type="button" class="modal-film__close-btn" data-close="close" aria-label="button close">
       <svg
         width="12"
         height="12"
@@ -18,27 +18,19 @@
       </svg>
     </button>
     <div class="modal-film__card-content" data-modal-content></div>
-    <button type="button" class="modal-film__back-btn">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        data-back="back"
-      >
-        <path d="M6.028 0v6.425l5.549 5.575-5.549 5.575v6.425l11.944-12z" />
+    <button type="button" class="modal-film__back-btn" aria-label="button move back">
+
+      <svg data-back="back" width="24" height="24">
+        <use href="/src/images/icons/icons.svg#icon-back"></use>
       </svg>
     </button>
-    <button type="button" class="modal-film__next-btn">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        data-next="next"
-      >
-        <path d="M6.028 0v6.425l5.549 5.575-5.549 5.575v6.425l11.944-12z" />
+    <button type="button" class="modal-film__next-btn" aria-label="button move next">
+
+      <svg data-back="next" width="24" height="24">
+        <use href="/src/images/icons/icons.svg#icon-next"></use>
       </svg>
+
+
     </button>
   </div>
 </div>
