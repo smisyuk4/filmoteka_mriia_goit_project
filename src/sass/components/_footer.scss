@@ -3,7 +3,6 @@
     font-weight: 400;
     display: flex;
     align-items: center;
-    text-align: center;
     color: var(--footerTextColor);
     background-color: var(--thirdColor);
     padding: 29px 0;
@@ -20,18 +19,23 @@
     }
 }
 
+.footer-desc{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
-.rights-item{
-    @media screen and (max-width: 767px) {
-        display: block;
-        padding-top: 9px;
-    }
+.left-item {
+    display: flex;
+    gap: 10px;
 }
 
 .students-link{
     cursor: pointer;
     color: var(--footerTextColor);
-    text-decoration: underline; 
+    text-decoration: underline;
 
     &:hover,
     &:focus {
@@ -40,7 +44,6 @@
 }
 
 .icon-heart{
-    padding: 0 10px;
     fill: var(--cardText);
     animation-name: changeColor;
     animation-duration: 1000ms;
