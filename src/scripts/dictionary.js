@@ -130,17 +130,17 @@ const eng = {
   teamLaed: "Team Lead",
   scrumMaster: "Scrum Master",
   developer: "Developer",
-  dev1: "Serhiy Misyuk",
+  dev1: "Sergiy Misyuk",
   dev2: "Olena Sereda",
   dev3: "Vitaly Volyanyk",
-  dev4: "Aleksii Smagrovych",
+  dev4: "Aleksiy Smagrovych",
   dev5: "Olena Burduzha",
   dev6: "Denis Burduzha",
   dev7: "Ilya Pavlenko",
   dev8: "Denis Tomai",
   dev9: "Pavlo Nalyvaiko",
   dev10: "Andrii Tlustenko",
-  dev11: "Serhiy Filatov",
+  dev11: "Sergiy Filatov",
 };
 
 export { ua, eng };               
