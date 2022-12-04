@@ -43,7 +43,7 @@ export async function markupOffer(film) {
 
   return `<li class="input-offer__item" data-id="${id}">              
               <img class="input-offer__img" src="${imgLink}" alt="${title}"
-              loading="lazy" width="70">              
+              loading="lazy" width="70" height="150">              
               <div class="input-offer__desc">                        
                   <h3 class="input-offer__title">${title}</h3>
                   <p class="input-offer__genres">${genresList}</p>

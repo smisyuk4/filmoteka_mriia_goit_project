@@ -23,7 +23,7 @@ export async function createFilmCardMarkup(data) {
 
         const markup = `<li class="table-item film-card__item" data-id="${id}">
                             <div class="film-card__box-img">
-                            <img class="film-card__img" src="${imgLink}" alt="${title}" loading="lazy" width="350"/>
+                            <img class="film-card__img" src="${imgLink}" alt="${title}" loading="lazy" width="350" height="750"/>
                             </div>
                             <div class="film-card__box-info">
                               <h3 class="film-card__title">${title}</h3>
