@@ -42,7 +42,7 @@ export class News {
       url: 'https://api.newscatcherapi.com/v2/search',
       params: {q: 'Ukraine', lang: lang, sort_by: 'relevancy', page: '1'},
       headers: {
-        'x-api-key': 'rcSSvEs8hB_CIw0TFYT2auCG2-8vxu7KUvcnbOpj2js'
+        'x-api-key': 'mof9O_f3PWnZRIRc-SXKZz806th-jcFoXeoDXgqGKpU'
       }
     };
 
