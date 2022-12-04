@@ -37,11 +37,13 @@ refs.headerButtons.addEventListener('click', e => {
 if (window.location.hash == "#queue") {
 	refs.headerButtons.classList.remove('watched')
 	refs.headerButtons.classList.remove('start')
-	refs.container.innerHTML=window.movieLibrary.markupQueue()
+	refs.container.innerHTML = window.movieLibrary.markupQueue()
+	refs.container.dataset.ids = '';
 } else {
 	refs.headerButtons.classList.remove('start')
 	refs.headerButtons.classList.add('watched')
-	refs.container.innerHTML=window.movieLibrary.markupWatched()
+	refs.container.innerHTML = window.movieLibrary.markupWatched()
+	refs.container.dataset.ids = '';
 }
 // Функція зміни мови
 setLagnuage(); 

@@ -392,6 +392,7 @@
     transition: background-color 250ms;
     padding: 15px;
     border-radius: 50%;
+    clip-path: inset(0 0 0 52%);
     &:hover{
         background-color: rgba(255, 255, 255, 0.9);
     }

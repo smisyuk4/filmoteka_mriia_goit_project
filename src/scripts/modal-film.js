@@ -120,9 +120,13 @@ export class Modal {
       refs.modalOverlay.classList.remove('not-back')
       refs.modalOverlay.classList.remove('not-next')
     } else {
-      refs.modalOverlay.classList.remove('single')
       let index = this.ids.indexOf(this.filmId)
-      if (index<=0) {
+      if (index<0) {
+        refs.modalOverlay.classList.add('single')
+      } else {
+        refs.modalOverlay.classList.remove('single')
+      }
+      if (index==0) {
         refs.modalOverlay.classList.add('not-back')
       } else {
         refs.modalOverlay.classList.remove('not-back')
@@ -133,14 +137,14 @@ export class Modal {
         refs.modalOverlay.classList.remove('not-next')
       }
     }
-    if (localStorage.getItem('siteOptions') == 'ua') {
-      this.param.lang = '&language=uk';
-      this.param.imageLang = '&include_image_language=uk';
-      this.param.region = '&region=uk-UA';
-    } else {
+    if (localStorage.getItem('siteOptions') == 'eng') {
       this.param.lang = '&language=en';
       this.param.imageLang = '&include_image_language=en';
       this.param.region = '&region=en-US';
+    } else {
+      this.param.lang = '&language=uk';
+      this.param.imageLang = '&include_image_language=uk';
+      this.param.region = '&region=uk-UA';
     }
     this.param.option = `/movie/${id}`;
     window.filmoteka
@@ -247,10 +251,13 @@ export class Modal {
   checkLibrary() {
     if (window.location.pathname == "/filmoteka_mriia_goit_project/partials/library-pg.html" || window.location.pathname == "/partials/library-pg.html") {
       if (window.location.hash == "#queue") {
-        refs.container.innerHTML=window.movieLibrary.markupQueue()
+        refs.container.innerHTML = window.movieLibrary.markupQueue()
       } else {
-        refs.container.innerHTML=window.movieLibrary.markupWatched()
+        refs.container.innerHTML = window.movieLibrary.markupWatched()
       }
+      refs.container.dataset.ids = '';
+      refs.modalOverlay.classList.add('single')
+      this.ids=[]
     }
   }
 }
