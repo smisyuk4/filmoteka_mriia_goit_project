@@ -4,7 +4,7 @@
 import { refs } from '/src/scripts/refs';
 import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
-import { makeLangParam } from "./changeLagnuage";
+import { makeLangParam } from "./change-language";
 
 refs.searchForm.addEventListener('submit', onClickSearchBtn);
 

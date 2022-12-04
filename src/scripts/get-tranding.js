@@ -2,7 +2,7 @@ import { createFilmCardMarkup } from './markup/create-markup-film';
 import { clearMurkup } from './markup/clear-murkup';
 import { paginationPages } from './pagination';
 import { refs } from './refs';
-import { makeLangParam } from './changeLagnuage';
+import { makeLangParam } from './change-language';
 
 export function initTrending(page) {
   getTranding(page)

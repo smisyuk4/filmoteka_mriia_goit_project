@@ -1,6 +1,6 @@
 import { refs } from './scripts/refs';
 import { Filmoteka } from './scripts/fetch-api';
-import { setLagnuage, changeLagnuage } from './scripts/changeLagnuage';
+import { setLanguage, changeLanguage } from './scripts/change-language';
 import { MovieLibrary } from './scripts/library-scripts';
 import { FireBaseData } from './scripts/firebase-auth';
 import { hidenButton, upClick } from './scripts/scroll-up';
@@ -42,11 +42,11 @@ window.addEventListener('scroll', hidenButton);
 document.querySelector('.btn-up').addEventListener('click', upClick);
 
 // Функція зміни мови
-setLagnuage(); //для першого відображення тексту, по замовчуванню ua
+setLanguage(); //для першого відображення тексту, по замовчуванню ua
 
 window.movieLibrary.updateLang();
 document.querySelector('.translate').addEventListener('click', () => {
-  changeLagnuage();
+  changeLanguage();
   localStorage.removeItem('newsArr')
   location.reload();
 });

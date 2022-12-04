@@ -63,6 +63,17 @@
             <path d="M26.949 4.321l0.73 0.73-3.285 3.285-0.73-0.73 3.285-3.285z"></path>
         </symbol>
 
+        <!-- modal slider -->
+        <symbol id="icon-back" viewBox="0 0 24 24">
+            <path d="M6.028 0v6.425l5.549 5.575-5.549 5.575v6.425l11.944-12z">
+            </path>
+        </symbol>
+
+        <symbol id="icon-next" viewBox="0 0 24 24">
+            <path d="M6.028 0v6.425l5.549 5.575-5.549 5.575v6.425l11.944-12z">
+            </path>
+        </symbol>
+
         <!-- footer -->
         <symbol id="icon-heart" viewBox="0 0 14 14">
             <path

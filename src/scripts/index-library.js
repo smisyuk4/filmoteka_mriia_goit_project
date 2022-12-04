@@ -1,5 +1,5 @@
 import { refs } from './refs';
-import { setLagnuage, changeLagnuage } from './changeLagnuage';
+import { setLanguage, changeLanguage } from './change-language';
 import { hidenButton, upClick } from './scroll-up';
 import { changeColor, setColor } from './color-select';
 import { MovieLibrary } from './library-scripts';
@@ -46,11 +46,11 @@ if (window.location.hash == "#queue") {
 	refs.container.dataset.ids = '';
 }
 // Функція зміни мови
-setLagnuage(); 
+setLanguage(); 
 
 // Функція зміни кольору
 setColor();
-// call on init to share window.filmoteka object setLagnuageLibrary
+// call on init to share window.filmoteka object setLanguageLibrary
 
 //рендер бібліотеки користувача
 window.modal.checkLibrary()

@@ -1,6 +1,10 @@
 .film-card {
-    list-style: none;
-    margin: 20px auto;
+    padding: 20px 0;
+
+    &__item:hover, 
+    &__item:focus{
+        transform: scale(1.02);
+    }
 
     &__box-img {
         height: 398px;

@@ -1,4 +1,4 @@
-import { makeLangParam } from "./changeLagnuage";
+import { makeLangParam } from "./change-language";
 
 export async function getGenres() {
   const OPTION_TRANDING = '/genre/movie/list';
