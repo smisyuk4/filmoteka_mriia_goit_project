@@ -1,6 +1,7 @@
 import { doc } from "firebase/firestore/lite";
 
 export const refs = {
+  body: document.querySelector('body'),
   //form search
   searchForm: document.querySelector('.search-form'),
   searchInput: document.querySelector('.search-form__input'),
