@@ -169,7 +169,7 @@ export class MovieLibrary {
 		}).join('');
 	}
 	markupQueue() {
-		if (Object.keys(this.watched).length <= 0) {
+		if (Object.keys(this.queue).length <= 0) {
 			return "";
 		}
 		return this.getQueue().map(({ id, poster_path, year, genreNames, title, vote_average }) => {
