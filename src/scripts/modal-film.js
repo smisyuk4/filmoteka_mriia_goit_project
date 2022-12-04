@@ -226,20 +226,20 @@ export class Modal {
                     <li class="modal-film__btn-item ${
                       window.movieLibrary.isWatched(this.filmId) ? 'remove' : ''
                     }">
-                        <button class="modal-film__watched-button modal-film__btn" type="button" data-watched="${
+                        <button class="modal-film__watched-button modal-film__btn" aria-label="${this.param.langText.modalWatchedAdd}" type="button" data-watched="${
                           this.filmId
                         }">${this.param.langText.modalWatchedAdd}</button>
-                        <button class="modal-film__watched-buttonr modal-film__btn" type="button" data-watchedr="${
+                        <button class="modal-film__watched-buttonr modal-film__btn" aria-label="${this.param.langText.modalWatchedRemove}" type="button" data-watchedr="${
                           this.filmId
                         }">${this.param.langText.modalWatchedRemove}</button>
                     </li>
                     <li class="modal-film__btn-item ${
                       window.movieLibrary.isQueue(this.filmId) ? 'remove' : ''
                     }">
-                        <button class="modal-film__queue-button modal-film__btn" type="button" data-queue="${
+                        <button class="modal-film__queue-button modal-film__btn" aria-label="${this.param.langText.modalQueueAdd}" type="button" data-queue="${
                           this.filmId
                         }">${this.param.langText.modalQueueAdd}</button>
-                        <button class="modal-film__queue-buttonr modal-film__btn" type="button" data-queuer="${
+                        <button class="modal-film__queue-buttonr modal-film__btn" aria-label="${this.param.langText.modalQueueRemove}" type="button" data-queuer="${
                           this.filmId
                         }">${this.param.langText.modalQueueRemove}</button>
                     </li>
