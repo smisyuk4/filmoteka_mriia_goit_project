@@ -19,18 +19,30 @@ async function initItem () {
     return itemsHtml;
 }
 
+function getSlidesToShow(container) {
+    if (container.clientWidth <= 900 ){
+        return 4;
+    } else  if (container.clientWidth < 1092 ){
+        return 5;
+    } else  if (container.clientWidth >= 1092 ){
+        return 6;
+    }
+}
+
 export async function sliderInit () {
     let position = 0;
-    const slidesToShow = 7;
+    let slidesToShow = 6;
     const slidesToScroll = 1;
+    
 
     const container = document.querySelector('.slider-container'); //не переноситься у refs
     const itemsHtml = await initItem();
     
     refs.jsSliderContainer.innerHTML = itemsHtml;
     const items = document.querySelectorAll('.slider__item'); //не переноситься у refs
-    
     const itemsCount = items.length;
+    // устонавливаю количество айтемов в зависимости от ширени екрана 
+    slidesToShow = getSlidesToShow(container);
     const itemsWidth = container.clientWidth / slidesToShow;
     const movePosition = slidesToScroll * itemsWidth;  
 
@@ -38,16 +50,29 @@ export async function sliderInit () {
         item.style.minWidth = `${itemsWidth}px`
     });
 
+    // количество имейдж на ширину екрана
+    // =====================================
+
     window.addEventListener('resize',()=> {
-        const itemsWidth = container.clientWidth / slidesToShow;
-        const movePosition = slidesToScroll * itemsWidth;  
+        slidesToShow = getSlidesToShow(container);
+        const itemsWidth = container.clientWidth / slidesToShow; 
 
         items.forEach((item) => {
             item.style.minWidth = `${itemsWidth}px`
         });
+        
+        // повернутися на початок списку
+        // ================================
+
+        position = 0;
+         
+        setPosition();
+        checkBtns();
     })
 
     refs.btnNext.addEventListener('click', () => {
+        const realItemWidth = items[0].clientWidth;
+        console.log(realItemWidth);
         const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemsWidth) / itemsWidth;
 
         position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemsWidth;
