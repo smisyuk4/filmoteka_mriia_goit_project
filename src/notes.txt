@@ -66,8 +66,7 @@ user modal
 https://www.youtube.com/watch?v=WF-7witQ6mc&t=31s
 
 
-
-
+Для роботи Firebase треба прописати правило на вкладці https://console.firebase.google.com/..../project/firestore/rules
 Firebase Firebase rules
 	rules_version = '2';
 	service cloud.firestore {
