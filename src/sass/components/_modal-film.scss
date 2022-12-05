@@ -393,6 +393,8 @@
     padding: 15px;
     border-radius: 50%;
     clip-path: inset(0 0 0 52%);
+    pointer-events: visible;
+    cursor: pointer;
     &:hover{
         background-color: rgba(255, 255, 255, 0.9);
     }
@@ -402,12 +404,10 @@
     transform: scale(1.5, 1.8);
     position: absolute;
     top: 30%;
+    pointer-events: none;
     cursor: pointer;
 }
-.modal-film__back-btn path,
-.modal-film__next-btn path{
-    pointer-events: none;
-}
+
 .modal-film__back-btn {
     transform: rotate(180deg) translateY(50%);
     left: -25px;
