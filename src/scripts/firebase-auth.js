@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, setDoc, getDocs, addDoc, collection } from 'firebase/firestore/lite';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, GithubAuthProvider } from "firebase/auth";
+import { getFirestore, doc, setDoc, getDocs , collection } from 'firebase/firestore/lite';
+import { getAuth,signOut, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, GithubAuthProvider } from "firebase/auth";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // const providerGit = new GithubAuthProvider();
 // const providerGoogle = new GoogleAuthProvider();
@@ -31,7 +31,24 @@ export class FireBaseData {
 		});
 	}
 	login() {
-		signInWithPopup(this.auth, this.providerGoogle)
+		if (this.userData) {
+			const auth = getAuth();
+			signOut(auth).then(() => {
+				this.userData = null;
+				if (window.location.pathname !== "/filmoteka_mriia_goit_project/partials/library-pg.html" && window.location.pathname !== "/partials/library-pg.html") {
+					let text=''
+					if (localStorage.getItem("siteOptions") == "ua") {
+						text = 'Вхід';
+					} else {
+						text = 'Login';
+					}
+					document.querySelector('.login-btn').textContent = text;
+				}
+			}).catch((error) => {
+				console.log(error)
+			});
+		} else {
+			signInWithPopup(this.auth, this.providerGoogle)
 			.then((result) => {
 				const credential = GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
@@ -43,6 +60,7 @@ export class FireBaseData {
 			}).catch((error) => {
 				const errorCode = error.code;
 			});
+		}
 	}
 	readData(key) {
 		if (this.userData) {
