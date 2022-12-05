@@ -7,6 +7,7 @@ import { FireBaseData } from './firebase-auth';
 import { Filmoteka } from './fetch-api';
 import { Modal } from './modal-film';
 import {spinerStart, spinerStop } from './loader';
+import './modal-team';
 
 window.filmoteka = new Filmoteka();
 window.fireBase = new FireBaseData();
