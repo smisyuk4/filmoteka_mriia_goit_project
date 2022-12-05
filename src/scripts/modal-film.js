@@ -89,7 +89,7 @@ export class Modal {
       document.body.classList.remove('no-scroll');
     }
   }
-  openModal(id, slider='') {
+  openModal(id, slider = '') {
     document.body.classList.add('no-scroll');
     this.filmId = id;
     window.loader();
