@@ -11,6 +11,6 @@ export function markupSlider(movie) {
     }
 
     return `<li class="slider__item">
-                <img class="slider-film__img" src="${imgLink}" alt="${title}" loading="lazy" width="300" height="500" data-id=${id}>                
+                <img class="slider-film__img" src="${imgLink}" alt="${title}" loading="lazy"  height="500" data-id=${id}>                
             </li>`
 }
